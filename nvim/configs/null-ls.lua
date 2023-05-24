@@ -6,6 +6,7 @@ local sources = {
   formatting.black,
   formatting.rustfmt,
 	formatting.prettier,
+  formatting.stylua,
 }
 
 null_ls.setup({
