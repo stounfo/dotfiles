@@ -1,0 +1,18 @@
+font:
+  size: 17
+  normal:
+    # family: "FiraCode Nerd Font Propo"
+    family: "JetBrainsMono Nerd Font"
+
+window:
+  decorations_theme_variant: Dark
+
+env:
+  TERM: xterm-256color
+
+import:
+  - ~/.config/alacritty/themes/catppuccin/catppuccin-mocha.yml
+  # - ~/.config/alacritty/themes/catppuccin/catppuccin-macchiato.yml
+  # - ~/.config/alacritty/themes/catppuccin/catppuccin-frappe.yml
+  # - ~/.config/alacritty/themes/catppuccin/catppuccin-latte.yml
+
