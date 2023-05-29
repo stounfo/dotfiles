@@ -67,15 +67,14 @@ tmux_conf_24b_colour=auto
 #   - tmux_conf_theme_synchronized
 tmux_conf_theme=enabled
 
-colour_1="colour1" # red
-colour_2="colour2" # green
-colour_3="colour3" # yellow
-colour_4="colour4" # blue
-colour_5="colour5" # pink
-colour_6="colour6" # turquoise
-colour_7="colour7" # very light blue, almost white
-colour_8="colour8" # gray
+# https://i.stack.imgur.com/e63et.png
+# https://arcolinux.com/everything-you-need-to-know-about-tmux-status-bar/
+colour_hz="cyan" 
+colour_test="yellow"
 colour_default="default"
+colour_common="white"
+colour_other="brightgreen"
+colour_current="brightwhite"
 
 # window style
 tmux_conf_theme_window_fg="$colour_default"
@@ -92,33 +91,30 @@ tmux_conf_theme_highlight_focused_pane=false
 tmux_conf_theme_pane_border_style=thin
 
 # pane borders colours:
-tmux_conf_theme_pane_border="$colour_8"
-tmux_conf_theme_pane_active_border="$colour_7"
-%if #{>=:#{version},3.2}
-tmux_conf_theme_pane_active_border="#{?pane_in_mode,$tmux_conf_theme_colour_9,#{?synchronize-panes,$tmux_conf_theme_colour_16,$tmux_conf_theme_colour_4}}"
-%endif
+tmux_conf_theme_pane_border="$colour_common"
+tmux_conf_theme_pane_active_border="$colour_current"
 
 # pane indicator colours (when you hit <prefix> + q)
-tmux_conf_theme_pane_indicator="$colour_6"
-tmux_conf_theme_pane_active_indicator="$colour_6"
+tmux_conf_theme_pane_indicator="$colour_other"
+tmux_conf_theme_pane_active_indicator="$colour_other"
 
 # status line style
-tmux_conf_theme_message_fg="$colour_7"
+tmux_conf_theme_message_fg="$colour_current"
 tmux_conf_theme_message_bg="$colour_default"
-tmux_conf_theme_message_attr="bold"
+tmux_conf_theme_message_attr="none"
 
 # status line command style (<prefix> : Escape)
 tmux_conf_theme_message_command_fg="$colour_default"
 tmux_conf_theme_message_command_bg="$colour_default"
-tmux_conf_theme_message_command_attr="bold"
+tmux_conf_theme_message_command_attr="none"
 
 # window modes style
 tmux_conf_theme_mode_fg="$colour_default"
 tmux_conf_theme_mode_bg="$colour_default"
-tmux_conf_theme_mode_attr="bold"
+tmux_conf_theme_mode_attr="none"
 
 # status line style
-tmux_conf_theme_status_fg="$colour_8"
+tmux_conf_theme_status_fg="$colour_common"
 tmux_conf_theme_status_bg="$colour_default"
 tmux_conf_theme_status_attr="none"
 
@@ -161,25 +157,25 @@ tmux_conf_theme_window_status_format="#I #W#{?#{||:#{window_bell_flag},#{window_
 #     - #{hostname_full_ssh}
 #     - #{username}
 #     - #{username_ssh}
-tmux_conf_theme_window_status_current_fg="$colour_7"
+tmux_conf_theme_window_status_current_fg="$colour_current"
 tmux_conf_theme_window_status_current_bg="$colour_default"
-tmux_conf_theme_window_status_current_attr="bold"
+tmux_conf_theme_window_status_current_attr="none"
 tmux_conf_theme_window_status_current_format="#I #W#{?#{||:#{window_bell_flag},#{window_zoomed_flag}}, ,}#{?window_bell_flag,!,}#{?window_zoomed_flag,Z,}"
 #tmux_conf_theme_window_status_current_format="#{circled_window_index} #W#{?#{||:#{window_bell_flag},#{window_zoomed_flag}}, ,}#{?window_bell_flag,!,}#{?window_zoomed_flag,Z,}"
 #tmux_conf_theme_window_status_current_format="#I #W#{?#{||:#{window_bell_flag},#{window_zoomed_flag}}, ,}#{?window_bell_flag,🔔,}#{?window_zoomed_flag,🔍,}"
 
 # window activity status style
-tmux_conf_theme_window_status_activity_fg="$colour_8"
+tmux_conf_theme_window_status_activity_fg="$colour_common"
 tmux_conf_theme_window_status_activity_bg="$colour_default"
 tmux_conf_theme_window_status_activity_attr="none"
 
 # window bell status style
-tmux_conf_theme_window_status_bell_fg="$colour_2"
-tmux_conf_theme_window_status_bell_bg="$colour_2"
-tmux_conf_theme_window_status_bell_attr="blink,bold"
+tmux_conf_theme_window_status_bell_fg="$colour_default"
+tmux_conf_theme_window_status_bell_bg="$colour_default"
+tmux_conf_theme_window_status_bell_attr="none,none"
 
 # window last status style
-tmux_conf_theme_window_status_last_fg="$colour_8"
+tmux_conf_theme_window_status_last_fg="$colour_common"
 tmux_conf_theme_window_status_last_bg="$colour_default"
 tmux_conf_theme_window_status_last_attr="none"
 
@@ -220,12 +216,12 @@ tmux_conf_theme_status_left=" #S "
 tmux_conf_theme_status_right=" #{prefix}#{pairing}#{synchronized} | #{username}#{root} | #{hostname}"
 
 # status left style
-tmux_conf_theme_status_left_fg="$colour_8"
+tmux_conf_theme_status_left_fg="$colour_common"
 tmux_conf_theme_status_left_bg="$colour_default"
 tmux_conf_theme_status_left_attr="none"
 
 # status right style
-tmux_conf_theme_status_right_fg="$colour_8"
+tmux_conf_theme_status_right_fg="$colour_common"
 tmux_conf_theme_status_right_bg="$colour_default"
 tmux_conf_theme_status_right_attr="none"
 
@@ -261,7 +257,7 @@ tmux_conf_theme_synchronized_attr="none"
 
 # clock style (when you hit <prefix> + t)
 # you may want to use %I:%M %p in place of %R in tmux_conf_theme_status_right
-tmux_conf_theme_clock_colour="$colour_7"
+tmux_conf_theme_clock_colour="$colour_current"
 tmux_conf_theme_clock_style="24"
 
 
