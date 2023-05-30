@@ -20,6 +20,4 @@ import:
   # - ~/.config/alacritty/themes/catppuccin/catppuccin-latte.yml
 
   # - ~/.config/alacritty/themes/gruvbox/gruvbox-dark.yml
-  # - ~/.config/dotfiles/alacritty/themes/gruvbox/gruvbox-material-hard-dark.yml
-  - ~/.config/dotfiles/alacritty/themes/gruvbox/gruvbox-material-medium-dark.yml
-  # - ~/.config/dotfiles/alacritty/themes/gruvbox/gruvbox-material-soft-dark.yml
+  - ~/.config/dotfiles/alacritty/themes/gruvbox/gruvbox-material-hard-dark.yml
