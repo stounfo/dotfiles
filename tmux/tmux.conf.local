@@ -72,7 +72,7 @@ tmux_conf_theme=enabled
 colour_hz="cyan" 
 colour_test="yellow"
 colour_default="default"
-colour_common="black"
+colour_common="brightblack"
 colour_current="brightwhite"
 colour_other="brightgreen"
 
