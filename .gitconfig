@@ -7,4 +7,20 @@
 
 [delta]
     navigate = true
+    side-by-side = true
 
+[alias]
+    co = checkout
+    c = commit
+    s = status
+    b = branch -a
+    l = log
+
+    d = diff
+    ; TODO diff HEAD~i
+
+    r = "!f() { git rebase -i "HEAD~$1"; }; f"
+    ; TODO rebase main/master 
+
+    p = push origin HEAD
+    pf = push origin +HEAD
