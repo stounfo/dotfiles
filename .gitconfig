@@ -1,0 +1,10 @@
+[user]
+	name = Oleg Levantin
+	email = stounfo@gmail.com
+
+[core]
+    pager = delta
+
+[delta]
+    navigate = true
+
