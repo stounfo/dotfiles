@@ -12,7 +12,6 @@
 
 [alias]
     co = checkout
-    c = commit
     s = status
     b = branch -a
     l = log
@@ -20,8 +19,19 @@
     d = diff
     ; TODO diff HEAD~i
 
-    r = "!f() { git rebase -i "HEAD~$1"; }; f"
+    a = add
+    c = commit
+
+    rb = rebase
+    rbi = "!f(){ if [[ $1 =~ ^[0-9]+$ ]]; then git rebase -i HEAD~${1}; else git rebase -i $1; fi };f"
     ; TODO rebase main/master 
 
-    p = push origin HEAD
-    pf = push origin +HEAD
+    ps = push origin HEAD
+    psf = push origin +HEAD
+
+    squash = "!f(){ if [[ $1 =~ ^[0-9]+$ ]]; then git reset --soft HEAD~${1} && git commit; else git reset --soft $1 && git commit; fi };f"
+
+    # Count commits from a specific hash to HEAD
+    count= "!f() { git rev-list --count $1..HEAD; }; f"
+
+    
