@@ -32,14 +32,12 @@ export ASDF_DEFAULT_TOOL_VERSIONS_FILENAME=".dev/.tool-versions"
 # Starship setup
 eval "$(starship init zsh)"
 
-# zoxide setup
+# Zoxide setup
 eval "$(zoxide init zsh)"
+alias cd="z"
 
 # lsd setup
 alias ls="lsd"
-
-# fix colors
-export TERM=xterm-256color
 
 # == Aliases ==
 alias cd1="cd .."
@@ -49,3 +47,4 @@ alias cd4="cd ../../../../"
 alias cd5="cd ../../../../../"
 
 alias tree='tree -I ".git|venv"'
+alias g="git"
