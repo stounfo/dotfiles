@@ -47,4 +47,11 @@ alias cd4="cd ../../../../"
 alias cd5="cd ../../../../../"
 
 alias tree='tree -I ".git|venv"'
+
 alias g="git"
+
+alias d="docker"
+alias dps="docker ps"
+alias dpsa="docker ps -a"
+alias dsta="docker stop $(docker ps -a -q)"
+alias drma="docker rm $(docker ps -a -q)"

@@ -20,7 +20,7 @@
     ; TODO diff HEAD~i
 
     a = add
-    c = commit
+    cm = commit
 
     rb = rebase
     rbi = "!f(){ if [[ $1 =~ ^[0-9]+$ ]]; then git rebase -i HEAD~${1}; else git rebase -i $1; fi };f"
