@@ -8,6 +8,9 @@ font:
     style: Regular
 
 window:
+  dimensions:
+    columns: 115
+    lines: 40
   decorations_theme_variant: Dark
 
 import:
