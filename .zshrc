@@ -53,5 +53,5 @@ alias g="git"
 alias d="docker"
 alias dps="docker ps"
 alias dpsa="docker ps -a"
-alias dsta="docker stop $(docker ps -a -q)"
-alias drma="docker rm $(docker ps -a -q)"
+alias dsta='docker ps -q | xargs docker stop'
+alias drma='docker ps -a -q | xargs docker rm'
