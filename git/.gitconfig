@@ -11,7 +11,7 @@
     side-by-side = true
 
 [alias]
-    co = checkout
+    ch = checkout
     s = status
     b = branch -a
     l = log
