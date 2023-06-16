@@ -2,23 +2,32 @@
 export ZSH="$HOME/.oh-my-zsh"
 
 ENABLE_CORRECTION="true"
-
 COMPLETION_WAITING_DOTS="true"
 
-plugins=(git docker zsh-vi-mode zsh-syntax-highlighting)
+
+# == zsh-vi-mode fixes == 
+# Fix keybindings problems with another plugins
+export ZVM_INIT_MODE=sourcing
+# It's a temporary fix (I hope) for zsh-syntax-highlighting https://github.com/jeffreytse/zsh-vi-mode/pull/188
+function zvm_after_init() {
+  autoload add-zle-hook-widget
+  add-zle-hook-widget zle-line-pre-redraw zvm_zle-line-pre-redraw
+}
+
+
+# == Plugins ==
+plugins=()
+plugins+=(git)
+plugins+=(docker)
+plugins+=(zsh-syntax-highlighting)
+plugins+=(zsh-autosuggestions)
+plugins+=(zsh-vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
 
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+# == Setups ==
+# Default editor setup
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 
@@ -38,6 +47,10 @@ alias cd="z"
 
 # lsd setup
 alias ls="lsd"
+
+# fzf setup
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 
 # == Aliases ==
 alias cd1="cd .."
