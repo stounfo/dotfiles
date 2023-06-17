@@ -22,6 +22,7 @@ plugins+=(docker)
 plugins+=(zsh-syntax-highlighting)
 plugins+=(zsh-autosuggestions)
 plugins+=(zsh-vi-mode)
+plugins+=(fzf-tab)
 
 source $ZSH/oh-my-zsh.sh
 
