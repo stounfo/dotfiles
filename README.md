@@ -6,3 +6,9 @@ ln ~/.config/dotfiles/git/.gitconfig ~/.gitconfig
 ln ~/.config/dotfiles/git/.gitignore ~/.gitignore
 ln ~/.config/dotfiles/.zshrc ~/.zshrc
 ```
+
+1. Install manual requirements
+   - xcode-select --install
+   - python > 3.12
+   - make
+   - ansible
