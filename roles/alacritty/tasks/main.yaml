@@ -1,0 +1,27 @@
+- name: Install alacritty
+  community.general.homebrew_cask:
+    name: alacritty
+    state: latest
+    install_options: force
+
+
+- name: Backup previous alacritty config
+  include_role:
+    name: backup_config
+  vars:
+    config_src_path: "{{ xdg_config_home_path }}/alacritty"
+
+
+- name: Symlink alacritty config
+  file:
+    src: "{{ role_files_path }}/alacritty"
+    dest: "{{ xdg_config_home_path }}/alacritty"
+    state: link
+
+
+- name: Download the Alacritty icon
+  get_url:
+    url: "https://parsefiles.back4app.com/JPaQcFfEEQ1ePBxbf6wvzkPMEqKYHhPYv8boI1Rc/e80a1d3cbed491f9c073079d794c0f78_UcDQMJkqVL.icns"
+    dest: "{{ tmp_files_path }}/alacritty.icns"
+    force: true
+  when: is_macos

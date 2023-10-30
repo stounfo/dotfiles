@@ -1,0 +1,9 @@
+- name: Install fzf
+  package:
+    name: fzf
+    state: latest
+
+
+# (CTRL-T / CTRL-R / ALT-C)
+- name: Install key bindings and fuzzy completion
+  shell: "source $(brew --prefix)/opt/fzf/install"

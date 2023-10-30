@@ -1,0 +1,35 @@
+- name: Install tmux
+  package:
+    name: tmux
+    state: latest
+
+
+- name: Download ohmytmux
+  git:
+    repo: "https://github.com/gpakosz/.tmux.git"
+    dest: "{{ xdg_config_home_path }}/tmux/.tmux"
+    depth: 1
+
+
+- name: Backup previous tmux config
+  include_role:
+    name: backup_config
+  vars:
+    config_src_path: "{{ xdg_config_home_path }}/tmux/{{ item }}"
+  loop:
+    - .tmux.conf
+    - .tmux.conf.local
+
+
+- name: Symlink ohmytmux config
+  file:
+    src: "{{ xdg_config_home_path }}/tmux/.tmux/.tmux.conf"
+    dest: "{{ xdg_config_home_path }}/tmux/tmux.conf"
+    state: link
+
+
+- name: Symlink ohmytmux local config
+  file:
+    src: "{{ role_files_path }}/.tmux.conf.local"
+    dest: "{{ xdg_config_home_path }}/tmux/tmux.conf.local"
+    state: link

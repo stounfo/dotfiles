@@ -2,22 +2,29 @@ python_version="3.12.0"
 ansible_version="8.5.0"
 
 .PHONY: all
-all: deps_install_all  ## Install all dependencies and execute all Ansible tasks
+all: deps_install_all dots_install ## Install all dependencies and execute all Ansible tasks
 
 
 .PHONY: deps_install_all
-deps_install_all: deps_install_python deps_install_ansible  ## Install all dependencies
+deps_install_all: deps_install_python deps_install_ansible ## Install all dependencies
 
 
 .PHONY: deps_install_python
-deps_install_python:  ## Install python to ./tmp directory
+deps_install_python: ## Install python to ./tmp directory
 	@git clone https://github.com/pyenv/pyenv.git ./tmp/pyenv; \
 	./tmp/pyenv/plugins/python-build/bin/python-build $(python_version) ./tmp;
 
 
 .PHONY: deps_install_ansible
-deps_install_ansible:  ## Install ansible using python in ./tmp directory
+deps_install_ansible: ## Install ansible using python in ./tmp directory
 	@./tmp/bin/python -m pip install ansible==${ansible_version}
+
+
+TAGS ?= all
+.PHONY: dots_install
+dots_install: ## Install applications and setup dotfiles
+	@./tmp/bin/ansible-galaxy collection install geerlingguy.mac 
+	./tmp/bin/ansible-playbook playbook.yaml --tags "$(TAGS)";
 
 
 .PHONY: help

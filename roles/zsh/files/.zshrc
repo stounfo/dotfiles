@@ -8,11 +8,6 @@ COMPLETION_WAITING_DOTS="true"
 # == zsh-vi-mode fixes == 
 # Fix keybindings problems with another plugins
 export ZVM_INIT_MODE=sourcing
-# It's a temporary fix (I hope) for zsh-syntax-highlighting https://github.com/jeffreytse/zsh-vi-mode/pull/188
-function zvm_after_init() {
-  autoload add-zle-hook-widget
-  add-zle-hook-widget zle-line-pre-redraw zvm_zle-line-pre-redraw
-}
 
 
 # == Plugins ==

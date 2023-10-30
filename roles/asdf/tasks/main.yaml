@@ -1,0 +1,4 @@
+- name: Install asdf
+  package:
+    name: asdf
+    state: latest

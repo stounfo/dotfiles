@@ -1,0 +1,8 @@
+home_path: "{{ ansible_env.HOME }}"
+xdg_config_home_path: "{{ ansible_env.XDG_CONFIG_HOME | default(ansible_env.HOME + '/.config') }}"
+
+role_files_path: "{{ role_path }}/files"
+tmp_files_path: "./tmp"
+backups_path: "{{ tmp_files_path }}/backups"
+
+is_macos: "{{ ansible_os_family == 'Darwin' }}"

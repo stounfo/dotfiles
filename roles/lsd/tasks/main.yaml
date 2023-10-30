@@ -1,0 +1,4 @@
+- name: Install lsd
+  package:
+    name: lsd
+    state: latest

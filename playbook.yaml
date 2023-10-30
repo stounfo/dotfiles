@@ -1,0 +1,63 @@
+- hosts: localhost
+  connection: local
+  roles:
+    - role: homebrew
+      tags: homebrew
+
+
+    - role: fonts
+      tags: fonts
+
+
+    - role: alacritty
+      tags: alacritty
+
+
+    - role: tmux
+      tags: tmux
+
+
+    - role: nvim
+      tags: nvim
+
+
+    - role: docker
+      tags: docker
+
+
+    - role: tableplus
+      tags: tableplus
+
+
+    - role: zsh
+      tags: zsh
+    
+
+    - role: git
+      tags: git
+
+
+    - role: fzf
+      tags: fzf
+
+
+    - role: zoxide
+      tags: zoxide
+    
+
+    - role: lsd
+      tags: lsd
+    
+
+    - role: tree
+      tags: tree
+
+
+    - role: asdf
+      tags: asdf
+    
+
+    - role: starship
+      tags: starship
+   
+

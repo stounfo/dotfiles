@@ -1,0 +1,5 @@
+- name: Install tableplus
+  community.general.homebrew_cask:
+    name: tableplus
+    state: latest
+    install_options: force

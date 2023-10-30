@@ -1,0 +1,19 @@
+- name: Install homebrew
+  import_role:
+    name: geerlingguy.mac.homebrew
+  when: not homebrew_role_completed|d(false)
+
+
+- name: Ensure .zprofile contains Homebrew shellenv
+  lineinfile:
+    path: "{{ ansible_env.HOME }}/.zprofile"
+    line: 'eval "$(/opt/homebrew/bin/brew shellenv)"'
+    state: present
+    create: yes
+    insertafter: EOF
+  when: not homebrew_role_completed|d(false)
+
+
+- name: Set homebrew_role_completed true
+  set_fact:
+    homebrew_role_completed:  true
