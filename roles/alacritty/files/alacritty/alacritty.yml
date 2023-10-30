@@ -1,8 +1,8 @@
 font:
   size: 16
   normal:
-    # family: "FiraCode Nerd Font Propo"
-    # family: "JetBrainsMono Nerd Font"
+    # family: "Fira Code Retina"
+    # family: "JetBrains Mono Medium"
     family: "SFMono Nerd Font"
   bold:
     style: Regular

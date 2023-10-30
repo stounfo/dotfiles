@@ -1,0 +1,4 @@
+- name: Install zoxide
+  package:
+    name: zoxide
+    state: latest

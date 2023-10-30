@@ -1,0 +1,11 @@
+dependencies:
+  - role: git
+
+
+  - role: asdf
+
+
+  - role: starship
+
+
+  - role: zoxide

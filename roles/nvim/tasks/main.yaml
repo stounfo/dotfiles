@@ -1,0 +1,4 @@
+- name: Install nvim
+  package:
+    name: nvim
+    state: latest

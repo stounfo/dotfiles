@@ -1,0 +1,45 @@
+# - name: Install zsh
+#   package:
+#     name: zsh
+#     state: latest
+
+
+- name: Download oh-my-zsh installation script
+  get_url:
+    url: "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh"
+    dest: "{{ tmp_files_path }}/install_ohmyzsh.sh"
+    mode: '0755'
+
+
+- name: Execute the oh-my-zsh installation script
+  shell: "{{ tmp_files_path }}/install_ohmyzsh.sh &"
+
+- name: Set plugins urls
+  set_fact:
+    plugins_urls:
+      - "https://github.com/jeffreytse/zsh-vi-mode.git"
+      - "https://github.com/zsh-users/zsh-syntax-highlighting.git"
+      - "https://github.com/zsh-users/zsh-autosuggestions.git"
+      - "https://github.com/Aloxaf/fzf-tab.git"
+    
+
+- name: Download plugins
+  git:
+    repo: "{{ item }}"
+    dest: "{{ home_path }}/.oh-my-zsh/custom/plugins/{{ (item | urlsplit('path') | basename) | regex_replace('.git$', '') }}"
+    depth: 1
+  loop: "{{ plugins_urls }}"
+
+
+- name: Backup previous zsh config
+  include_role:
+    name: backup_config
+  vars:
+    config_src_path: "{{ home_path }}/.zshrc"
+
+
+- name: Symlink zsh config
+  file:
+    src: "{{ role_files_path }}/.zshrc"
+    dest: "{{ home_path }}/.zshrc"
+    state: link

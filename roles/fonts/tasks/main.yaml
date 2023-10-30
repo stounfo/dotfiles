@@ -1,0 +1,44 @@
+- name: Set font urls
+  set_fact:
+    font_urls:
+      - "https://github.com/tonsky/FiraCode/releases/download/6.2/Fira_Code_v6.2.zip"
+      - "https://github.com/epk/SF-Mono-Nerd-Font/archive/refs/tags/v18.0d1e1.0.zip"
+      - "https://download.jetbrains.com/fonts/JetBrainsMono-2.304.zip?_gl=1*1wyueb*_ga*OTM0NTExODM1LjE2OTg1MTg5NDA.*_ga_9J976DJZ68*MTY5ODY3MjY0NC4yLjEuMTY5ODY3MzAyNy42MC4wLjA.&_ga=2.127363597.1242401735.1698672644-934511835.1698518940"
+
+
+- name: Ensure font temp dir exists
+  file:
+    path: "{{ tmp_files_path }}/fonts"
+    state: directory
+
+
+- name: Download fonts
+  get_url:
+    url: "{{ item }}"
+    dest: "{{ tmp_files_path }}/fonts"
+    force: true
+  loop: "{{ font_urls }}"
+  
+
+- name: Find all zip files in fonts directory
+  find:
+    paths: "{{ tmp_files_path }}/fonts"
+    patterns: "*.zip"
+    hidden: true
+  register: zipped_files
+
+
+- name: Create a directory for each font under Fonts directory
+  file:
+    path: "{{ home_path }}/Library/Fonts/{{ item.path | basename | regex_replace('.zip$', '') }}"
+    state: directory
+  loop: "{{ zipped_files.files }}"
+  register: font_directories
+
+
+- name: Unzip fonts to Fonts directory
+  unarchive:
+    src: "{{ item.path }}"
+    dest: "{{ home_path }}/Library/Fonts/{{ item.path | basename | regex_replace('.zip$', '') }}"
+  loop: "{{ zipped_files.files }}"
+  when: is_macos

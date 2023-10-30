@@ -1,0 +1,27 @@
+- name: Install git
+  package:
+    name: git
+    state: latest
+
+
+- name: Set git_config_files
+  set_fact:
+    git_config_files:
+      - ".gitignore"
+      - ".gitconfig"
+
+
+- name: Backup previous git config
+  include_role:
+    name: backup_config
+  vars:
+    config_src_path: "{{ home_path }}/{{ item }}"
+  loop: "{{ git_config_files }}"
+    
+
+- name: Symlink git configs
+  file:
+    src: "{{ role_files_path }}/{{ item }}"
+    dest: "{{ home_path }}/{{ item }}"
+    state: link
+  loop: "{{ git_config_files }}"

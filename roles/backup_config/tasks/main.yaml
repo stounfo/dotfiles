@@ -1,0 +1,18 @@
+- name: Check if the config paths exists
+  stat:
+    path: "{{ config_src_path }}"
+  register: config_src
+
+
+- name: Copy config to backup location if it exists
+  copy:
+    src: "{{ config_src.stat.path }}"
+    dest: "{{ backups_path }}/{{ config_src.stat.path | basename }}"
+  when: config_src.stat.exists
+
+
+- name: Delete the original config directory/file
+  file:
+    path: "{{ config_src.stat.path }}"
+    state: absent
+  when: config_src.stat.exists
