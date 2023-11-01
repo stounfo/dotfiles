@@ -1,0 +1,5 @@
+- name: Install telegram
+  community.general.homebrew_cask:
+    name: telegram
+    state: latest
+    install_options: force

@@ -1,5 +1,3 @@
 dependencies:
   - role: homebrew
     when: is_macos
-  
-  - role: git-delta

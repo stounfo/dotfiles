@@ -18,6 +18,7 @@ plugins+=(zsh-syntax-highlighting)
 plugins+=(zsh-autosuggestions)
 plugins+=(zsh-vi-mode)
 plugins+=(fzf-tab)
+plugins+=(zsh-you-should-use)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -56,8 +57,6 @@ alias cd4="cd ../../../../"
 alias cd5="cd ../../../../../"
 
 alias tree='tree -I ".git|venv"'
-
-alias g="git"
 
 alias d="docker"
 alias dps="docker ps"
