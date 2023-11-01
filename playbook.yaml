@@ -3,6 +3,7 @@
   roles:
     - role: homebrew
       tags: homebrew
+      when: is_macos
 
 
     - role: fonts
@@ -37,6 +38,14 @@
       tags: git
 
 
+    - role: npm
+      tags: npm
+
+
+    - role: ripgrep
+      tags: ripgrep
+
+  
     - role: fzf
       tags: fzf
 
@@ -60,4 +69,3 @@
     - role: starship
       tags: starship
    
-

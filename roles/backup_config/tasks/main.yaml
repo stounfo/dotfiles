@@ -4,6 +4,12 @@
   register: config_src
 
 
+- name: Ensure the backups directory exists
+  file:
+    path: "{{ backups_path }}"
+    state: directory
+
+
 - name: Copy config to backup location if it exists
   copy:
     src: "{{ config_src.stat.path }}"
