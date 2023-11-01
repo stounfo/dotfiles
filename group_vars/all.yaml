@@ -6,3 +6,4 @@ tmp_files_path: "./tmp"
 backups_path: "{{ tmp_files_path }}/backups"
 
 is_macos: "{{ ansible_os_family == 'Darwin' }}"
+is_linux: "{{ not is_macos }}"
