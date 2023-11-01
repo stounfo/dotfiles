@@ -10,6 +10,14 @@
       tags: fonts
 
 
+    - role: telegram
+      tags: telegram
+
+
+    - role: chrome
+      tags: chrome
+
+
     - role: alacritty
       tags: alacritty
 
@@ -56,10 +64,14 @@
 
     - role: lsd
       tags: lsd
-    
+
 
     - role: tree
       tags: tree
+
+
+    - role: cloc
+      tags: cloc
 
 
     - role: asdf
@@ -68,4 +80,15 @@
 
     - role: starship
       tags: starship
-   
+
+
+    - role: pycharm-ce
+      tags: pycharm-ce
+
+
+    - role: obsidian
+      tags: obsidian
+
+
+    - role: git-delta
+      tags: git-delta

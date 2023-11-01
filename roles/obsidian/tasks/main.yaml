@@ -1,0 +1,5 @@
+- name: Install obsidian
+  community.general.homebrew_cask:
+    name: obsidian
+    state: latest
+    install_options: force

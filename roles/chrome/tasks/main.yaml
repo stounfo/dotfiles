@@ -1,0 +1,5 @@
+- name: Install google-chrome
+  community.general.homebrew_cask:
+    name: google-chrome
+    state: latest
+    install_options: force
