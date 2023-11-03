@@ -1,0 +1,39 @@
+name: tests
+on: [pull_request]
+jobs:
+  test_dotfiles:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [macos-latest]
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.11.0
+      
+      - name: Install ansible
+        run: pip install ansible
+
+      - name: Test dotfiles installation
+        run: make dots_install
+
+      - name: Test if dotfiles installation is idempotent
+        run: make dots_install
+
+
+  test_dependencies:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [macos-latest]
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Test dependencies installation
+        run: make deps_install_all && make dots_install TAGS=tree
+
+      - name: Test if dependencies installation is idempotent
+        run: make deps_install_all && make dots_install TAGS=tree
