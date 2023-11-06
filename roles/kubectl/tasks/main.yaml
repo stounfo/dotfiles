@@ -1,0 +1,4 @@
+- name: Install kubectl
+  package:
+    name: kubectl
+    state: latest
