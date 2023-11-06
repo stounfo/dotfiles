@@ -92,3 +92,11 @@
 
     - role: git-delta
       tags: git-delta
+
+
+    - role: pgcli
+      tags: pgcli
+
+
+    - role: kubectl
+      tags: kubectl

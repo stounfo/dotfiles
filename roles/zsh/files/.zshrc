@@ -61,5 +61,7 @@ alias tree='tree -I ".git|venv"'
 alias d="docker"
 alias dps="docker ps"
 alias dpsa="docker ps -a"
-alias dsta='docker ps -q | xargs docker stop'
-alias drma='docker ps -a -q | xargs docker rm'
+alias dsta="docker ps -q | xargs docker stop"
+alias drma="docker ps -a -q | xargs docker rm"
+
+alias tkas="tmux kill-session -a"
