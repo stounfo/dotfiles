@@ -6,6 +6,11 @@
       when: is_macos
 
 
+    - role: snapd
+      tags: snapd
+      when: is_linux
+
+
     - role: fonts
       tags: fonts
 
@@ -100,3 +105,7 @@
 
     - role: kubectl
       tags: kubectl
+
+
+    - role: deepl
+      tags: deepl

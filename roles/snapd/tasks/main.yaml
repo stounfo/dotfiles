@@ -1,0 +1,4 @@
+- name: Install snapd
+  package:
+    name: snapd
+    state: latest
