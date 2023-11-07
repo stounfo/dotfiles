@@ -1,0 +1,5 @@
+- name: Install deepl
+  community.general.homebrew_cask:
+    name: deepl
+    state: latest
+    install_options: force
