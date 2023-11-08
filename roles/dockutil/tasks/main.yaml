@@ -1,0 +1,37 @@
+- name: Install dockutil
+  community.general.homebrew_cask:
+    name: hpedrorodrigues/tools/dockutil
+    state: latest
+
+
+- name: Clean dock
+  shell: "dockutil --remove all"
+
+
+- name: Add apps to dock
+  shell: "dockutil --add {{ item }} && sleep 5"
+  loop:
+    - "/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app"
+    - "/Applications/Google\\ Chrome.app/"
+    - "/System/Applications/Mail.app"
+    - "/Applications/Telegram.app"
+    - "/System/Applications/Messages.app"
+    - "/System/Applications/FaceTime.app"
+    - "/System/Applications/Maps.app"
+    - "/System/Applications/Calendar.app"
+    - "/System/Applications/Reminders.app"
+    - "/System/Applications/Notes.app"
+    - "/Applications/Obsidian.app"
+    - "/System/Applications/Books.app"
+    - "/System/Applications/Photos.app"
+    - "/System/Applications/TV.app"
+    - "/System/Applications/Podcasts.app"
+    - "/System/Applications/Music.app"
+    - "/Applications/PyCharm\\ CE.app"
+    - "/Applications/TablePlus.app"
+    - "/Applications/Alacritty.app"
+    - "/System/Applications/System\\ Settings.app"
+
+
+- name: Add downloads to dock
+  shell: "dockutil --add '~/Downloads' --view fan --display stack"
