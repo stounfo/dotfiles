@@ -115,6 +115,10 @@
       tags: jless
 
 
+    - role: bat
+      tags: bat
+
+
     - role: dockutil
       tags: dockutil
       when: is_macos
