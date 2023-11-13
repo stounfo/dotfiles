@@ -1,9 +1,8 @@
 - name: Set font urls
   set_fact:
     font_urls:
-      - "https://github.com/tonsky/FiraCode/releases/download/6.2/Fira_Code_v6.2.zip"
       - "https://github.com/epk/SF-Mono-Nerd-Font/archive/refs/tags/v18.0d1e1.0.zip"
-      - "https://download.jetbrains.com/fonts/JetBrainsMono-2.304.zip?_gl=1*1wyueb*_ga*OTM0NTExODM1LjE2OTg1MTg5NDA.*_ga_9J976DJZ68*MTY5ODY3MjY0NC4yLjEuMTY5ODY3MzAyNy42MC4wLjA.&_ga=2.127363597.1242401735.1698672644-934511835.1698518940"
+      - "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/FiraMono.zip"
 
 
 - name: Ensure font temp dir exists
