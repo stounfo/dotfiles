@@ -2,3 +2,22 @@
   package:
     name: bat
     state: latest
+
+- name: Backup previous bat config
+  include_role:
+    name: backup_config
+  vars:
+    config_src_path: "{{ xdg_config_home_path }}/bat/config"
+
+
+- name: Ensure .config/bat dir exists
+  file:
+    path: "{{ xdg_config_home_path }}/bat"
+    state: directory
+
+
+- name: Symlink bat config
+  file:
+    src: "{{ role_files_path }}/config"
+    dest: "{{ xdg_config_home_path }}/bat/config"
+    state: link
