@@ -123,8 +123,14 @@
       tags: dockutil
       when: is_macos
 
+
     - role: postman
       tags: postman
 
+
     - role: htop
       tags: htop
+
+
+    - role: outline-manager
+      tags: outline-manager
