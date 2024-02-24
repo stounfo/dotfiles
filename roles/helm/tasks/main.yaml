@@ -1,0 +1,4 @@
+- name: Install helm
+  package:
+    name: helm
+    state: latest
