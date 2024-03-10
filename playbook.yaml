@@ -135,5 +135,10 @@
     - role: outline-manager
       tags: outline-manager
 
+
     - role: helm
       tags: helm
+
+
+    - role: vegeta
+      tags: vegeta
