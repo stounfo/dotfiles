@@ -45,6 +45,9 @@ alias cd="z"
 # lsd setup
 alias ls="lsd"
 
+# curlie setup
+alias curl="curlie"
+
 # fzf setup
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 

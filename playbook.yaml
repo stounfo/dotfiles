@@ -142,3 +142,7 @@
 
     - role: vegeta
       tags: vegeta
+
+
+    - role: curlie
+      tags: curlie
