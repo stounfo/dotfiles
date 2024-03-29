@@ -1,7 +1,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="false"
 COMPLETION_WAITING_DOTS="true"
 
 
@@ -29,7 +29,7 @@ export VISUAL=nvim
 export EDITOR="$VISUAL"
 
 # Add pycharm to $PATH
-export PATH="/Applications/PyCharm.app/Contents/MacOS:$PATH"
+export PATH="/Applications/PyCharm CE.app/Contents/MacOS:$PATH"
 
 # asdf setup
 . $HOMEBREW_PREFIX/opt/asdf/libexec/asdf.sh
