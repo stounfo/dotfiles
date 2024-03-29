@@ -1,6 +1,6 @@
 - name: Install dockutil
-  community.general.homebrew_cask:
-    name: hpedrorodrigues/tools/dockutil
+  package:
+    name: dockutil
     state: latest
 
 

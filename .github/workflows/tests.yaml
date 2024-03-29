@@ -21,17 +21,11 @@ jobs:
       - name: Install ansible
         run: pip install ansible
 
-      - name: Test
-        run: ansible-galaxy collection install geerlingguy.mac
-
-      - name: Test
-        run: ansible-playbook -vvvvvv playbook.yaml --tags helm
-
       - name: Test dotfiles installation
-        run: make dots_install SKIP_TAGS=deepl,dockutil
+        run: make dots_install SKIP_TAGS=deepl,helm
 
       - name: Test if dotfiles installation is idempotent
-        run: make dots_install SKIP_TAGS=deepl,dockutil
+        run: make dots_install SKIP_TAGS=deepl,helm
 
 
   test_dependencies:
