@@ -1,6 +1,9 @@
+[init]
+    defaultBranch = main
+
 [user]
-	name = Oleg Levantin
-	email = stounfo@gmail.com
+    name = Oleg Levantin
+    email = stounfo@gmail.com
 
 [core]
     pager = delta
