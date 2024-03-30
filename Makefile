@@ -6,7 +6,7 @@ all: deps_install_all dots_install ## Install all dependencies and execute all A
 deps_install_all: deps_install_python deps_install_ansible ## Install all dependencies
 
 
-python_version="3.12.0"
+python_version="3.12.2"
 .PHONY: deps_install_python
 deps_install_python: ## Install python to ./tmp directory
 	@git clone https://github.com/pyenv/pyenv.git ./tmp/pyenv; \
