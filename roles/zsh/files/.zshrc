@@ -48,6 +48,9 @@ alias ls="lsd"
 # curlie setup
 alias curl="curlie"
 
+# bat setup
+alias cat="bat"
+
 # fzf setup
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
