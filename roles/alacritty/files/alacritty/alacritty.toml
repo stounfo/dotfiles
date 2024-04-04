@@ -1,4 +1,9 @@
-import = ["/Users/stounfo/.config/alacritty/themes/gruvbox/gruvbox-material-hard-dark.toml"]
+import = [
+    # "~/.config/alacritty/themes/gruvbox/gruvbox-material-hard-dark.toml",
+    # "~/.config/alacritty/themes/catppuccin/catppuccin-frappe.toml",
+    "~/.config/alacritty/themes/catppuccin/catppuccin-macchiato.toml",
+    # "~/.config/alacritty/themes/catppuccin/catppuccin-mocha.toml",
+    ]
 
 [font]
 size = 16
