@@ -1,9 +1,16 @@
 ### custom ###
-.dev/
+.dev
 
 ### macOS ###
 .DS_Store
 
 ### python ###
 venv
+.venv
 __pycache__
+.ruff_cache
+.mypy_cache
+.pytest_cache
+
+### git ###
+.git
