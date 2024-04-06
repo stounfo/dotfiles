@@ -69,12 +69,11 @@ tmux_conf_theme=enabled
 
 # https://i.stack.imgur.com/e63et.png
 # https://arcolinux.com/everything-you-need-to-know-about-tmux-status-bar/
-colour_hz="cyan" 
-colour_test="yellow"
 colour_default="default"
 colour_common="brightblack"
 colour_current="brightwhite"
 colour_other="brightgreen"
+colour_test="yellow"
 
 # window style
 tmux_conf_theme_window_fg="$colour_default"
@@ -370,9 +369,8 @@ tmux_conf_uninstall_plugins_on_reload=true
 # # /!\ do not remove the previous line
 
 # fix colors
-set -g default-terminal "$TERM"
-set-option -ga terminal-features ",$TERM:usstyle"
-set -sg terminal-overrides ",$TERM:Tc"
+set -s default-terminal "tmux-256color"
+set -as terminal-overrides ",*-256color:Tc"
 
 # Bindings
 bind -T prefix ] next-window

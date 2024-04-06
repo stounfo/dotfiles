@@ -1,18 +1,15 @@
 import = [
-    # "~/.config/alacritty/themes/gruvbox/gruvbox-material-hard-dark.toml",
-    # "~/.config/alacritty/themes/catppuccin/catppuccin-frappe.toml",
+    # "~/.config/alacritty/themes/gruvbox/gruvbox-dark.toml",
+    # "~/.config/alacritty/themes/gruvbox-material/gruvbox-material-dark.toml",
     "~/.config/alacritty/themes/catppuccin/catppuccin-macchiato.toml",
-    # "~/.config/alacritty/themes/catppuccin/catppuccin-mocha.toml",
     ]
 
 [font]
 size = 16
 
-[font.bold]
-style = "Regular"
-
 [font.normal]
-family = "FiraMono Nerd Font"
+# family = "FiraMono Nerd Font"
+family = "JetBrainsMono Nerd Font"
 
 [window]
 decorations_theme_variant = "Dark"
@@ -20,3 +17,7 @@ decorations_theme_variant = "Dark"
 [window.dimensions]
 columns = 115
 lines = 40
+
+[colors]
+draw_bold_text_with_bright_colors = true
+transparent_background_colors = true

@@ -1,5 +1,8 @@
 # Get editor completions based on the config schema
-"$schema" = 'https://starship.rs/config-schema.json'
+"$schema" = "https://starship.rs/config-schema.json"
 
 [[battery.display]]
 threshold = 3
+
+[git_branch]
+symbol = " "

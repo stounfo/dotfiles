@@ -54,6 +54,9 @@ alias cat="bat"
 # fzf setup
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# ripgrep setup
+export RIPGREP_CONFIG_PATH="$HOME/.config/.ripgreprc"
+
 
 # == Aliases ==
 alias cd1="cd .."
