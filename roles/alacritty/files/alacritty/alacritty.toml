@@ -12,6 +12,7 @@ size = 16
 family = "JetBrainsMono Nerd Font"
 
 [window]
+decorations = "Buttonless"
 decorations_theme_variant = "Dark"
 
 [window.dimensions]
