@@ -212,7 +212,7 @@ tmux_conf_theme_right_separator_sub="|"
 #     - #{username}
 #     - #{username_ssh}
 tmux_conf_theme_status_left=" #S "
-tmux_conf_theme_status_right=" #{prefix}#{pairing}#{synchronized} | #{username}#{root} | #{hostname}"
+tmux_conf_theme_status_right=" #{prefix}#{pairing}#{synchronized} | #{hostname_ssh} | #{battery_percentage} | %d %b %I:%M %p "
 
 # status left style
 tmux_conf_theme_status_left_fg="$colour_common"
