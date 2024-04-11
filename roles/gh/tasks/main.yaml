@@ -1,0 +1,4 @@
+- name: Install gh
+  package:
+    name: gh
+    state: latest
