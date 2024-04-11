@@ -74,3 +74,8 @@ alias dsta="docker ps -q | xargs docker stop"
 alias drma="docker ps -a -q | xargs docker rm"
 
 alias tkas="tmux kill-session -a"
+
+
+# == keybindings ==
+# zsh-autosuggestions
+bindkey '^l' autosuggest-accept # Ctrl + L
