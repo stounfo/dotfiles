@@ -4,6 +4,13 @@
 [user]
     name = Oleg Levantin
     email = stounfo@gmail.com
+    signingkey = ~/.ssh/id_ed25519.pub
+
+[gpg]
+    format = ssh
+
+[commit]
+    gpgSign = true
 
 [core]
     pager = delta
@@ -37,5 +44,3 @@
 
     # Count commits from a specific hash to HEAD
     count= "!f() { git rev-list --count $1..HEAD; }; f"
-
-    
