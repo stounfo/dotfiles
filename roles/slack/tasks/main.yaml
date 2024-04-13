@@ -1,0 +1,5 @@
+- name: Install slack
+  community.general.homebrew_cask:
+    name: slack
+    state: latest
+    install_options: force
