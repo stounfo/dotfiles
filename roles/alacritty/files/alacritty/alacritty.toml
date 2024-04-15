@@ -14,6 +14,7 @@ family = "JetBrainsMono Nerd Font"
 [window]
 decorations = "Buttonless"
 decorations_theme_variant = "Dark"
+option_as_alt = "Both"
 
 [window.dimensions]
 columns = 115

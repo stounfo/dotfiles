@@ -1,0 +1,4 @@
+- name: Install pre-commit
+  package:
+    name: pre-commit
+    state: latest

@@ -369,8 +369,7 @@ tmux_conf_uninstall_plugins_on_reload=true
 # # /!\ do not remove the previous line
 
 # fix colors
-set -s default-terminal "tmux-256color"
-set -as terminal-overrides ",*-256color:Tc"
+set -s default-terminal "alacritty"
 
 # Bindings
 bind -T prefix ] next-window
@@ -378,5 +377,3 @@ bind -T prefix [ previous-window
 
 bind -T prefix v split-window -h -c "#{pane_current_path}" 
 bind -T prefix s split-window -c "#{pane_current_path}"
-
-set -as terminal-overrides ',*:Smulx=\E[4::%p1%dm'
