@@ -370,6 +370,7 @@ tmux_conf_uninstall_plugins_on_reload=true
 
 # fix colors
 set -s default-terminal "alacritty"
+set-option -ga terminal-features ",alacritty:usstyle"
 
 # Bindings
 bind -T prefix ] next-window
