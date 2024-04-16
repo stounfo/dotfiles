@@ -22,10 +22,9 @@ jobs:
         run: pip install ansible
 
       - name: Test dotfiles installation
-        run: make dots_install SKIP_TAGS=deepl,helm
-
+        run: make dots_install SKIP_TAGS=deepl
       - name: Test if dotfiles installation is idempotent
-        run: make dots_install SKIP_TAGS=deepl,helm
+        run: make dots_install SKIP_TAGS=deepl
 
 
   test_dependencies:
