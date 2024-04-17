@@ -5,7 +5,7 @@ import = [
     ]
 
 [font]
-size = 16
+size = 15 
 
 [font.normal]
 # family = "FiraMono Nerd Font"
