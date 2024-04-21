@@ -376,5 +376,8 @@ set-option -ga terminal-features ",alacritty:usstyle"
 bind -T prefix ] next-window
 bind -T prefix [ previous-window
 
+setw -g mode-keys vi
+bind -T prefix V copy-mode
+
 bind -T prefix v split-window -h -c "#{pane_current_path}" 
 bind -T prefix s split-window -c "#{pane_current_path}"
