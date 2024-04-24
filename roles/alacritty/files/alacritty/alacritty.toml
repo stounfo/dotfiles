@@ -1,15 +1,8 @@
 import = [
-    # "~/.config/alacritty/themes/gruvbox/gruvbox-dark.toml",
     # "~/.config/alacritty/themes/gruvbox-material/gruvbox-material-dark.toml",
-    "~/.config/alacritty/themes/catppuccin/catppuccin-macchiato.toml",
+    "~/.config/alacritty/themes/ayu/ayu-dark.toml",
+    # "~/.config/alacritty/themes/catppuccin/catppuccin-macchiato.toml",
     ]
-
-[font]
-size = 13
-
-[font.normal]
-# family = "FiraMono Nerd Font"
-family = "JetBrainsMono Nerd Font"
 
 [window]
 decorations = "Buttonless"
@@ -23,6 +16,16 @@ lines = 40
 [window.padding]
 x = 1
 
+[font]
+size = 13
+
+[font.normal]
+# family = "FiraMono Nerd Font"
+family = "JetBrainsMono Nerd Font"
+
 [colors]
 draw_bold_text_with_bright_colors = true
 transparent_background_colors = true
+
+[mouse]
+hide_when_typing = true
