@@ -152,3 +152,6 @@
 
     - role: pre-commit
       tags: pre-commit
+
+    - role: visual-studio-code
+      tags: visual-studio-code

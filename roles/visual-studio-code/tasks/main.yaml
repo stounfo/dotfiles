@@ -1,0 +1,5 @@
+- name: Install visual-studio-code
+  community.general.homebrew_cask:
+    name: visual-studio-code
+    state: latest
+    install_options: force
