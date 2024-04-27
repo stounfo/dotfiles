@@ -1,0 +1,4 @@
+- name: Install psql
+  package:
+    name: libpq
+    state: latest

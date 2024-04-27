@@ -1,0 +1,12 @@
+- name: Backup previous editorconfig
+  include_role:
+    name: backup_config
+  vars:
+    config_src_path: "{{ home_path }}/.editorconfig"
+
+
+- name: Symlink editorconfig
+  file:
+    src: "{{ role_files_path }}/.editorconfig"
+    dest: "{{ home_path }}/.editorconfig"
+    state: link

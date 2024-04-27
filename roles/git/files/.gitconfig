@@ -20,6 +20,12 @@
     navigate = true
     side-by-side = true
 
+[diff]
+    tool = nvimdiff
+
+[merge]
+    tool = nvimdiff
+
 [alias]
     ch = checkout
     s = status
@@ -34,7 +40,7 @@
 
     rb = rebase
     rbi = "!f(){ if [[ $1 =~ ^[0-9]+$ ]]; then git rebase -i HEAD~${1}; else git rebase -i $1; fi };f"
-    ; TODO rebase main/master 
+    ; TODO rebase main/master
 
     pl = pull origin HEAD
     ps = push origin HEAD

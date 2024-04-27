@@ -5,7 +5,7 @@ ENABLE_CORRECTION="false"
 COMPLETION_WAITING_DOTS="true"
 
 
-# == zsh-vi-mode fixes == 
+# == zsh-vi-mode fixes ==
 # Fix keybindings problems with another plugins
 export ZVM_INIT_MODE=sourcing
 
@@ -63,6 +63,9 @@ export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
 # ripgrep setup
 export RIPGREP_CONFIG_PATH="$HOME/.config/.ripgreprc"
 
+# psql setup
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+
 
 # == Aliases ==
 alias cd1="cd .."
@@ -80,6 +83,10 @@ alias dsta="docker ps -q | xargs docker stop"
 alias drma="docker ps -a -q | xargs docker rm"
 
 alias tkas="tmux kill-session -a"
+
+alias v="nvim"
+alias nvimdb="nvim +DBUI"
+alias vdb="nvimdb"
 
 
 # == keybindings ==

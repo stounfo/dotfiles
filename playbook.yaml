@@ -5,144 +5,109 @@
       tags: homebrew
       when: is_macos
 
-
     - role: snapd
       tags: snapd
       when: is_linux
 
-
     - role: fonts
       tags: fonts
-
 
     - role: telegram
       tags: telegram
 
-
     - role: chrome
       tags: chrome
-
 
     - role: alacritty
       tags: alacritty
 
-
     - role: tmux
       tags: tmux
-
 
     - role: nvim
       tags: nvim
 
-
     - role: docker
       tags: docker
-
 
     - role: tableplus
       tags: tableplus
 
-
     - role: zsh
       tags: zsh
-    
 
     - role: git
       tags: git
 
-
     - role: npm
       tags: npm
-
 
     - role: ripgrep
       tags: ripgrep
 
-  
     - role: fzf
       tags: fzf
 
-
     - role: zoxide
       tags: zoxide
-    
 
     - role: lsd
       tags: lsd
 
-
     - role: tree
       tags: tree
-
 
     - role: cloc
       tags: cloc
 
-
     - role: asdf
       tags: asdf
-    
 
     - role: starship
       tags: starship
 
-
     - role: pycharm-ce
       tags: pycharm-ce
-
 
     - role: obsidian
       tags: obsidian
 
-
     - role: git-delta
       tags: git-delta
 
-
-    - role: pgcli
-      tags: pgcli
-
+    - role: psql
+      tags: psql
 
     - role: kubectl
       tags: kubectl
 
-
     - role: deepl
       tags: deepl
-
 
     - role: jless
       tags: jless
 
-
     - role: bat
       tags: bat
-
 
     - role: dockutil
       tags: dockutil
       when: is_macos
 
-
     - role: postman
       tags: postman
-
 
     - role: htop
       tags: htop
 
-
     - role: outline-manager
       tags: outline-manager
-
 
     - role: helm
       tags: helm
 
-
     - role: vegeta
       tags: vegeta
-
 
     - role: curlie
       tags: curlie
@@ -155,3 +120,6 @@
 
     - role: visual-studio-code
       tags: visual-studio-code
+
+    - role: editorconfig
+      tags: editorconfig
