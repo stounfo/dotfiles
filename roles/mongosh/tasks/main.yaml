@@ -1,0 +1,4 @@
+- name: Install mongosh
+  package:
+    name: mongosh
+    state: latest

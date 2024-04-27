@@ -123,3 +123,6 @@
 
     - role: editorconfig
       tags: editorconfig
+
+    - role: mongosh
+      tags: mongosh
