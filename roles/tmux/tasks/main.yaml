@@ -3,33 +3,20 @@
     name: tmux
     state: latest
 
-
-- name: Download ohmytmux
-  git:
-    repo: "https://github.com/gpakosz/.tmux.git"
-    dest: "{{ xdg_config_home_path }}/tmux/.tmux"
-    depth: 1
-
-
 - name: Backup previous tmux config
   include_role:
     name: backup_config
   vars:
-    config_src_path: "{{ xdg_config_home_path }}/tmux/{{ item }}"
-  loop:
-    - .tmux.conf
-    - .tmux.conf.local
+    config_src_path: "{{ xdg_config_home_path }}/tmux"
 
-
-- name: Symlink ohmytmux config
+- name: Symlink tmux config
   file:
-    src: "{{ xdg_config_home_path }}/tmux/.tmux/.tmux.conf"
-    dest: "{{ xdg_config_home_path }}/tmux/tmux.conf"
+    src: "{{ role_files_path }}/tmux"
+    dest: "{{ xdg_config_home_path }}/tmux"
     state: link
 
-
-- name: Symlink ohmytmux local config
-  file:
-    src: "{{ role_files_path }}/.tmux.conf.local"
-    dest: "{{ xdg_config_home_path }}/tmux/tmux.conf.local"
-    state: link
+- name: Ensure scripts are executable
+  ansible.builtin.file:
+    path: "{{ xdg_config_home_path }}/tmux/scripts"
+    state: directory
+    mode: "0755"
