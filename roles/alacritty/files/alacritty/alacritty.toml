@@ -17,7 +17,7 @@ lines = 40
 x = 1
 
 [font]
-size = 13
+size = 14
 
 [font.normal]
 # family = "FiraMono Nerd Font"
