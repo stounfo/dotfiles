@@ -17,6 +17,8 @@
 
 - name: Ensure scripts are executable
   ansible.builtin.file:
-    path: "{{ xdg_config_home_path }}/tmux/scripts"
-    state: directory
+    path: "{{ item }}"
     mode: "0755"
+  loop:
+    - "{{ xdg_config_home_path }}/tmux/scripts/get_battery.sh"
+    - "{{ xdg_config_home_path }}/tmux/scripts/toggle_term.sh"
