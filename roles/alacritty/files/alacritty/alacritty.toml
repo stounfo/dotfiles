@@ -1,7 +1,7 @@
 import = [
-    # "~/.config/alacritty/themes/gruvbox-material/gruvbox-material-dark.toml",
+    "~/.config/alacritty/themes/gruvbox-material/gruvbox-material-dark.toml",
     # "~/.config/alacritty/themes/ayu/ayu-dark.toml",
-    "~/.config/alacritty/themes/catppuccin/catppuccin-macchiato.toml",
+    # "~/.config/alacritty/themes/catppuccin/catppuccin-macchiato.toml",
     ]
 
 [window]
