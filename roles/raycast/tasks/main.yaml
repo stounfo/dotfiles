@@ -1,0 +1,5 @@
+- name: Install raycast
+  community.general.homebrew_cask:
+    name: raycast
+    state: latest
+    install_options: force

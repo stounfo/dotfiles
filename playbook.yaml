@@ -126,3 +126,6 @@
 
     - role: mongosh
       tags: mongosh
+
+    - role: raycast
+      tags: raycast
