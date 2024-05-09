@@ -129,3 +129,6 @@
 
     - role: raycast
       tags: raycast
+
+    - role: pastel
+      tags: pastel

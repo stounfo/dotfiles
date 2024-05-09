@@ -1,8 +1,11 @@
 import = [
-    "~/.config/alacritty/themes/gruvbox-material/gruvbox-material-dark.toml",
+    # "~/.config/alacritty/themes/gruvbox-material/gruvbox-material-dark.toml",
     # "~/.config/alacritty/themes/ayu/ayu-dark.toml",
-    # "~/.config/alacritty/themes/catppuccin/catppuccin-macchiato.toml",
-    ]
+    "~/.config/alacritty/themes/catppuccin/catppuccin-macchiato.toml",
+]
+
+[env]
+term = "xterm-256color"
 
 [window]
 decorations = "Buttonless"
@@ -21,7 +24,9 @@ size = 14
 
 [font.normal]
 # family = "FiraMono Nerd Font"
-family = "JetBrainsMono Nerd Font"
+# family = "FiraCode Nerd Font"
+family = "JetBrainsMono NF"
+# family = "MartianMono NF"
 
 [colors]
 draw_bold_text_with_bright_colors = true

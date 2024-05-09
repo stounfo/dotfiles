@@ -1,0 +1,4 @@
+- name: Install pastel
+  package:
+    name: pastel
+    state: latest
