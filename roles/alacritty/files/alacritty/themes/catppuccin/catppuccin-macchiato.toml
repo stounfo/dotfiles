@@ -1,24 +1,110 @@
 [colors.primary]
-background = "#24273A"
+background = "#24273a"
 foreground = "#cad3f5"
-bright_foreground = "#cad3f5"
+bright_foreground = "#d8dff8"
+dim_foreground = "#6e738d"
+
+[colors.cursor]
+text = "#24273a"
+cursor = "#f4dbd6"
+
+[colors.vi_mode_cursor]
+text = "#24273a"
+cursor = "#b7bdf8"
+
+[colors.search.matches]
+background = "#455c6d"
+
+[colors.search.focused_match]
+background = "#553f51"
+
+[colors.selection]
+background = "#5f507b"
 
 [colors.normal]
-black = "#1e2030"
+black = "#5b6078"
 red = "#ed8796"
 green = "#a6da95"
 yellow = "#eed49f"
 blue = "#8aadf4"
-magenta = "#c6a0f6"
-cyan = "#8bd5ca"
-white = "#363a4f"
-
-[colors.bright]
-black = "#6e738d"
-red = "#ed8796"
-green = "#a6da95"
-yellow = "#f5a97f"
-blue = "#8aadf4"
 magenta = "#f5bde6"
 cyan = "#8bd5ca"
 white = "#cad3f5"
+
+[colors.bright]
+black = "#9399b2"
+red = "#ed8796"
+green = "#a6da95"
+yellow = "#eed49f"
+blue = "#8aadf4"
+magenta = "#f5bde6"
+cyan = "#8bd5ca"
+white = "#d8dff8"
+
+[colors.dim]
+black = "#363a4f"
+red = "#553f51"
+green = "#455451"
+yellow = "#72685d"
+blue = "#2e354d"
+magenta = "#5f507b"
+cyan = "#455c6d"
+white = "#6e738d"
+
+[colors]
+indexed_colors = [
+  { index = 238, color = "#5b6078" },
+  { index = 242, color = "#9399b2" },
+  { index = 236, color = "#363a4f" },
+
+  { index = 160, color = "#ed8796" },
+  { index = 197, color = "#ed8796" },
+  { index = 52, color = "#553f51" },
+
+  { index = 34, color = "#a6da95" },
+  { index = 40, color = "#a6da95" },
+  { index = 22, color = "#455451" },
+
+  { index = 226, color = "#eed49f" },
+  { index = 227, color = "#eed49f" },
+  { index = 220, color = "#72685d" },
+
+  { index = 33, color = "#8aadf4" },
+  { index = 39, color = "#8aadf4" },
+  { index = 18, color = "#2e354d" },
+
+  { index = 140, color = "#c6a0f6" },
+  { index = 141, color = "#c6a0f6" },
+  { index = 92, color = "#5f507b" },
+
+  { index = 43, color = "#8bd5ca" },
+  { index = 44, color = "#8bd5ca" },
+  { index = 31, color = "#455c6d" },
+
+  { index = 249, color = "#cad3f5" },
+  { index = 250, color = "#d8dff8" },
+  { index = 248, color = "#6e738d" },
+
+  { index = 196, color = "#ff0000" },
+
+  { index = 234, color = "#24273a" },
+  # lighter
+  { index = 235, color = "#2f3348" },
+  { index = 236, color = "#40445a" },
+  # darker
+  { index = 233, color = "#1e2030" },
+  { index = 232, color = "#181926" },
+  # special
+  { index = 128, color = "#5f507b" },
+
+
+  { index = 245, color = "#cad3f5" },
+  # lighter
+  { index = 246, color = "#d8dff8" },
+  { index = 247, color = "#e5eafa" },
+  # darker
+  { index = 244, color = "#6e738d" },
+  { index = 243, color = "#494d64" },
+  # special
+  { index = 177, color = "#c6a0f6" },
+]
