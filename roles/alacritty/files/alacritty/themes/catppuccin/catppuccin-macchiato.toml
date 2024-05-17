@@ -6,11 +6,7 @@ dim_foreground = "#6e738d"
 
 [colors.cursor]
 text = "#24273a"
-cursor = "#f4dbd6"
-
-[colors.vi_mode_cursor]
-text = "#24273a"
-cursor = "#b7bdf8"
+cursor = "#eed49f"
 
 [colors.search.matches]
 background = "#455c6d"
