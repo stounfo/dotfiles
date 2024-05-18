@@ -15,7 +15,7 @@ background = "#111d24"
 background = "#3e1215"
 
 [colors.selection]
-background = "#132032"
+background = "#1c3a5b"
 
 [colors.normal]
 black = "#282e3b"
@@ -42,8 +42,8 @@ black = "#171c24"
 red = "#3e1215"
 green = "#131f1c"
 yellow = "#1d1f18"
-blue = "#132032"
-magenta = "#1d1625"
+blue = "#1c3a5b"
+magenta = "#322c3e"
 cyan = "#111d24"
 white = "#545963"
 
@@ -51,7 +51,7 @@ white = "#545963"
 indexed_colors = [
     { index = 238, color = "#282e3b" },
     { index = 242, color = "#636975" },
-    { index = 236, color = "#171c24" },
+    { index = 237, color = "#171c24" },
 
     { index = 160, color = "#da5757" },
     { index = 197, color = "#da5757" },
@@ -67,11 +67,11 @@ indexed_colors = [
 
     { index = 33, color = "#5785b8" },
     { index = 39, color = "#5785b8" },
-    { index = 18, color = "#132032" },
+    { index = 18, color = "#1c3a5b" },
 
     { index = 140, color = "#d2a6ff" },
     { index = 141, color = "#d2a6ff" },
-    { index = 92, color = "#1d1625" },
+    { index = 92, color = "#322c3e" },
 
     { index = 43, color = "#95e6cb" },
     { index = 44, color = "#95e6cb" },
@@ -85,13 +85,13 @@ indexed_colors = [
 
     { index = 234, color = "#0c0e13" },
     # lighter
-    { index = 235, color = "#0c0e13" },
-    { index = 236, color = "#1a1f28" },
+    { index = 235, color = "#131721" },
+    { index = 236, color = "#2e333d" },
     # darker
     { index = 233, color = "#060709" },
     { index = 232, color = "#000000" },
     # special
-    { index = 128, color = "#132032" },
+    { index = 128, color = "#1c3a5b" },
 
     { index = 245, color = "#bfbdb6" },
     # lighter

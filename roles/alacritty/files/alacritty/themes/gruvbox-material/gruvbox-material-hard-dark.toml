@@ -51,7 +51,7 @@ white = "#918474"
 indexed_colors = [
     { index = 238, color = "#504945" },
     { index = 242, color = "#928374" },
-    { index = 236, color = "#32302f" },
+    { index = 237, color = "#32302f" },
 
     { index = 160, color = "#ea6962" },
     { index = 197, color = "#ea6962" },
@@ -91,7 +91,7 @@ indexed_colors = [
     { index = 233, color = "#1d2021" },
     { index = 232, color = "#141617" },
     # special
-    { index = 128, color = "#332733" },
+    { index = 128, color = "#32361a" },
 
 
     { index = 245, color = "#d4be98" },
@@ -102,5 +102,5 @@ indexed_colors = [
     { index = 244, color = "#918474" },
     { index = 243, color = "#7c6f64" },
     # special
-    { index = 177, color = "#d3869b" },
+    { index = 177, color = "#a9b665" },
 ]

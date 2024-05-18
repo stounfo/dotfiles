@@ -51,7 +51,7 @@ white = "#6e738d"
 indexed_colors = [
   { index = 238, color = "#5b6078" },
   { index = 242, color = "#9399b2" },
-  { index = 236, color = "#363a4f" },
+  { index = 237, color = "#363a4f" },
 
   { index = 160, color = "#ed8796" },
   { index = 197, color = "#ed8796" },

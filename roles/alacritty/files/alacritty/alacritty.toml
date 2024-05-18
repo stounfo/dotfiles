@@ -23,9 +23,9 @@ x = 1
 size = 14
 
 [font.normal]
-# family = "FiraMono Nerd Font"
+family = "FiraMono Nerd Font"
 # family = "FiraCode Nerd Font"
-family = "JetBrainsMono NF"
+# family = "JetBrainsMono NF"
 # family = "MartianMono NF"
 
 [colors]
