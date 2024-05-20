@@ -1,0 +1,5 @@
+- name: Install chatgpt
+  community.general.homebrew_cask:
+    name: chatgpt
+    state: latest
+    install_options: force

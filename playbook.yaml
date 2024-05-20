@@ -132,3 +132,6 @@
 
     - role: pastel
       tags: pastel
+
+    - role: chatgpt
+      tags: chatgpt
