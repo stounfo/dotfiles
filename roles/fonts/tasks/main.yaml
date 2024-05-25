@@ -5,6 +5,7 @@
       - "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/FiraCode.zip"
       - "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/JetBrainsMono.zip"
       - "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/MartianMono.zip"
+      - "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/ZedMono.zip"
 
 - name: Ensure font temp dir exists
   file:
