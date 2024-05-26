@@ -21,7 +21,7 @@ lines = 40
 x = 1
 
 [font]
-size = 15
+size = 16
 offset.x = 0
 offset.y = 9
 
@@ -29,7 +29,6 @@ offset.y = 9
 # family = "FiraMono Nerd Font"
 # family = "FiraCode Nerd Font"
 # family = "JetBrainsMono NF"
-# family = "MartianMono NF"
 # family = "MartianMono NF"
 family = "ZedMono NF Extd"
 
