@@ -9,7 +9,7 @@ text = "#1c1c1c"
 cursor = "#e6b450"
 
 [colors.search.matches]
-background = "#111d24"
+background = "#174c4c"
 
 [colors.search.focused_match]
 background = "#3e1215"
@@ -39,12 +39,12 @@ white = "#e4e4e4"
 
 [colors.dim]
 black = "#262626"
-red = "#3e1215"
-green = "#131f1c"
-yellow = "#1d1f18"
+red = "#3e1619"
+green = "#3e522b"
+yellow = "#1b231c"
 blue = "#1c3a5b"
 magenta = "#322c3e"
-cyan = "#111d24"
+cyan = "#174c4c"
 white = "#808080"
 
 [colors]
@@ -55,19 +55,19 @@ indexed_colors = [
 
     { index = 160, color = "#da5757" },
     { index = 197, color = "#da5757" },
-    { index = 52, color = "#3e1215" },
+    { index = 52, color = "#3e1619" },
 
     { index = 34, color = "#7ed962" },
     { index = 40, color = "#7ed962" },
-    { index = 22, color = "#131f1c" },
+    { index = 22, color = "#3e522b" },
 
     { index = 226, color = "#e6b450" },
     { index = 227, color = "#e6b450" },
-    { index = 220, color = "#1d1f18" },
+    { index = 220, color = "#1b231c" },
 
     { index = 33, color = "#5785b8" },
     { index = 39, color = "#5785b8" },
-    { index = 18, color = "#1d1f18" },
+    { index = 18, color = "#1c3a5b" },
 
     { index = 140, color = "#d2a6ff" },
     { index = 141, color = "#d2a6ff" },
@@ -75,7 +75,7 @@ indexed_colors = [
 
     { index = 43, color = "#95e6cb" },
     { index = 44, color = "#95e6cb" },
-    { index = 31, color = "#111d24" },
+    { index = 31, color = "#174c4c" },
 
     { index = 249, color = "#d4d4d4" },
     { index = 250, color = "#e4e4e4" },
