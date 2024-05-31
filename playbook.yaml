@@ -118,6 +118,9 @@
     - role: pre-commit
       tags: pre-commit
 
+    - role: lefthook
+      tags: lefthook
+
     - role: visual-studio-code
       tags: visual-studio-code
 
