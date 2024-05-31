@@ -1,3 +1,8 @@
+.PHONY: help
+help: ## Show this help
+	@egrep -h '\s##\s' $(MAKEFILE_LIST) |  awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}'
+
+
 .PHONY: all
 all: deps_install_all dots_install ## Install all dependencies and execute all Ansible tasks
 
@@ -50,8 +55,3 @@ ifndef ANSIBLE_PLAYBOOK
 endif
 	@$(ANSIBLE_GALAXY) collection install geerlingguy.mac
 	@$(PLAYBOOK_CMD)
-
-
-.PHONY: help
-help: ## Show this help
-	@egrep -h '\s##\s' $(MAKEFILE_LIST) |  awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}'
