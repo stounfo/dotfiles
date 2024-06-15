@@ -134,3 +134,9 @@
 
     - role: chatgpt
       tags: chatgpt
+
+    - role: txc
+      tags: txc
+
+    - role: mylsp
+      tags: mylsp

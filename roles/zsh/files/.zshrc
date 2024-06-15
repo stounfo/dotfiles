@@ -66,9 +66,6 @@ export RIPGREP_CONFIG_PATH="$HOME/.config/.ripgreprc"
 # psql setup
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 
-# txc setup
-export PATH="$HOME/Desktop/txc/target/release/:$PATH"
-
 
 # == Aliases ==
 alias cd1="cd .."

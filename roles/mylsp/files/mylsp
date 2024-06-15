@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+node /Users/stounfo/Desktop/mylsp/dist/server.bundle.js --stdio

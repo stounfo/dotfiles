@@ -1,0 +1,13 @@
+- name: Backup previous mylsp
+  include_role:
+    name: backup_config
+  vars:
+    config_src_path: "{{ home_path }}/.local/bin/mylsp"
+
+
+- name: Symlink mylsp
+  file:
+    src: "{{ role_files_path }}/mylsp"
+    dest: "{{ home_path }}/.local/bin/mylsp"
+    state: link
+    mode: 0755
