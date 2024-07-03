@@ -1,6 +1,9 @@
 ### custom ###
 .dev
 
+### mise ###
+.mise.toml
+
 ### macOS ###
 .DS_Store
 

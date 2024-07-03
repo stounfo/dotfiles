@@ -3,6 +3,7 @@
     name: bat
     state: latest
 
+
 - name: Backup previous bat config
   include_role:
     name: backup_config

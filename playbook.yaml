@@ -56,8 +56,8 @@
     - role: cloc
       tags: cloc
 
-    - role: asdf
-      tags: asdf
+    - role: mise
+      tags: mise
 
     - role: starship
       tags: starship

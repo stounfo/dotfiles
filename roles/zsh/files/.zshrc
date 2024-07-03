@@ -28,12 +28,8 @@ source $ZSH/oh-my-zsh.sh
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 
-# Add pycharm to $PATH
-export PATH="/Applications/PyCharm CE.app/Contents/MacOS:$PATH"
-
-# asdf setup
-. $HOMEBREW_PREFIX/opt/asdf/libexec/asdf.sh
-export ASDF_DEFAULT_TOOL_VERSIONS_FILENAME=".dev/.tool-versions"
+# mise setup
+eval "$(mise activate zsh)"
 
 # Starship setup
 eval "$(starship init zsh)"

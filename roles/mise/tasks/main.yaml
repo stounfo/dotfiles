@@ -1,0 +1,28 @@
+- name: Install mise
+  package:
+    name: mise
+    state: latest
+
+
+- name: Backup previous mise config
+  include_role:
+    name: backup_config
+  vars:
+    config_src_path: "{{ xdg_config_home_path }}/mise/config.toml"
+
+
+- name: Ensure .config/mise dir exists
+  file:
+    path: "{{ xdg_config_home_path }}/mise"
+    state: directory
+
+
+- name: Symlink mise config
+  file:
+    src: "{{ role_files_path }}/config.toml"
+    dest: "{{ xdg_config_home_path }}/mise/config.toml"
+    state: link
+
+
+- name: Install mise plugins
+  shell: "mise install"
