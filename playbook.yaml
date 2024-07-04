@@ -62,9 +62,6 @@
     - role: starship
       tags: starship
 
-    - role: pycharm-ce
-      tags: pycharm-ce
-
     - role: obsidian
       tags: obsidian
 

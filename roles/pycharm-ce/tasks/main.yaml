@@ -1,5 +1,0 @@
-- name: Install pycharm-ce
-  community.general.homebrew_cask:
-    name: pycharm-ce
-    state: latest
-    install_options: force
