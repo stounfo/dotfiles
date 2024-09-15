@@ -50,27 +50,21 @@ white = "#918474"
 [colors]
 indexed_colors = [
     { index = 160, color = "#ea6962" },
-    { index = 197, color = "#ea6962" },
     { index = 52, color = "#3c1f1e" },
 
     { index = 34, color = "#a9b665" },
-    { index = 40, color = "#a9b665" },
     { index = 22, color = "#32361a" },
 
     { index = 226, color = "#d8a657" },
-    { index = 227, color = "#d8a657" },
     { index = 220, color = "#4e422f" },
 
     { index = 33, color = "#7daea3" },
-    { index = 39, color = "#7daea3" },
     { index = 18, color = "#0d3138" },
 
     { index = 140, color = "#d3869b" },
-    { index = 141, color = "#d3869b" },
     { index = 92, color = "#332733" },
 
     { index = 43, color = "#89b482" },
-    { index = 44, color = "#89b482" },
     { index = 31, color = "#333e34" },
 
     { index = 196, color = "#ff0000" },
