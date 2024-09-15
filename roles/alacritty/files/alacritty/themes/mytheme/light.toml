@@ -1,0 +1,106 @@
+[colors.primary]
+background = "#f8f9fa"
+foreground = "#5c6166"
+bright_foreground = "#8a9199"
+dim_foreground = "#4a505a"
+
+[colors.cursor]
+text = "#f8f9fa"
+cursor = "#845d00"
+
+[colors.search.matches]
+background = "#9fdac6"
+
+[colors.search.focused_match]
+background = "#f0b2b4"
+
+[colors.selection]
+background = "#dae3f7"
+
+[colors.normal]
+black = "#282e3b"
+red = "#bd1e0c"
+green = "#438c27"
+yellow = "#845d00"
+blue = "#365ec1"
+magenta = "#7a3e9d"
+cyan = "#2c7960"
+white = "#5c6166"
+
+[colors.bright]
+black = "#636975"
+red = "#bd1e0c"
+green = "#438c27"
+yellow = "#845d00"
+blue = "#365ec1"
+magenta = "#7a3e9d"
+cyan = "#2c7960"
+white = "#8a9199"
+
+[colors.dim]
+black = "#171c24"
+red = "#f0b2b4"
+green = "#dce8ca"
+yellow = "#cbbb9f"
+blue = "#dae3f7"
+magenta = "#e9ddf7"
+cyan = "#9fdac6"
+white = "#4a505a"
+
+[colors]
+indexed_colors = [
+    { index = 238, color = "#c3c8cc" },
+    { index = 242, color = "#808080" },
+    { index = 237, color = "#171c24" },
+
+    { index = 160, color = "#bd1e0c" },
+    { index = 197, color = "#bd1e0c" },
+    { index = 52, color = "#f0b2b4" },
+
+    { index = 34, color = "#438c27" },
+    { index = 40, color = "#438c27" },
+    { index = 22, color = "#dce8ca" },
+
+    { index = 226, color = "#845d00" },
+    { index = 227, color = "#845d00" },
+    { index = 220, color = "#cbbb9f" },
+
+    { index = 33, color = "#365ec1" },
+    { index = 39, color = "#365ec1" },
+    { index = 18, color = "#dae3f7" },
+
+    { index = 140, color = "#7a3e9d" },
+    { index = 141, color = "#7a3e9d" },
+    { index = 92, color = "#e9ddf7" },
+
+    { index = 43, color = "#016f82" },
+    { index = 44, color = "#016f82" },
+    { index = 31, color = "#9fdac6" },
+
+    { index = 249, color = "#515151" },
+    { index = 250, color = "#8a9199" },
+    { index = 248, color = "#4a505a" },
+
+    { index = 196, color = "#ff0000" },
+
+    { index = 234, color = "#f8f9fa" },
+    # lighter
+    { index = 235, color = "#f0f1f2" },
+    { index = 236, color = "#d2d4d7" },
+    # darker
+    { index = 233, color = "#fcfdfd" },
+    { index = 232, color = "#fefefe" },
+    # special
+    { index = 128, color = "#dae3f7" },
+
+    { index = 245, color = "#5c6166" },
+    # lighter
+    { index = 246, color = "#4a505a" },
+    { index = 247, color = "#1e222a" },
+    # darker
+    { index = 244, color = "#808080" },
+    { index = 243, color = "#c3c8cc" },
+    # special
+    { index = 177, color = "#365ec1" },
+]
+

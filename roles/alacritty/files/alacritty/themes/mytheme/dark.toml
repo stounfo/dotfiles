@@ -1,69 +1,65 @@
 [colors.primary]
-background = "#0c0e13"
-foreground = "#bfbdb6"
-bright_foreground = "#f3f4f5"
-dim_foreground = "#545963"
+background = "#1c1c1c"
+foreground = "#d4d4d4"
+bright_foreground = "#e4e4e4"
+dim_foreground = "#808080"
 
 [colors.cursor]
-text = "#0c0e13"
+text = "#1c1c1c"
 cursor = "#e6b450"
 
 [colors.search.matches]
-background = "#111d24"
+background = "#174c4c"
 
 [colors.search.focused_match]
 background = "#3e1215"
 
 [colors.selection]
-background = "#1c3a5b"
+background = "#322c3e"
 
 [colors.normal]
-black = "#282e3b"
+black = "#4e4e4e"
 red = "#da5757"
 green = "#7ed962"
 yellow = "#e6b450"
 blue = "#5785b8"
 magenta = "#d2a6ff"
 cyan = "#95e6cb"
-white = "#bfbdb6"
+white = "#d4d4d4"
 
 [colors.bright]
-black = "#636975"
+black = "#8a8a8a"
 red = "#da5757"
 green = "#7ed962"
 yellow = "#e6b450"
 blue = "#5785b8"
 magenta = "#d2a6ff"
 cyan = "#95e6cb"
-white = "#f3f4f5"
+white = "#e4e4e4"
 
 [colors.dim]
-black = "#171c24"
-red = "#3e1215"
-green = "#131f1c"
-yellow = "#1d1f18"
+black = "#262626"
+red = "#3e1619"
+green = "#3e522b"
+yellow = "#1b231c"
 blue = "#1c3a5b"
 magenta = "#322c3e"
-cyan = "#111d24"
-white = "#545963"
+cyan = "#174c4c"
+white = "#808080"
 
 [colors]
 indexed_colors = [
-    { index = 238, color = "#282e3b" },
-    { index = 242, color = "#636975" },
-    { index = 237, color = "#171c24" },
-
     { index = 160, color = "#da5757" },
     { index = 197, color = "#da5757" },
-    { index = 52, color = "#3e1215" },
+    { index = 52, color = "#3e1619" },
 
     { index = 34, color = "#7ed962" },
     { index = 40, color = "#7ed962" },
-    { index = 22, color = "#131f1c" },
+    { index = 22, color = "#3e522b" },
 
     { index = 226, color = "#e6b450" },
     { index = 227, color = "#e6b450" },
-    { index = 220, color = "#1d1f18" },
+    { index = 220, color = "#1b231c" },
 
     { index = 33, color = "#5785b8" },
     { index = 39, color = "#5785b8" },
@@ -75,31 +71,28 @@ indexed_colors = [
 
     { index = 43, color = "#95e6cb" },
     { index = 44, color = "#95e6cb" },
-    { index = 31, color = "#111d24" },
-
-    { index = 249, color = "#bfbdb6" },
-    { index = 250, color = "#f3f4f5" },
-    { index = 248, color = "#545963" },
+    { index = 31, color = "#174c4c" },
 
     { index = 196, color = "#ff0000" },
 
-    { index = 234, color = "#0c0e13" },
+    { index = 234, color = "#1c1c1c" },
     # lighter
-    { index = 235, color = "#131721" },
-    { index = 236, color = "#2e333d" },
+    { index = 235, color = "#252525" },
+    { index = 236, color = "#3c3c3b" },
     # darker
-    { index = 233, color = "#060709" },
+    { index = 233, color = "#080808" },
     { index = 232, color = "#000000" },
     # special
-    { index = 128, color = "#1c3a5b" },
+    { index = 128, color = "#322c3e" },
 
-    { index = 245, color = "#bfbdb6" },
+
+    { index = 245, color = "#d4d4d4" },
     # lighter
-    { index = 246, color = "#f3f4f5" },
+    { index = 246, color = "#e4e4e4" },
     { index = 247, color = "#eeeeee" },
     # darker
-    { index = 244, color = "#545963" },
-    { index = 243, color = "#1e222a" },
+    { index = 244, color = "#8a8a8a" },
+    { index = 243, color = "#4e4e4e" },
     # special
-    { index = 177, color = "#5785b8" },
+    { index = 177, color = "#d2a6ff" },
 ]
