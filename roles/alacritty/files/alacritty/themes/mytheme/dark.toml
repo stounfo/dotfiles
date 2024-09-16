@@ -61,12 +61,12 @@ indexed_colors = [
     { index = 234, color = "#1c1c1c" }, # default
     { index = 233, color = "#080808" },
     { index = 232, color = "#000000" },
-    { index = 128, color = "#1c3a5b" },
+    { index = 128, color = "#322c3e" },
 
     { index = 247, color = "#eeeeee" },
     { index = 246, color = "#e4e4e4" },
     { index = 245, color = "#d4d4d4" }, # default
     { index = 244, color = "#8a8a8a" },
     { index = 243, color = "#4e4e4e" },
-    { index = 177, color = "#5785b8" },
+    { index = 177, color = "#d2a6ff" },
 ]
