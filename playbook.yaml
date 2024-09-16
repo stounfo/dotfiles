@@ -137,3 +137,6 @@
 
     - role: mylsp
       tags: mylsp
+
+    - role: typos
+      tags: typos
