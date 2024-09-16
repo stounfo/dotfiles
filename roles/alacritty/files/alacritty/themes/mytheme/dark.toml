@@ -1,12 +1,10 @@
 [colors.primary]
 background = "#1c1c1c"
 foreground = "#d4d4d4"
-bright_foreground = "#e4e4e4"
-dim_foreground = "#808080"
 
 [colors.cursor]
 text = "#1c1c1c"
-cursor = "#e6b450"
+cursor = "#5785b8"
 
 [colors.search.matches]
 background = "#174c4c"
@@ -49,44 +47,26 @@ white = "#808080"
 
 [colors]
 indexed_colors = [
-    { index = 160, color = "#da5757" },
     { index = 52, color = "#3e1619" },
-
-    { index = 34, color = "#7ed962" },
     { index = 22, color = "#3e522b" },
-
-    { index = 226, color = "#e6b450" },
     { index = 220, color = "#1b231c" },
-
-    { index = 33, color = "#5785b8" },
     { index = 18, color = "#1c3a5b" },
-
-    { index = 140, color = "#d2a6ff" },
     { index = 92, color = "#322c3e" },
-
-    { index = 43, color = "#95e6cb" },
     { index = 31, color = "#174c4c" },
 
     { index = 196, color = "#ff0000" },
 
-    { index = 234, color = "#1c1c1c" },
-    # lighter
-    { index = 235, color = "#252525" },
     { index = 236, color = "#3c3c3b" },
-    # darker
+    { index = 235, color = "#252525" },
+    { index = 234, color = "#1c1c1c" }, # default
     { index = 233, color = "#080808" },
     { index = 232, color = "#000000" },
-    # special
-    { index = 128, color = "#322c3e" },
+    { index = 128, color = "#1c3a5b" },
 
-
-    { index = 245, color = "#d4d4d4" },
-    # lighter
-    { index = 246, color = "#e4e4e4" },
     { index = 247, color = "#eeeeee" },
-    # darker
+    { index = 246, color = "#e4e4e4" },
+    { index = 245, color = "#d4d4d4" }, # default
     { index = 244, color = "#8a8a8a" },
     { index = 243, color = "#4e4e4e" },
-    # special
-    { index = 177, color = "#d2a6ff" },
+    { index = 177, color = "#5785b8" },
 ]
