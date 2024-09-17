@@ -4,7 +4,7 @@ foreground = "#cad3f5"
 
 [colors.cursor]
 text = "#24273a"
-cursor = "#eed49f"
+cursor = "#8aadf4"
 
 [colors.search.matches]
 background = "#455c6d"

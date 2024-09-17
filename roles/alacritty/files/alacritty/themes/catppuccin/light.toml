@@ -1,0 +1,72 @@
+[colors.primary]
+background = "#eff1f5"
+foreground = "#4d4f69"
+
+[colors.cursor]
+text = "#eff1f5"
+cursor = "#1c5bdc"
+
+[colors.search.matches]
+background = "#016b95"
+
+[colors.search.focused_match]
+background = "#e08097"
+
+[colors.selection]
+background = "#994c83"
+
+[colors.normal]
+black = "#5b6078"
+red = "#d20f39"
+green = "#2e741d"
+yellow = "#915b12"
+blue = "#1c5bdc"
+magenta = "#994c83"
+cyan = "#016b95"
+white = "#cad3f5"
+
+[colors.bright]
+black = "#9399b2"
+red = "#d20f39"
+green = "#2e741d"
+yellow = "#915b12"
+blue = "#1c5bdc"
+magenta = "#994c83"
+cyan = "#016b95"
+white = "#d8dff8"
+
+[colors.dim]
+black = "#999aa4"
+red = "#e08097"
+green = "#97c890"
+yellow = "#e6be89"
+blue = "#c6d0f5"
+magenta = "#ecb3e0"
+cyan = "#79cbed"
+white = "#9a9eab"
+
+[colors]
+indexed_colors = [
+  { index = 52, color = "#e08097" },
+  { index = 22, color = "#97c890" },
+  { index = 220, color = "#e6be89" },
+  { index = 18, color = "#c6d0f5" },
+  { index = 92, color = "#ecb3e0" },
+  { index = 31, color = "#79cbed" },
+
+  { index = 196, color = "#ff0000" },
+
+  { index = 236, color = "#cfd1da" },
+  { index = 235, color = "#e2e6ec" },
+  { index = 234, color = "#eff1f5" }, # default
+  { index = 233, color = "#f3f4f7" },
+  { index = 232, color = "#f9fafb" },
+  { index = 128, color = "#ecb3e0" },
+
+  { index = 247, color = "#282937" },
+  { index = 246, color = "#3c3e52" },
+  { index = 245, color = "#4d4f69" }, # default
+  { index = 244, color = "#6d6f85" },
+  { index = 243, color = "#a4a8b7" },
+  { index = 177, color = "#994c83" },
+]

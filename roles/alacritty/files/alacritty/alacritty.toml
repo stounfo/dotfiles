@@ -1,9 +1,10 @@
 import = [
     # "~/.config/alacritty/themes/catppuccin/dark.toml",
+    # "~/.config/alacritty/themes/catppuccin/light.toml",
     # "~/.config/alacritty/themes/gruvbox-material/dark.toml",
     # "~/.config/alacritty/themes/gruvbox-material/light.toml",
-    "~/.config/alacritty/themes/mytheme/dark.toml",
-    # "~/.config/alacritty/themes/mytheme/light.toml",
+    # "~/.config/alacritty/themes/mytheme/dark.toml",
+    "~/.config/alacritty/themes/mytheme/light.toml",
 ]
 
 [env]
