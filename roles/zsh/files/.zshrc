@@ -81,9 +81,8 @@ alias drma="docker ps -a -q | xargs docker rm"
 alias tkas="tmux kill-session -a"
 
 alias n="nvim"
-alias nvimdb="nvim +DBUI"
-alias ndb="nvimdb"
 
+alias t="tmux"
 
 # == keybindings ==
 # zsh-autosuggestions
