@@ -9,9 +9,6 @@ dependencies:
   - role: npm
 
 
-  - role: fonts
-
-
   - role: ripgrep
 
 

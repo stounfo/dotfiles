@@ -26,32 +26,51 @@ deps_install_ansible: ## Install ansible using python in ./tmp directory
 
 TAGS ?= all
 SKIP_TAGS ?=
-# Function to check command existence
-cmd_exists = $(or $(shell which $1 2>/dev/null),$(shell [ -x $2 ] && echo $2))
 # Select ansible-galaxy and ansible-playbook based on the ANSIBLE_PATH variable
 ANSIBLE_PATH ?= auto
-ifeq ($(ANSIBLE_PATH),global)
-  ANSIBLE_GALAXY := $(shell which ansible-galaxy 2>/dev/null)
-  ANSIBLE_PLAYBOOK := $(shell which ansible-playbook 2>/dev/null)
-else ifeq ($(ANSIBLE_PATH),local)
-  ANSIBLE_GALAXY := $(shell [ -x ./tmp/bin/ansible-galaxy ] && echo ./tmp/bin/ansible-galaxy)
-  ANSIBLE_PLAYBOOK := $(shell [ -x ./tmp/bin/ansible-playbook ] && echo ./tmp/bin/ansible-playbook)
-else
-  ANSIBLE_GALAXY := $(call cmd_exists,ansible-galaxy,./tmp/bin/ansible-galaxy)
-  ANSIBLE_PLAYBOOK := $(call cmd_exists,ansible-playbook,./tmp/bin/ansible-playbook)
-endif
-# Construct the ansible-playbook command with tags and skip-tags
-PLAYBOOK_CMD := $(ANSIBLE_PLAYBOOK) playbook.yaml --tags "$(TAGS)"
-ifneq ($(SKIP_TAGS),)
-  PLAYBOOK_CMD += --skip-tags "$(SKIP_TAGS)"
-endif
-.PHONY: dots_install
-dots_install: ## Install applications and setup dotfiles
-ifndef ANSIBLE_GALAXY
-	$(error "ansible-galaxy is not installed or not found in specified path")
-endif
-ifndef ANSIBLE_PLAYBOOK
-	$(error "ansible-playbook is not installed or not found in specified path")
-endif
-	@$(ANSIBLE_GALAXY) collection install geerlingguy.mac
-	@$(PLAYBOOK_CMD)
+PHONY: dots_install
+dots_install:
+	@TAGS="${TAGS}"; \
+	export PATH="/opt/homebrew/bin:$$PATH" \
+	SKIP_TAGS="${SKIP_TAGS}"; \
+	ANSIBLE_PATH="${ANSIBLE_PATH}"; \
+	\
+	cmd_exists() { \
+	    if which "$$1" >/dev/null 2>&1; then \
+	        which "$$1"; \
+	    elif test -x "$$2"; then \
+	        echo "$$2"; \
+	    else \
+	        echo "none"; \
+	    fi; \
+	}; \
+	if [ "$$ANSIBLE_PATH" = "global" ]; then \
+	    ANSIBLE_GALAXY=$$(which ansible-galaxy 2>/dev/null || echo "none"); \
+	    ANSIBLE_PLAYBOOK=$$(which ansible-playbook 2>/dev/null || echo "none"); \
+	elif [ "$$ANSIBLE_PATH" = "local" ]; then \
+		ANSIBLE_GALAXY="./tmp/bin/ansible-galaxy"; \
+		ANSIBLE_PLAYBOOK="./tmp/bin/ansible-playbook"; \
+		if [ ! -x "$$ANSIBLE_GALAXY" ]; then ANSIBLE_GALAXY="none"; fi; \
+		if [ ! -x "$$ANSIBLE_PLAYBOOK" ]; then ANSIBLE_PLAYBOOK="none"; fi; \
+	else \
+	    ANSIBLE_GALAXY=$$(cmd_exists ansible-galaxy ./tmp/bin/ansible-galaxy); \
+	    ANSIBLE_PLAYBOOK=$$(cmd_exists ansible-playbook ./tmp/bin/ansible-playbook); \
+	fi; \
+	\
+	if [ "$$ANSIBLE_GALAXY" = "none" ]; then \
+	    echo "Error: ansible-galaxy is not installed or not found in specified path" >&2; \
+	    exit 1; \
+	fi; \
+	if [ "$$ANSIBLE_PLAYBOOK" = "none" ]; then \
+	    echo "Error: ansible-playbook is not installed or not found in specified path" >&2; \
+	    exit 1; \
+	fi; \
+	\
+	PLAYBOOK_CMD="$$ANSIBLE_PLAYBOOK playbook.yaml --tags '$$TAGS'"; \
+	if [ -n "$$SKIP_TAGS" ]; then \
+	    PLAYBOOK_CMD="$$PLAYBOOK_CMD --skip-tags '$$SKIP_TAGS'"; \
+	fi; \
+	\
+	$$ANSIBLE_GALAXY collection install geerlingguy.mac; \
+	\
+	eval "$$PLAYBOOK_CMD"

@@ -83,10 +83,6 @@
     - role: bat
       tags: bat
 
-    - role: dockutil
-      tags: dockutil
-      when: is_macos
-
     - role: postman
       tags: postman
 
@@ -140,3 +136,13 @@
 
     - role: typos
       tags: typos
+
+    - role: slack
+      tags: slack
+
+    - role: uv
+      tags: uv
+
+    - role: dockutil
+      tags: dockutil
+      when: is_macos

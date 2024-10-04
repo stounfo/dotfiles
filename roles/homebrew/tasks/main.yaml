@@ -1,4 +1,6 @@
 - name: Install homebrew
+  vars:
+    ANSIBLE_SSH_PIPELINING: 0
   import_role:
     name: geerlingguy.mac.homebrew
   when: not homebrew_role_completed|d(false)
@@ -16,4 +18,4 @@
 
 - name: Set homebrew_role_completed true
   set_fact:
-    homebrew_role_completed:  true
+    homebrew_role_completed: true

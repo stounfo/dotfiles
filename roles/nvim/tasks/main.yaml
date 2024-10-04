@@ -15,4 +15,3 @@
   git:
     repo: "https://github.com/stounfo/nvim"
     dest: "{{ xdg_config_home_path }}/nvim"
-    depth: 1
