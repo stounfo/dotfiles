@@ -1,0 +1,4 @@
+- name: Install speedtest-cli
+  package:
+    name: speedtest-cli
+    state: latest

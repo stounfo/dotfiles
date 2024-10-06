@@ -140,6 +140,9 @@
     - role: rust
       tags: rust
 
+    - role: speedtest-cli
+      tags: speedtest-cli
+
     - role: dockutil
       tags: dockutil
       when: is_macos
