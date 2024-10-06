@@ -60,7 +60,7 @@ export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
 export RIPGREP_CONFIG_PATH="$HOME/.config/.ripgreprc"
 
 # psql setup
-export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+export PATH="$PATH:/opt/homebrew/opt/libpq/bin"
 
 
 # == Aliases ==
@@ -83,6 +83,7 @@ alias tkas="tmux kill-session -a"
 alias n="nvim"
 
 alias t="tmux"
+
 
 # == keybindings ==
 # zsh-autosuggestions

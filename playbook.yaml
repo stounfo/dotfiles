@@ -128,12 +128,6 @@
     - role: chatgpt
       tags: chatgpt
 
-    - role: txc
-      tags: txc
-
-    - role: mylsp
-      tags: mylsp
-
     - role: typos
       tags: typos
 
@@ -142,6 +136,9 @@
 
     - role: uv
       tags: uv
+
+    - role: rust
+      tags: rust
 
     - role: dockutil
       tags: dockutil
