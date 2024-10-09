@@ -85,6 +85,14 @@ alias n="nvim"
 alias t="tmux"
 
 
+# == Functions ==
+gitpreview() {
+    local url="$1"
+    local repo_name="$(basename -s .git "$url")"
+    git clone "$url" "/tmp/$repo_name" && cd "/tmp/$repo_name"
+}
+
+
 # == keybindings ==
 # zsh-autosuggestions
 bindkey '^l' autosuggest-accept # Ctrl + L
