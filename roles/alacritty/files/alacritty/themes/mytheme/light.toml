@@ -1,9 +1,9 @@
 [colors.primary]
-background = "#f8f9fa"
+background = "#ffffff"
 foreground = "#515151"
 
 [colors.cursor]
-text = "#f8f9fa"
+text = "#ffffff"
 cursor = "#365ec1"
 
 [colors.search.matches]
@@ -56,9 +56,9 @@ indexed_colors = [
 
     { index = 196, color = "#ff0000" },
 
-    { index = 236, color = "#d2d4d7" },
-    { index = 235, color = "#f0f1f2" },
-    { index = 234, color = "#f8f9fa" }, # default
+    { index = 236, color = "#d6d8db" },
+    { index = 235, color = "#f7f8f8" },
+    { index = 234, color = "#ffffff" }, # default
     { index = 233, color = "#fcfdfd" },
     { index = 232, color = "#fefefe" },
     { index = 128, color = "#e9ddf7" },
@@ -67,6 +67,6 @@ indexed_colors = [
     { index = 246, color = "#4a505a" },
     { index = 245, color = "#515151" }, # default
     { index = 244, color = "#7f7f7f" },
-    { index = 243, color = "#adb4ba" },
+    { index = 243, color = "#a5adb3" },
     { index = 177, color = "#7a3e9d" },
 ]
