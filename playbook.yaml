@@ -62,9 +62,6 @@
     - role: starship
       tags: starship
 
-    - role: obsidian
-      tags: obsidian
-
     - role: git-delta
       tags: git-delta
 

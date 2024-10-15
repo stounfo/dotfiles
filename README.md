@@ -1,4 +1,5 @@
 If you are stounfo or understand what you are doing, run:
+
 ```bash
 make all
 ```
@@ -10,7 +11,8 @@ make all
 3. Save files from the Downloads directory on the old system
 4. Start your computer in macOS Recovery
 5. Erase the old macOS volume and format it using APFS (Case-sensitive)
-6. Install macOS, set the region to USA, and carefully configure all other settings
+6. Install macOS, set the region to USA, and carefully configure all other
+   settings
 7. Enable Desktop iCloud sync
 8. Update macOS
 9. Run the command: `xcode-select --install`
@@ -18,8 +20,13 @@ make all
 11. Install your dotfiles.
 12. Log in to all email accounts.
 13. Swap Caps Lock with Control and remap Control to Escape.
-14. Change Command + Space from Spotlight to Raycast and set Option + Space for Spotlight.
-15. Add favorite folders to Finder.
-16. Change the tab layout to compact in Safari.
-17. Set up widgets in the Notification Center (use layout from your iPhone).
-18. Run sudo spctl --global-disable to allow apps from anywhere in Security preferences.
+14. Turn off brightness.
+15. Change Command + Space from Spotlight to Raycast and set Option + Space for
+    Spotlight.
+16. Add favorite folders to Finder.
+17. Change the tab layout to compact in Safari.
+18. Set up widgets in the Notification Center (use layout from your iPhone).
+19. Run sudo spctl --global-disable to allow apps from anywhere in Security
+    preferences.
+20. Return the .ssh directory and .zsh_history file to their places.
+21. Change the wallpaper.

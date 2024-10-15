@@ -1,8 +1,4 @@
 dependencies:
-  - role: git
-
-
   - role: starship
-
 
   - role: zoxide
