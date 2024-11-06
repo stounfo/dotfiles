@@ -140,6 +140,9 @@
     - role: speedtest-cli
       tags: speedtest-cli
 
+    - role: adguard
+      tags: adguard
+
     - role: dockutil
       tags: dockutil
       when: is_macos
