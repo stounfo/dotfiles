@@ -1,5 +1,0 @@
-- name: Install adguard
-  community.general.homebrew_cask:
-    name: adguard
-    state: latest
-    install_options: force

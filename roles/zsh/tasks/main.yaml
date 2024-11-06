@@ -16,7 +16,7 @@
       - "https://github.com/zsh-users/zsh-autosuggestions.git"
       - "https://github.com/Aloxaf/fzf-tab.git"
       - "https://github.com/MichaelAquilina/zsh-you-should-use.git"
-
+    
 
 - name: Download plugins
   git:
