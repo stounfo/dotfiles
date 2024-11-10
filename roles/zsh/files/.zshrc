@@ -28,9 +28,6 @@ source $ZSH/oh-my-zsh.sh
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 
-# mise setup
-eval "$(mise activate zsh)"
-
 # Starship setup
 eval "$(starship init zsh)"
 
