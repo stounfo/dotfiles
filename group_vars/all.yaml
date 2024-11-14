@@ -5,6 +5,7 @@ current_dir: "{{ lookup('env', 'PWD') }}"
 role_files_path: "{{ role_path }}/files"
 tmp_files_path: "{{ current_dir }}/tmp"
 backups_path: "{{ tmp_files_path }}/backups"
+user_specific_executables_path: "/usr/local/bin"
 
 is_macos: "{{ ansible_os_family == 'Darwin' }}"
 is_linux: "{{ not is_macos }}"

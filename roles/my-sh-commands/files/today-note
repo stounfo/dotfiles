@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# Get today's date in YYYY-MM-DD format
+today=$(date +"%Y-%m-%d")
+
+# Call the main script with today's date
+daily-note "$today"

@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Get tomorrow's date in YYYY-MM-DD format
+if [[ "$(uname)" == "Darwin" ]]; then
+  # macOS syntax
+  tomorrow=$(date -v+1d +"%Y-%m-%d")
+else
+  # Linux syntax
+  tomorrow=$(date -d "+1 day" +"%Y-%m-%d")
+fi
+
+# Call the main script with tomorrow's date
+daily-note "$tomorrow"

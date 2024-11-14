@@ -1,0 +1,45 @@
+#!/bin/bash
+
+# Hardcoded directory path
+output_dir="$HOME/Desktop/notes/daily"
+
+# Check if a date argument is provided
+if [ -z "$1" ]; then
+  echo "Error: No date specified. Please provide a date in YYYY-MM-DD format."
+  exit 1
+else
+  specified_date="$1"
+fi
+
+# Define the output file path
+output_file="$output_dir/${specified_date}.md"
+
+# Check if the file already exists
+if [ ! -f "$output_file" ]; then
+  # Create the Markdown file with the specified content
+  cat <<EOF > "$output_file"
+---
+date: $specified_date
+---
+
+# $specified_date
+
+## Habits Tracker
+
+-   [ ] Morning pill intake
+-   [ ] Exercise
+-   [ ] Guitar practice
+-   [ ] Book reading
+-   [ ] Note taking
+-   [ ] Bedtime pill intake
+
+## Today tasks
+
+
+
+## Notes
+EOF
+fi
+
+# Open the file with the default editor, falling back to nvim if $EDITOR is unset
+"${EDITOR:-nvim}" "$output_file"

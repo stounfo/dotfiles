@@ -1,0 +1,33 @@
+- name: Set sh_commands_files
+  set_fact:
+    sh_commands_files:
+      - "daily-note"
+      - "today-note"
+      - "tomorrow-note"
+
+
+- name: Ensure sh command files are executable
+  file:
+    path: "{{ role_files_path }}/{{ item }}"
+    mode: '0755'
+    state: file
+  loop: "{{ sh_commands_files }}"
+  become: true
+
+
+- name: Backup previous sh commands
+  include_role:
+    name: backup_config
+  vars:
+    config_src_path: "{{ user_specific_executables_path }}/{{ item }}"
+  loop:
+    - "{{ sh_commands_files }}"
+
+
+- name: Symlink sh commands
+  file:
+    src: "{{ role_files_path }}/{{ item }}"
+    dest: "{{ user_specific_executables_path }}/{{ item }}"
+    state: link
+  loop: "{{ sh_commands_files }}"
+  become: yes
