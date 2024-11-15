@@ -1,4 +1,4 @@
-import = [
+general.import = [
     # "~/.config/alacritty/themes/catppuccin/dark.toml",
     # "~/.config/alacritty/themes/catppuccin/light.toml",
     # "~/.config/alacritty/themes/gruvbox-material/dark.toml",
