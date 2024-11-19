@@ -140,6 +140,9 @@
     - role: my-sh-commands
       tags: my-sh-commands
 
+    - role: chafa
+      tags: chafa
+
     - role: dockutil
       tags: dockutil
       when: is_macos

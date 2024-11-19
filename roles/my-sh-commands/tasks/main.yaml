@@ -2,8 +2,9 @@
   set_fact:
     sh_commands_files:
       - "daily-note"
-      - "today-note"
-      - "tomorrow-note"
+      - "today"
+      - "tomorrow"
+      - "yesterday"
 
 
 - name: Ensure sh command files are executable

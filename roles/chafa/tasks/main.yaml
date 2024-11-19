@@ -1,0 +1,4 @@
+- name: Install chafa
+  package:
+    name: chafa
+    state: latest
