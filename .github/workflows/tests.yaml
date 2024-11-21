@@ -1,9 +1,9 @@
 name: tests
 on:
   push:
-    branches: [ main ]
+    branches: $default-branch
   pull_request:
-    branches: [ main ]
+    branches: $default-branch
 jobs:
   test_dotfiles:
     runs-on: ${{ matrix.os }}
