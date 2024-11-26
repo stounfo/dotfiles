@@ -4,6 +4,7 @@ defaults write -g AppleTemperatureUnit -string Celsius
 defaults write NSGlobalDomain AppleMeasurementUnits -string "Centimeters"
 
 ### Dock ###
+defaults write com.apple.dock autohide -bool true
 defaults write com.apple.dock show-recents -bool false
 
 defaults write com.apple.dock tilesize -int 128
