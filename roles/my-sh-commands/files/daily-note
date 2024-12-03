@@ -11,8 +11,18 @@ else
   specified_date="$1"
 fi
 
+# Calculate the weekday
+if [[ "$(uname)" == "Darwin" ]]; then
+    weekday=$(date -j -f "%Y-%m-%d" "$specified_date" "+%A")
+else
+    weekday=$(date -d "$specified_date" '+%A')
+fi
+
+# Convert the weekday to lowercase
+weekday_lower=$(echo "$weekday" | tr '[:upper:]' '[:lower:]')
+
 # Define the output file path
-output_file="$output_dir/${specified_date}.md"
+output_file="$output_dir/${specified_date}-$weekday_lower.md"
 
 # Check if the file already exists
 if [ ! -f "$output_file" ]; then
@@ -22,11 +32,10 @@ if [ ! -f "$output_file" ]; then
 date: $specified_date
 ---
 
-# $specified_date
+# $specified_date $weekday
 
 ## Habit Tracker
 
--   [ ] Pill intake
 -   [ ] Exercise
 -   [ ] Personal programming
 -   [ ] Reading
