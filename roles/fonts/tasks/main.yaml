@@ -1,11 +1,12 @@
 - name: Set font urls
   set_fact:
     font_urls:
-      - "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/FiraMono.zip"
-      - "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/FiraCode.zip"
-      - "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/JetBrainsMono.zip"
-      - "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/MartianMono.zip"
-      - "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/ZedMono.zip"
+      - "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/FiraMono.zip"
+      - "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/FiraCode.zip"
+      - "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/JetBrainsMono.zip"
+      - "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/MartianMono.zip"
+      - "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/ZedMono.zip"
+      - "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/IosevkaTerm.zip"
 
 - name: Ensure font temp dir exists
   file:

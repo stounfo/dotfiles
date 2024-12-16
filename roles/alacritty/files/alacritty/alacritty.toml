@@ -34,6 +34,7 @@ glyph_offset.y = 4
 # family = "JetBrainsMono NF"
 # family = "MartianMono NF"
 family = "ZedMono NF Extd"
+# family = "IosevkaTerm Nerd Font"
 
 [colors]
 draw_bold_text_with_bright_colors = true
