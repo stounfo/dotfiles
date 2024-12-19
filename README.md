@@ -13,20 +13,19 @@ make all
 5. Erase the old macOS volume and format it using APFS (Case-sensitive)
 6. Install macOS, set the region to USA, and carefully configure all other
    settings
-7. Enable Desktop iCloud sync
-8. Update macOS
-9. Run the command: `xcode-select --install`
-10. Run `source macos.sh && sudo reboot`
-11. Install your dotfiles.
-12. Log in to all email accounts.
-13. Swap Caps Lock with Control and remap Control to Escape.
-14. Turn off brightness.
-15. Change Command + Space from Spotlight to Raycast and set Option + Space for
+7. Update macOS
+8. Run the command: `xcode-select --install`
+9. Run `source macos.sh && sudo reboot`
+10. Install your dotfiles.
+11. Log in to all email accounts.
+12. Swap Caps Lock with Control and remap Control to Escape.
+13. Turn off brightness.
+14. Change Command + Space from Spotlight to Raycast and set Option + Space for
     Spotlight.
-16. Add favorite folders to Finder.
-17. Change the tab layout to compact in Safari.
-18. Set up widgets in the Notification Center (use layout from your iPhone).
-19. Run sudo spctl --global-disable to allow apps from anywhere in Security
+15. Add favorite folders to Finder.
+16. Change the tab layout to compact in Safari.
+17. Set up widgets in the Notification Center (use layout from your iPhone).
+18. Run sudo spctl --global-disable to allow apps from anywhere in Security
     preferences.
-20. Return the .ssh directory and .zsh_history file to their places.
-21. Change the wallpaper.
+19. Return the .ssh directory and .zsh_history file to their places.
+20. Change the wallpaper.
