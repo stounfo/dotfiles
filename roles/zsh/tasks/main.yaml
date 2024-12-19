@@ -1,13 +1,3 @@
-- name: Download oh-my-zsh installation script
-  get_url:
-    url: "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh"
-    dest: "{{ tmp_files_path }}/install_ohmyzsh.sh"
-    mode: '0755'
-
-
-- name: Execute the oh-my-zsh installation script
-  shell: "{{ tmp_files_path }}/install_ohmyzsh.sh &"
-
 - name: Set plugins urls
   set_fact:
     plugins_urls:
@@ -21,7 +11,7 @@
 - name: Download plugins
   git:
     repo: "{{ item }}"
-    dest: "{{ home_path }}/.oh-my-zsh/custom/plugins/{{ (item | urlsplit('path') | basename) | regex_replace('.git$', '') }}"
+    dest: "{{ xdg_data_home_path }}/zsh/plugins/{{ (item | urlsplit('path') | basename) | regex_replace('.git$', '') }}"
     depth: 1
   loop: "{{ plugins_urls }}"
 

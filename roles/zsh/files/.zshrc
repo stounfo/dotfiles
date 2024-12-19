@@ -1,26 +1,19 @@
-# Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
-
-ENABLE_CORRECTION="false"
-COMPLETION_WAITING_DOTS="true"
-
-
-# == zsh-vi-mode fixes ==
-# Fix keybindings problems with another plugins
+# == Fixes ==
+# Fix zsh-vi-mode keybindings problems with another plugins
 export ZVM_INIT_MODE=sourcing
+
+# Fix fzf-tab keybindings
+autoload -U compinit; compinit
 
 
 # == Plugins ==
-plugins=()
-plugins+=(git)
-plugins+=(docker)
-plugins+=(zsh-syntax-highlighting)
-plugins+=(zsh-autosuggestions)
-plugins+=(zsh-vi-mode)
-plugins+=(fzf-tab)
-plugins+=(zsh-you-should-use)
+export ZSH_PLUGINS_DIR="$HOME/.local/share/zsh/plugins"
 
-source $ZSH/oh-my-zsh.sh
+source "$ZSH_PLUGINS_DIR/fzf-tab/fzf-tab.zsh"
+source "$ZSH_PLUGINS_DIR/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+source "$ZSH_PLUGINS_DIR/zsh-autosuggestions/zsh-autosuggestions.zsh"
+source "$ZSH_PLUGINS_DIR/zsh-vi-mode/zsh-vi-mode.zsh"
+source "$ZSH_PLUGINS_DIR/zsh-you-should-use/zsh-you-should-use.plugin.zsh"
 
 
 # == Setups ==
@@ -67,20 +60,20 @@ alias cd3="cd ../../../"
 alias cd4="cd ../../../../"
 alias cd5="cd ../../../../../"
 
-alias tree='tree -I ".git|venv"'
+alias la="ls -la"
+
+alias n="nvim"
+
+alias g="git"
+
+alias t="tmux"
+alias tkas="tmux kill-session -a"
 
 alias d="docker"
 alias dps="docker ps"
 alias dpsa="docker ps -a"
 alias dsta="docker ps -q | xargs docker stop"
 alias drma="docker ps -a -q | xargs docker rm"
-
-alias tkas="tmux kill-session -a"
-
-alias n="nvim"
-
-alias t="tmux"
-
 
 # == Functions ==
 gitpreview() {
@@ -90,6 +83,6 @@ gitpreview() {
 }
 
 
-# == keybindings ==
+# == Keybindings ==
 # zsh-autosuggestions
 bindkey '^l' autosuggest-accept # Ctrl + L
