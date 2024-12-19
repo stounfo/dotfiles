@@ -141,7 +141,10 @@
       tags: my-sh-commands
 
     - role: chafa
-      tags: chafa
+    - role: chafa
+
+    - role: fd
+      tags: fd
 
     - role: dockutil
       tags: dockutil

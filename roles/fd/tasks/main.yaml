@@ -1,0 +1,4 @@
+- name: Install fd
+  package:
+    name: fd
+    state: latest
