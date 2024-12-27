@@ -75,6 +75,8 @@ alias dpsa="docker ps -a"
 alias dsta="docker ps -q | xargs docker stop"
 alias drma="docker ps -a -q | xargs docker rm"
 
+alias history="history 0"
+
 # == Functions ==
 gitpreview() {
     local url="$1"
