@@ -29,12 +29,11 @@ offset.y = 10
 glyph_offset.y = 4
 
 [font.normal]
-# family = "FiraMono Nerd Font"
-# family = "FiraCode Nerd Font"
 # family = "JetBrainsMono NF"
 # family = "MartianMono NF"
-family = "ZedMono NF Extd"
+# family = "ZedMono NF Extd"
 # family = "IosevkaTerm Nerd Font"
+family = "BlexMono Nerd Font Mono"
 
 [colors]
 draw_bold_text_with_bright_colors = true

@@ -146,6 +146,9 @@
     - role: fd
       tags: fd
 
+    - role: ghostty
+      tags: ghostty
+
     - role: dockutil
       tags: dockutil
       when: is_macos

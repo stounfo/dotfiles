@@ -1,0 +1,52 @@
+background = #ffffff
+foreground = #515151
+
+cursor-color = #365ec1
+selection-background = #dae3f7
+selection-foreground = #515151
+
+# main
+palette = 0=#7f7f7f
+palette = 1=#bd1e0c
+palette = 2=#42933e
+palette = 3=#845d00
+palette = 4=#365ec1
+palette = 5=#7a3e9d
+palette = 6=#2c7960
+palette = 7=#515151
+
+palette = 8=#c3c8cc
+palette = 9=#bd1e0c
+palette = 10=#42933e
+palette = 11=#845d00
+palette = 12=#365ec1
+palette = 13=#7a3e9d
+palette = 14=#2c7960
+palette = 15=#4a505a
+
+# color text
+palette = 52=#f0b2b4
+palette = 22=#dce8ca
+palette = 220=#cbbb9f
+palette = 18=#dae3f7
+palette = 92=#e9ddf7
+palette = 31=#9fdac6
+
+# debug
+palette = 196=#ff0000
+
+# background
+palette = 236=#d6d8db
+palette = 235=#f7f8f8
+palette = 234=#ffffff
+palette = 233=#fcfdfd
+palette = 232=#fefefe
+palette = 128=#e9ddf7
+
+# foreground
+palette = 247=#1e222a
+palette = 246=#4a505a
+palette = 245=#515151
+palette = 244=#7f7f7f
+palette = 243=#a5adb3
+palette = 177=#7a3e9d

@@ -1,0 +1,17 @@
+theme = dark:mytheme-dark,light:mytheme-light
+
+# font-family = "JetBrainsMono NF"
+# font-family = "MartianMono NF"
+# font-family = "ZedMono NF Extd"
+# font-family = "IosevkaTerm Nerd Font"
+font-family = "BlexMono Nerd Font Mono"
+
+font-size = 16
+adjust-cell-height = 10
+font-feature = -calt
+font-feature = -liga
+font-feature = -dlig
+font-thicken = true
+
+confirm-close-surface = false
+mouse-hide-while-typing = true
