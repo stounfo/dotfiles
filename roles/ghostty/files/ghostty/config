@@ -14,5 +14,10 @@ font-feature = -calt
 font-feature = -liga
 font-feature = -dlig
 
+title = " "
+macos-titlebar-proxy-icon = hidden
+window-width = 90
+window-height = 30
+
 confirm-close-surface = false
 mouse-hide-while-typing = true
