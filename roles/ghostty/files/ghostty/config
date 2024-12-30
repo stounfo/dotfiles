@@ -8,10 +8,11 @@ font-family = "BlexMono Nerd Font Mono"
 
 font-size = 16
 adjust-cell-height = 10
+font-thicken = true
+# turn off ligatures
 font-feature = -calt
 font-feature = -liga
 font-feature = -dlig
-font-thicken = true
 
 confirm-close-surface = false
 mouse-hide-while-typing = true

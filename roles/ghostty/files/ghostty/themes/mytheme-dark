@@ -36,16 +36,12 @@ palette = 31=#174c4c
 palette = 196=#ff0000
 
 # background
-palette = 236=#3c3c3b
-palette = 235=#252525
 palette = 234=#1c1c1c
-palette = 233=#080808
-palette = 232=#000000
+palette = 235=#252525
+palette = 236=#3c3c3b
 palette = 128=#322c3e
 
 # foreground
-palette = 247=#eeeeee
-palette = 246=#e4e4e4
 palette = 245=#d4d4d4
 palette = 244=#8a8a8a
 palette = 243=#4e4e4e
