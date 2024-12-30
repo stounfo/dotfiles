@@ -14,9 +14,6 @@
     - role: chrome
       tags: chrome
 
-    - role: alacritty
-      tags: alacritty
-
     - role: tmux
       tags: tmux
 
