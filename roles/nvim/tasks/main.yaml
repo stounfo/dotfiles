@@ -13,5 +13,5 @@
 
 - name: Download nvim config
   git:
-    repo: "https://github.com/stounfo/nvim"
+    repo: "git@github.com:stounfo/nvim.git"
     dest: "{{ xdg_config_home_path }}/nvim"

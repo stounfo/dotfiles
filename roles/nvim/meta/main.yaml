@@ -2,14 +2,10 @@ dependencies:
   - role: homebrew
     when: is_macos
 
-
   - role: git
-
 
   - role: npm
 
-
   - role: ripgrep
-
 
   - role: fzf
