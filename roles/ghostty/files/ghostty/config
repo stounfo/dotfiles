@@ -7,7 +7,7 @@ theme = dark:mytheme-dark,light:mytheme-light
 font-family = "BlexMono Nerd Font Mono"
 
 font-size = 16
-adjust-cell-height = 10
+adjust-cell-height = 23%
 font-thicken = true
 # turn off ligatures
 font-feature = -calt
