@@ -52,6 +52,10 @@ export RIPGREP_CONFIG_PATH="$HOME/.config/.ripgreprc"
 # psql setup
 export PATH="$PATH:/opt/homebrew/opt/libpq/bin"
 
+# history setup
+HISTSIZE=50000
+SAVEHIST=$HISTSIZE
+
 
 # == Aliases ==
 alias cd1="cd .."
