@@ -5,6 +5,9 @@
     name: geerlingguy.mac.homebrew
   when: not homebrew_role_completed|d(false)
 
+- name: Update homebrew formulas
+  command: /opt/homebrew/bin/brew update
+  when: not homebrew_role_completed|d(false)
 
 - name: Ensure .zprofile contains Homebrew shellenv
   lineinfile:
@@ -14,7 +17,6 @@
     create: yes
     insertafter: EOF
   when: not homebrew_role_completed|d(false)
-
 
 - name: Set homebrew_role_completed true
   set_fact:
