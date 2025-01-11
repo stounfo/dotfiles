@@ -12,6 +12,9 @@
 [commit]
     gpgSign = true
 
+[pull]
+	ff = only
+
 [core]
     pager = delta
     excludesfile = ~/.gitignore

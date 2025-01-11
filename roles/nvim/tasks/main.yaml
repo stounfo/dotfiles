@@ -3,15 +3,20 @@
     name: nvim
     state: latest
 
-
 - name: Backup previous nvim config
   include_role:
     name: backup_config
   vars:
     config_src_path: "{{ xdg_config_home_path }}/nvim"
 
-
 - name: Download nvim config
   git:
-    repo: "git@github.com:stounfo/nvim.git"
+    repo: "https://github.com/stounfo/nvim.git"
     dest: "{{ xdg_config_home_path }}/nvim"
+
+- name: Change origin to ssh
+  git_config:
+    scope: "local"
+    repo: "{{ xdg_config_home_path }}/nvim"
+    name: "remote.origin.url"
+    value: "git@github.com:stounfo/nvim.git"
