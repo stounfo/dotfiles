@@ -16,10 +16,10 @@ make all
 7. Update macOS
 8. Run the command: `xcode-select --install`
 9. Run `source macos.sh && sudo reboot`
-10. Install your dotfiles.
+10. Install dotfiles.
 11. Log in to all email accounts.
 12. Swap Caps Lock with Control and remap Control to Escape.
-13. Turn off brightness.
+13. Turn off keyboard brightness.
 14. Change Command + Space from Spotlight to Raycast and set Option + Space for
     Spotlight.
 15. Add favorite folders to Finder.

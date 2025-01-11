@@ -3,23 +3,19 @@ help: ## Show this help
 	@egrep -h '\s##\s' $(MAKEFILE_LIST) |  awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}'
 
 
-.PHONY: all
 all: deps_install_all dots_install ## Install all dependencies and execute all Ansible tasks
 
 
-.PHONY: deps_install_all
 deps_install_all: deps_install_python deps_install_ansible ## Install all dependencies
 
 
 python_version="3.13.0"
-.PHONY: deps_install_python
 deps_install_python: ## Install python to ./tmp directory
 	@git clone https://github.com/pyenv/pyenv.git ./tmp/pyenv; \
 	./tmp/pyenv/plugins/python-build/bin/python-build $(python_version) ./tmp;
 
 
 ansible_version="8.5.0"
-.PHONY: deps_install_ansible
 deps_install_ansible: ## Install ansible using python in ./tmp directory
 	@./tmp/bin/python -m pip install ansible==${ansible_version}
 
@@ -28,7 +24,6 @@ TAGS ?= all
 SKIP_TAGS ?=
 # Select ansible-galaxy and ansible-playbook based on the ANSIBLE_PATH variable
 ANSIBLE_PATH ?= auto
-PHONY: dots_install
 dots_install:
 	@TAGS="${TAGS}"; \
 	export PATH="/opt/homebrew/bin:$$PATH" \

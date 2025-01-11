@@ -2,7 +2,6 @@ theme = dark:mytheme-dark,light:mytheme-light
 
 # font-family = "JetBrainsMono NF"
 # font-family = "MartianMono NF"
-# font-family = "ZedMono NF Extd"
 # font-family = "IosevkaTerm Nerd Font"
 font-family = "BlexMono Nerd Font"
 
