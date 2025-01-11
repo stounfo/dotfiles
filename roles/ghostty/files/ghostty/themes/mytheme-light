@@ -6,25 +6,25 @@ selection-background = #dae3f7
 selection-foreground = #333333
 
 # main
-palette = 0=#9da39a
+palette = 0=#f5f5f5
 palette = 1=#aa3732
 palette = 2=#438c27
 palette = 3=#845d00
 palette = 4=#325cc0
 palette = 5=#7a3e9d
 palette = 6=#2c7960
-palette = 7=#333333
+palette = 7=#606060
 
-palette = 8=#606060
+palette = 8=#9da39a
 palette = 9=#aa3732
 palette = 10=#438c27
 palette = 11=#845d00
 palette = 12=#325cc0
 palette = 13=#7a3e9d
 palette = 14=#2c7960
-palette = 15=#4a505a
+palette = 15=#333333
 
-# color text
+# dim colors
 palette = 52=#f0b2b4
 palette = 22=#dce8ca
 palette = 220=#cbbb9f
@@ -32,15 +32,6 @@ palette = 18=#dae3f7
 palette = 92=#e9ddf7
 palette = 31=#9fdac6
 
-# debug
-palette = 196=#ff0000
-
 # background
-palette = 234=#f5f5f5
 palette = 235=#ececec
 palette = 236=#cacaca
-
-# foreground
-palette = 245=#333333
-palette = 244=#606060
-palette = 243=#9da39a
