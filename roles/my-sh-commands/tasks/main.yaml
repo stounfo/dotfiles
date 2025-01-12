@@ -5,6 +5,13 @@
       - "today"
       - "tomorrow"
       - "yesterday"
+      - "monday"
+      - "tuesday"
+      - "wednesday"
+      - "thursday"
+      - "friday"
+      - "saturday"
+      - "sunday"
 
 
 - name: Ensure sh command files are executable

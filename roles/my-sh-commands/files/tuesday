@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Determine the next Monday
+if [[ "$(uname)" == "Darwin" ]]; then
+    specified_date=$(date -j -v+tuesday "+%Y-%m-%d" 2>/dev/null)
+else
+    specified_date=$(date -d "next tuesday" "+%Y-%m-%d")
+fi
+
+# Call the daily-note script
+daily-note "$specified_date"

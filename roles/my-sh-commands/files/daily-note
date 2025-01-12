@@ -11,11 +11,13 @@ else
   specified_date="$1"
 fi
 
-# Calculate the weekday
+# Calculate the weekday and human-readable date
 if [[ "$(uname)" == "Darwin" ]]; then
     weekday=$(date -j -f "%Y-%m-%d" "$specified_date" "+%A")
+    first_header=$(date -j -f "%Y-%m-%d" "$specified_date" "+%A, %b %d, %Y")
 else
     weekday=$(date -d "$specified_date" '+%A')
+    first_header=$(date -d "$specified_date" '+%A, %b %d, %Y')
 fi
 
 # Convert the weekday to lowercase
@@ -30,9 +32,10 @@ if [ ! -f "$output_file" ]; then
   cat <<EOF > "$output_file"
 ---
 date: $specified_date
+weekday: $weekday_lower
 ---
 
-# $specified_date $weekday
+# $first_header
 
 ## Habit Tracker
 
