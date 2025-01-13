@@ -1,0 +1,4 @@
+- name: Install usql
+  package:
+    name: xo/xo/usql
+    state: latest

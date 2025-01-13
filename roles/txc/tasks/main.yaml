@@ -1,0 +1,4 @@
+- name: Install txc
+  package:
+    name: stounfo/stounfo/txc
+    state: latest

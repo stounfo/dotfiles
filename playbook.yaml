@@ -146,6 +146,12 @@
     - role: ghostty
       tags: ghostty
 
+    - role: usql
+      tags: usql
+
+    - role: txc
+      tags: txc
+
     - role: dockutil
       tags: dockutil
       when: is_macos
