@@ -1,3 +1,7 @@
+- name: Tap a xo/xo Homebrew repository
+  community.general.homebrew_tap:
+    name: xo/xo
+
 - name: Install usql
   package:
     name: xo/xo/usql
