@@ -16,7 +16,7 @@ make all
 7. Update macOS
 8. Run the command: `xcode-select --install`
 9. Run `source macos.sh && sudo reboot`
-10. Install dotfiles.
+10. Install dotfiles using the command: `make all`
 11. Log in to all email accounts.
 12. Swap Caps Lock with Control and remap Control to Escape.
 13. Turn off keyboard brightness.

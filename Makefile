@@ -3,7 +3,7 @@ help: ## Show this help
 	@egrep -h '\s##\s' $(MAKEFILE_LIST) |  awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}'
 
 
-all: deps_install_all dots_install ## Install all dependencies and execute all Ansible tasks
+all: deps_install_all dots_install ## Install all dependencies and all dotfiles
 
 
 deps_install_all: deps_install_python deps_install_ansible ## Install all dependencies
@@ -20,14 +20,14 @@ deps_install_ansible: ## Install ansible using python in ./tmp directory
 	@./tmp/bin/python -m pip install ansible==${ansible_version}
 
 
-TAGS ?= all
-SKIP_TAGS ?=
+DOTS ?= all
+SKIP_DOTS ?=
 # Select ansible-galaxy and ansible-playbook based on the ANSIBLE_PATH variable
 ANSIBLE_PATH ?= auto
-dots_install:
-	@TAGS="${TAGS}"; \
+dots_install: ## Install dotfiles
+	@DOTS="${DOTS}"; \
+	SKIP_DOTS="${SKIP_DOTS}"; \
 	export PATH="/opt/homebrew/bin:$$PATH" \
-	SKIP_TAGS="${SKIP_TAGS}"; \
 	ANSIBLE_PATH="${ANSIBLE_PATH}"; \
 	\
 	cmd_exists() { \
@@ -61,9 +61,9 @@ dots_install:
 	    exit 1; \
 	fi; \
 	\
-	PLAYBOOK_CMD="$$ANSIBLE_PLAYBOOK playbook.yaml --tags '$$TAGS'"; \
-	if [ -n "$$SKIP_TAGS" ]; then \
-	    PLAYBOOK_CMD="$$PLAYBOOK_CMD --skip-tags '$$SKIP_TAGS'"; \
+	PLAYBOOK_CMD="$$ANSIBLE_PLAYBOOK playbook.yaml --tags '$$DOTS'"; \
+	if [ -n "$$SKIP_DOTS" ]; then \
+	    PLAYBOOK_CMD="$$PLAYBOOK_CMD --skip-tags '$$SKIP_DOTS'"; \
 	fi; \
 	\
 	$$ANSIBLE_GALAXY collection install geerlingguy.mac; \
