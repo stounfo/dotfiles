@@ -8,7 +8,7 @@ set -Eeuo pipefail
 arg_type=""
 specified_arg=""
 final_date=""
-opt_count=0
+arg_count=0
 
 # -------------------------------------------------------------------
 # Functions
@@ -26,10 +26,10 @@ Usage:
   $(basename "$0") [OPTIONS]
 
 Options:
-  -d, --date <YYYY-MM-DD>   Specify an exact date.
-  -w, --weekday <day>       Specify a weekday (e.g., monday), will open 'next' weekday.
-  -r, --relative <when>     Specify 'today', 'yesterday', or 'tomorrow'.
-  -h, --help                Show this help.
+  -d, --date <YYYY-MM-DD>   Specify an exact date
+  -w, --weekday <day>       Specify a weekday (e.g., monday), will open 'next' weekday
+  -r, --relative <when>     Specify 'today', 'yesterday', or 'tomorrow'
+  -h, --help                Show this help
 
 Examples:
   $(basename "$0") --date 2025-01-13
@@ -46,27 +46,36 @@ parse_args() {
 
     while [[ $# -gt 0 ]]; do
         case "$1" in
-        -d | --date)
-            arg_type="date"
-            specified_arg="$2"
-            ((opt_count++))
-            shift 2
-            ;;
-        -w | --weekday)
-            arg_type="weekday"
-            specified_arg="$2"
-            ((opt_count++))
-            shift 2
-            ;;
-        -r | --relative)
-            arg_type="relative"
-            specified_arg="$2"
-            ((opt_count++))
-            shift 2
-            ;;
         -h | --help)
             show_help
             exit 0
+            ;;
+        -d | --date)
+            if [[ -z "${2:-}" ]]; then
+                fail "Error: '-d' or '--date' option requires an argument."
+            fi
+            arg_type="date"
+            specified_arg="$2"
+            ((arg_count++))
+            shift 2
+            ;;
+        -w | --weekday)
+            if [[ -z "${2:-}" ]]; then
+                fail "Error: '-w' or '--weekday' option requires an argument."
+            fi
+            arg_type="weekday"
+            specified_arg="$2"
+            ((arg_count++))
+            shift 2
+            ;;
+        -r | --relative)
+            if [[ -z "${2:-}" ]]; then
+                fail "Error: '-r' or '--relative' option requires an argument."
+            fi
+            arg_type="relative"
+            specified_arg="$2"
+            ((arg_count++))
+            shift 2
             ;;
         *)
             fail $"'$1' is not recognized as an option.\nTry '--help' for usage."
@@ -76,7 +85,7 @@ parse_args() {
 }
 
 validate_opts() {
-    if ((opt_count > 1)); then
+    if ((arg_count > 1)); then
         fail $"'--date', '--weekday', and '--relative' are mutually exclusive.\nUse only one at a time."
     fi
 }
@@ -144,7 +153,7 @@ compute_final_date() {
 }
 
 create_and_open_note() {
-    local output_dir="${DAILY_NOTES_PATH:-"$HOME/Desktop/notes/daily"}"
+    local output_dir="${DNOTE_PATH:-"$HOME/Desktop/notes/daily"}"
     mkdir -p "$output_dir"
 
     local weekday=""
@@ -152,10 +161,10 @@ create_and_open_note() {
 
     if [[ "$(uname)" == "Darwin" ]]; then
         weekday=$(date -j -f "%Y-%m-%d" "$final_date" "+%A" 2>/dev/null)
-        first_header=$(date -j -f "%Y-%m-%d" "$final_date" "+%A, %b %d, %Y" 2>/dev/null)
+        first_header=$(date -j -f "%Y-%m-%d" "$final_date" "+%A, %B %d, %Y" 2>/dev/null)
     else
         weekday=$(date -d "$final_date" '+%A')
-        first_header=$(date -d "$final_date" '+%A, %b %d, %Y')
+        first_header=$(date -d "$final_date" '+%A, %B %d, %Y')
     fi
 
     local weekday_lower
@@ -185,7 +194,7 @@ weekday: $weekday_lower
 
 
 
-## Notes
+## Journal
 EOF
     fi
     "${EDITOR:-nvim}" "$output_file"

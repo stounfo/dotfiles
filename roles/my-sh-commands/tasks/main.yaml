@@ -1,7 +1,10 @@
 - name: Set sh_commands_files
   set_fact:
     sh_commands_files:
-      - "daily-note"
+      - "dnote"
+      - "inote"
+      - "knote"
+      - "snote"
 
 - name: Ensure sh command files are executable
   file:

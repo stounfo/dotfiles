@@ -81,16 +81,16 @@ alias drma="docker ps -a -q | xargs docker rm"
 
 alias history="history 0"
 
-alias monday='daily-note --weekday monday'
-alias tuesday='daily-note --weekday tuesday'
-alias wednesday='daily-note --weekday wednesday'
-alias thursday='daily-note --weekday thursday'
-alias friday='daily-note --weekday friday'
-alias saturday='daily-note --weekday saturday'
-alias sunday='daily-note --weekday sunday'
-alias today='daily-note --relative today'
-alias yesterday='daily-note --relative yesterday'
-alias tomorrow='daily-note --relative tomorrow'
+alias monday='dnote --weekday monday'
+alias tuesday='dnote --weekday tuesday'
+alias wednesday='dnote --weekday wednesday'
+alias thursday='dnote --weekday thursday'
+alias friday='dnote --weekday friday'
+alias saturday='dnote --weekday saturday'
+alias sunday='dnote --weekday sunday'
+alias today='dnote --relative today'
+alias yesterday='dnote --relative yesterday'
+alias tomorrow='dnote --relative tomorrow'
 
 # == Functions ==
 gitpreview() {

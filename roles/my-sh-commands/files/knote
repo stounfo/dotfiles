@@ -1,0 +1,87 @@
+#!/usr/bin/env bash
+
+set -Eeuo pipefail
+
+# -------------------------------------------------------------------
+# Globals
+# -------------------------------------------------------------------
+specified_name=""
+specified_link=""
+
+# -------------------------------------------------------------------
+# Functions
+# -------------------------------------------------------------------
+fail() {
+    echo -e "Error: $1"
+    exit 1
+}
+
+show_help() {
+    cat <<EOF
+A command to create or open a knowledge note.
+
+Usage:
+  $(basename "$0") [OPTIONS]
+
+Options:
+  -n, --name <note-name>   Specify name of a note
+  -h, --help               Show this help
+
+Examples:
+  $(basename "$0") --name "my note"
+  $(basename "$0")
+EOF
+}
+
+parse_args() {
+
+    # Process any given arguments
+    while [[ $# -gt 0 ]]; do
+        case "$1" in
+        -h | --help)
+            show_help
+            exit 0
+            ;;
+        -n | --name)
+            if [[ -z "${2:-}" ]]; then
+                fail "Error: '-n' or '--name' option requires an argument."
+            fi
+            specified_name="$2"
+            shift 2
+            ;;
+        *)
+            fail "Error: '$1' is not recognized. Use -h or --help for usage."
+            ;;
+        esac
+    done
+
+    if [[ -z "$specified_name" ]]; then
+        read -p "Enter note name: " specified_name
+    fi
+}
+create_and_open_note() {
+    local output_dir="${KNOTES_PATH:-"$HOME/Desktop/notes/knowledge/"}"
+    mkdir -p "$output_dir"
+
+    note_file_name=$(echo -n "$specified_name" | txc --to kebab-case)
+    note_title_name=$(echo -n "$specified_name" | txc --to title)
+
+    local output_file="$output_dir/${note_file_name}.md"
+
+    if [[ ! -f "$output_file" ]]; then
+        cat <<EOF >"$output_file"
+---
+date: $(date "+%Y-%m-%d")
+type: knowledge
+related:
+references:
+---
+
+# $note_title_name
+EOF
+    fi
+    "${EDITOR:-nvim}" "$output_file"
+}
+
+parse_args "$@"
+create_and_open_note
