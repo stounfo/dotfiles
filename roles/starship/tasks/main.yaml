@@ -3,13 +3,11 @@
     name: starship
     state: latest
 
-
 - name: Backup previous starship config
   include_role:
     name: backup_config
   vars:
     config_src_path: "{{ xdg_config_home_path }}/starship.toml"
-
 
 - name: Symlink starship config
   file:

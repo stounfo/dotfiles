@@ -11,14 +11,12 @@
     path: "{{ tmp_files_path }}/fonts"
     state: directory
 
-
 - name: Download fonts
   get_url:
     url: "{{ item }}"
     dest: "{{ tmp_files_path }}/fonts"
     force: true
   loop: "{{ font_urls }}"
-
 
 - name: Find all zip files in fonts directory
   find:
@@ -27,14 +25,12 @@
     hidden: true
   register: zipped_files
 
-
 - name: Create a directory for each font under Fonts directory
   file:
     path: "{{ home_path }}/Library/Fonts/{{ item.path | basename | regex_replace('.zip$', '') }}"
     state: directory
   loop: "{{ zipped_files.files }}"
   register: font_directories
-
 
 - name: Unzip fonts to Fonts directory
   unarchive:

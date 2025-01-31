@@ -3,10 +3,8 @@
     name: dockutil
     state: latest
 
-
 - name: Clean dock
   shell: "dockutil --remove all"
-
 
 - name: Add apps to dock
   shell: "dockutil --add {{ item }} && sleep 5"
@@ -30,7 +28,6 @@
     - "/Applications/TablePlus.app"
     - "/Applications/Ghostty.app"
     - "/System/Applications/System\\ Settings.app"
-
 
 - name: Add downloads to dock
   shell: "dockutil --add '~/Downloads' --view fan --display stack"

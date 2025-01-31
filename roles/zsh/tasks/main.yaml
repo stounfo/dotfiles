@@ -7,7 +7,6 @@
       - "https://github.com/Aloxaf/fzf-tab.git"
       - "https://github.com/MichaelAquilina/zsh-you-should-use.git"
 
-
 - name: Download plugins
   git:
     repo: "{{ item }}"
@@ -15,13 +14,11 @@
     depth: 1
   loop: "{{ plugins_urls }}"
 
-
 - name: Backup previous zsh config
   include_role:
     name: backup_config
   vars:
     config_src_path: "{{ home_path }}/.zshrc"
-
 
 - name: Symlink zsh config
   file:

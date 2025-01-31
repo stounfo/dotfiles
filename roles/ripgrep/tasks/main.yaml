@@ -3,13 +3,11 @@
     name: ripgrep
     state: latest
 
-
 - name: Backup previous ripgrep config
   include_role:
     name: backup_config
   vars:
     config_src_path: "{{ xdg_config_home_path }}/.ripgreprc"
-
 
 - name: Symlink ripgrep config
   file:

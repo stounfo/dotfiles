@@ -3,19 +3,16 @@
     path: "{{ config_src_path }}"
   register: config_src
 
-
 - name: Ensure the backups directory exists
   file:
     path: "{{ backups_path }}"
     state: directory
-
 
 - name: Copy config to backup location if it exists
   copy:
     src: "{{ config_src.stat.path }}"
     dest: "{{ backups_path }}/{{ config_src.stat.path | basename }}"
   when: config_src.stat.exists
-
 
 - name: Delete the original config directory/file
   file:

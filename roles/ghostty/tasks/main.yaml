@@ -4,19 +4,16 @@
     state: latest
     install_options: force
 
-
 - name: Backup previous ghostty config
   include_role:
     name: backup_config
   vars:
     config_src_path: "{{ xdg_config_home_path }}/ghostty"
 
-
 - name: Ensure .config/ghostty dir exists
   file:
     path: "{{ xdg_config_home_path }}/ghostty"
     state: directory
-
 
 - name: Symlink ghostty config
   file:
