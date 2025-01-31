@@ -5,24 +5,24 @@ help: ## Show this help
 	grep -Eh '^[a-zA-Z0-9\._-]+:.*?##' $(MAKEFILE_LIST) | \
 	awk -v width=$$DESCRIPTION_WIDTH 'BEGIN { FS = ":.*?##" } { printf "\033[36m%-" width "s\033[0m %s\n", $$1, $$2 }'
 
-all: deps_install_all dots_install ## Install all dependencies and all dotfiles
+all: deps-install-all dots-install ## Install all dependencies and all dotfiles
 
-deps_install_all: deps_install_python deps_install_ansible ## Install all dependencies
+deps-install-all: deps-install-python deps-install-ansible ## Install all dependencies
 
-python_version="3.13.1"
-deps_install_python: ## Install python to ./tmp directory
+PYTHON_VERSION="3.13.1"
+deps-install-python: ## Install python to ./tmp directory
 	@git clone https://github.com/pyenv/pyenv.git ./tmp/pyenv; \
-	./tmp/pyenv/plugins/python-build/bin/python-build $(python_version) ./tmp;
+	./tmp/pyenv/plugins/python-build/bin/python-build $(PYTHON_VERSION) ./tmp;
 
-ansible_version="11.2.0"
-deps_install_ansible: ## Install ansible using python in ./tmp directory
-	@./tmp/bin/python -m pip install ansible==${ansible_version}
+ANSIBLE_VERSION="11.2.0"
+deps-install-ansible: ## Install ansible using python in ./tmp directory
+	@./tmp/bin/python -m pip install ansible==${ANSIBLE_VERSION}
 
 DOTS ?= all
 SKIP_DOTS ?=
 # Select ansible-galaxy and ansible-playbook based on the ANSIBLE_PATH variable
 ANSIBLE_PATH ?= auto
-dots_install: ## Install dotfiles
+dots-install: ## Install dotfiles
 	@DOTS="${DOTS}"; \
 	SKIP_DOTS="${SKIP_DOTS}"; \
 	export PATH="/opt/homebrew/bin:$$PATH" \

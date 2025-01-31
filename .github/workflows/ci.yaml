@@ -37,10 +37,10 @@ jobs:
         run: pip install ansible
 
       - name: Test dotfiles installation
-        run: make dots_install
+        run: make dots-install
 
       - name: Test if dotfiles installation is idempotent
-        run: make dots_install
+        run: make dots-install
 
   test_dependencies:
     runs-on: ${{ matrix.os }}
@@ -51,7 +51,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Test dependencies installation
-        run: make deps_install_all && make dots_install DOTS=tree
+        run: make deps-install-all && make dots-install DOTS=tree
 
       - name: Test if dependencies installation is idempotent
-        run: make deps_install_all && make dots_install DOTS=tree
+        run: make deps-install-all && make dots-install DOTS=tree
