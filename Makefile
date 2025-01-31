@@ -5,23 +5,18 @@ help: ## Show this help
 	grep -Eh '^[a-zA-Z0-9\._-]+:.*?##' $(MAKEFILE_LIST) | \
 	awk -v width=$$DESCRIPTION_WIDTH 'BEGIN { FS = ":.*?##" } { printf "\033[36m%-" width "s\033[0m %s\n", $$1, $$2 }'
 
-
 all: deps_install_all dots_install ## Install all dependencies and all dotfiles
-
 
 deps_install_all: deps_install_python deps_install_ansible ## Install all dependencies
 
-
-python_version="3.13.0"
+python_version="3.13.1"
 deps_install_python: ## Install python to ./tmp directory
 	@git clone https://github.com/pyenv/pyenv.git ./tmp/pyenv; \
 	./tmp/pyenv/plugins/python-build/bin/python-build $(python_version) ./tmp;
 
-
-ansible_version="8.5.0"
+ansible_version="11.2.0"
 deps_install_ansible: ## Install ansible using python in ./tmp directory
 	@./tmp/bin/python -m pip install ansible==${ansible_version}
-
 
 DOTS ?= all
 SKIP_DOTS ?=
@@ -72,3 +67,9 @@ dots_install: ## Install dotfiles
 	$$ANSIBLE_GALAXY collection install geerlingguy.mac; \
 	\
 	eval "$$PLAYBOOK_CMD"
+
+formatter-check: ## Check formatting
+	@prettier --check .
+
+formatter-fix: ## Fix formatting
+	@prettier --write .

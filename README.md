@@ -1,3 +1,19 @@
+# Dotfiles
+
+Ansible driven dotfiles. Always a WIP.
+
+## Requirements
+
+- [prettier](https://prettier.io/docs/install)
+
+## Usage
+
+Show available commands:
+
+```bash
+make help
+```
+
 If you are stounfo or understand what you are doing, run:
 
 ```bash

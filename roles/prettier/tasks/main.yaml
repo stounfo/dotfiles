@@ -1,0 +1,4 @@
+- name: Install prettier
+  package:
+    name: prettier
+    state: latest

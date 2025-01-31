@@ -1,10 +1,25 @@
-name: tests
+name: CI
+
 on:
   push:
-    branches: [main]
   pull_request:
-    branches: [main]
+
 jobs:
+  code-validation:
+    name: Code validation
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up node
+        uses: actions/setup-node@v4
+
+      - name: Install prettier
+        run: npm install --global prettier
+
+      - name: Check formatting
+        run: make formatter-check
+
   test_dotfiles:
     runs-on: ${{ matrix.os }}
     strategy:
@@ -16,7 +31,7 @@ jobs:
       - name: Set up python
         uses: actions/setup-python@v4
         with:
-          python-version: 3.13.0
+          python-version: 3.13.1
 
       - name: Install ansible
         run: pip install ansible
@@ -26,7 +41,6 @@ jobs:
 
       - name: Test if dotfiles installation is idempotent
         run: make dots_install
-
 
   test_dependencies:
     runs-on: ${{ matrix.os }}

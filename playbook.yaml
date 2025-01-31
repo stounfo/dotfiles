@@ -152,6 +152,9 @@
     - role: txc
       tags: txc
 
+    - role: prettier
+      tags: prettier
+
     - role: dockutil
       tags: dockutil
       when: is_macos
