@@ -5,6 +5,8 @@ Ansible driven dotfiles. Always a WIP.
 ## Requirements
 
 - [prettier](https://prettier.io/docs/install)
+- [typos](https://github.com/crate-ci/typos)
+- [lefthook](https://lefthook.dev/installation/index.html) (optional)
 
 ## Usage
 

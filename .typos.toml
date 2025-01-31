@@ -1,0 +1,14 @@
+[default]
+locale = "en-us"
+extend-ignore-re = [
+    "(?Rm)^.*(#|//|--)\\s*spellchecker:disable-line$"
+]
+
+[files]
+ignore-hidden = false
+ignore-global = false
+extend-exclude = [
+    ".git"
+]
+
+[default.extend-words]

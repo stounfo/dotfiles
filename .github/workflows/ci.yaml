@@ -11,14 +11,23 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up node
+      - name: Set up Node
         uses: actions/setup-node@v4
+
+      - name: Set up Rust
+        uses: actions-rust-lang/setup-rust-toolchain@v1
 
       - name: Install prettier
         run: npm install --global prettier
 
+      - name: Install typos
+        run: cargo install typos-cli
+
       - name: Check formatting
         run: make formatter-check
+
+      - name: Check spelling
+        run: make spellchecker-check
 
   test_dotfiles:
     runs-on: ${{ matrix.os }}

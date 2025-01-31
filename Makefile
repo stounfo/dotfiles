@@ -69,7 +69,10 @@ dots-install: ## Install dotfiles
 	eval "$$PLAYBOOK_CMD"
 
 formatter-check: ## Check formatting
-	@prettier --check .
+	@prettier --check ./
 
 formatter-fix: ## Fix formatting
-	@prettier --write .
+	@prettier --write ./
+
+spellchecker-check: ## Check spelling
+	@typos ./
