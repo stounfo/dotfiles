@@ -155,6 +155,9 @@
     - role: prettier
       tags: prettier
 
+    - role: stylua
+      tags: stylua
+
     - role: dockutil
       tags: dockutil
       when: is_macos

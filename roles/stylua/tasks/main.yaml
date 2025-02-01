@@ -1,0 +1,4 @@
+- name: Install stylua
+  package:
+    name: stylua
+    state: latest
