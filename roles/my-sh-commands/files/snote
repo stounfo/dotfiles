@@ -1,0 +1,138 @@
+#!/usr/bin/env bash
+
+set -Eeuo pipefail
+
+# -------------------------------------------------------------------
+# Globals
+# -------------------------------------------------------------------
+specified_description=""
+specified_link=""
+specified_type=""
+
+declare NOTE_TYPES=(
+    [1]="book"
+    [2]="article"
+    [3]="thought"
+    [4]="repo"
+    [5]="spec"
+    [6]="video"
+    [7]="podcast"
+    [8]="app"
+)
+
+# -------------------------------------------------------------------
+# Functions
+# -------------------------------------------------------------------
+fail() {
+    echo -e "Error: $1"
+    exit 1
+}
+
+show_help() {
+    cat <<EOF
+A command to create or open an source note.
+
+Usage:
+  $(basename "$0") [OPTIONS]
+
+Options:
+  -t, --type <note-type>     Specify the type of a note
+  -d, --description <desc>   Specify the description of a note
+  -l, --link <link>          Specify a link to a note
+  -h, --help                 Show this help
+
+Examples:
+  $(basename "$0") --description "my note" --type "article" --link "https://example.com"
+  $(basename "$0")
+EOF
+}
+
+show_note_type_selector() {
+    echo "Select a note type:"
+    for key in "${!NOTE_TYPES[@]}"; do
+        echo "  $key) ${NOTE_TYPES[$key]}"
+    done
+
+    local choice=""
+    while [[ -z "$specified_type" ]]; do
+        read -p "Enter a number (1-${#NOTE_TYPES[@]}): " choice
+        if [[ -n "${NOTE_TYPES[$choice]:-}" ]]; then
+            specified_type="${NOTE_TYPES[$choice]}"
+        else
+            echo "Invalid choice, please select a number between 1 and ${#NOTE_TYPES[@]}."
+        fi
+    done
+}
+
+parse_args() {
+    while [[ $# -gt 0 ]]; do
+        case "$1" in
+        -h | --help)
+            show_help
+            exit 0
+            ;;
+        -d | --description)
+            if [[ -z "${2:-}" ]]; then
+                fail "Error: '-n' or '--name' option requires an argument."
+            fi
+            specified_description="$2"
+            shift 2
+            ;;
+        -t | --type)
+            if [[ -z "${2:-}" ]]; then
+                fail "Error: '-t' or '--type' option requires an argument."
+            fi
+            specified_type="$2"
+            shift 2
+            ;;
+        -l | --link)
+            if [[ -z "${2:-}" ]]; then
+                fail "Error: '-l' or '--link' option requires an argument."
+            fi
+            specified_link="$2"
+            shift 2
+            ;;
+        *)
+            fail "Error: '$1' is not recognized. Use -h or --help for usage."
+            ;;
+        esac
+    done
+
+    if [[ -z "$specified_type" ]]; then
+        show_note_type_selector
+    fi
+    if [[ -z "$specified_description" ]]; then
+        read -p "Enter description name: " specified_description
+    fi
+    if [[ -z "$specified_link" ]]; then
+        read -p "Enter note link: " specified_link
+    fi
+}
+
+create_and_open_note() {
+    local output_dir="${SNOTES_PATH:-"$HOME/Desktop/notes/source/"}"
+    mkdir -p "$output_dir"
+
+    note_file_name=$(echo -n "${specified_type}::${specified_description}" | txc --to kebab-case)
+    note_title_name=$(echo -n "$(echo "$specified_type" | awk '{print toupper(substr($0,1,1)) substr($0,2)}'):: ${specified_description}" | txc --to title)
+
+    local output_file="$output_dir/${note_file_name}.md"
+
+    if [[ ! -f "$output_file" ]]; then
+        cat <<EOF >"$output_file"
+---
+note-type: source
+status: wip
+source-type: $specified_type
+source-link:${specified_link:+ $specified_link}
+related:
+---
+
+# $note_title_name
+EOF
+    fi
+    "${EDITOR:-nvim}" "$output_file"
+}
+
+parse_args "$@"
+create_and_open_note

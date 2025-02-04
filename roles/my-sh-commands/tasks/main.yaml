@@ -2,7 +2,7 @@
   set_fact:
     sh_commands_files:
       - "dnote"
-      - "inote"
+      - "snote"
       - "knote"
 
 - name: Ensure sh command files are executable

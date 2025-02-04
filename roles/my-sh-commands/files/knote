@@ -5,7 +5,7 @@ set -Eeuo pipefail
 # -------------------------------------------------------------------
 # Globals
 # -------------------------------------------------------------------
-specified_name=""
+specified_description=""
 specified_link=""
 
 # -------------------------------------------------------------------
@@ -24,11 +24,11 @@ Usage:
   $(basename "$0") [OPTIONS]
 
 Options:
-  -n, --name <note-name>   Specify name of a note
-  -h, --help               Show this help
+  -d, --description <desc>   Specify description of a note
+  -h, --help                 Show this help
 
 Examples:
-  $(basename "$0") --name "my note"
+  $(basename "$0") --description "my note"
   $(basename "$0")
 EOF
 }
@@ -42,11 +42,11 @@ parse_args() {
             show_help
             exit 0
             ;;
-        -n | --name)
+        -d | --description)
             if [[ -z "${2:-}" ]]; then
-                fail "Error: '-n' or '--name' option requires an argument."
+                fail "Error: '-d' or '--description' option requires an argument."
             fi
-            specified_name="$2"
+            specified_description="$2"
             shift 2
             ;;
         *)
@@ -55,23 +55,23 @@ parse_args() {
         esac
     done
 
-    if [[ -z "$specified_name" ]]; then
-        read -p "Enter note name: " specified_name
+    if [[ -z "$specified_description" ]]; then
+        read -p "Enter note description: " specified_description
     fi
 }
 create_and_open_note() {
     local output_dir="${KNOTES_PATH:-"$HOME/Desktop/notes/knowledge/"}"
     mkdir -p "$output_dir"
 
-    note_file_name=$(echo -n "$specified_name" | txc --to kebab-case)
-    note_title_name=$(echo -n "$specified_name" | txc --to title)
+    note_file_name=$(echo -n "$specified_description" | txc --to kebab-case)
+    note_title_name=$(echo -n "$specified_description" | txc --to title)
 
     local output_file="$output_dir/${note_file_name}.md"
 
     if [[ ! -f "$output_file" ]]; then
         cat <<EOF >"$output_file"
 ---
-type: knowledge
+note-type: knowledge
 related:
 references:
 ---

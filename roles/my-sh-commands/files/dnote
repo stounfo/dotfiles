@@ -175,6 +175,7 @@ create_and_open_note() {
     if [[ ! -f "$output_file" ]]; then
         cat <<EOF >"$output_file"
 ---
+note-type: daily
 date: $final_date
 weekday: $weekday_lower
 ---
