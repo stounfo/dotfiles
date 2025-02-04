@@ -4,7 +4,6 @@
       - "dnote"
       - "inote"
       - "knote"
-      - "snote"
 
 - name: Ensure sh command files are executable
   file:

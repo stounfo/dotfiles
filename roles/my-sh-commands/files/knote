@@ -71,7 +71,6 @@ create_and_open_note() {
     if [[ ! -f "$output_file" ]]; then
         cat <<EOF >"$output_file"
 ---
-date: $(date "+%Y-%m-%d")
 type: knowledge
 related:
 references:
