@@ -18,6 +18,7 @@ declare NOTE_TYPES=(
     [6]="video"
     [7]="podcast"
     [8]="app"
+    [9]="wiki"
 )
 
 # -------------------------------------------------------------------
@@ -114,7 +115,7 @@ create_and_open_note() {
     mkdir -p "$output_dir"
 
     note_file_name=$(echo -n "${specified_type}::${specified_description}" | txc --to kebab-case)
-    note_title_name=$(echo -n "$(echo "$specified_type" | awk '{print toupper(substr($0,1,1)) substr($0,2)}'):: ${specified_description}" | txc --to title)
+    note_title_name=$(echo -n "$(echo "$specified_type" | awk '{print toupper(substr($0,1,1)) substr($0,2)}') :: ${specified_description}" | txc --to title)
 
     local output_file="$output_dir/${note_file_name}.md"
 
