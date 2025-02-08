@@ -158,6 +158,9 @@
     - role: stylua
       tags: stylua
 
+    - role: k9s
+      tags: k9s
+
     - role: dockutil
       tags: dockutil
       when: is_macos

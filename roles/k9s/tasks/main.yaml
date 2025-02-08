@@ -1,0 +1,8 @@
+- name: Tap a derailed/k9s Homebrew repository
+  community.general.homebrew_tap:
+    name: derailed/k9s
+
+- name: Install k9s
+  package:
+    name: derailed/k9s/k9s
+    state: latest
