@@ -126,7 +126,6 @@ note-type: source
 status: wip
 source-type: $specified_type
 source-link:${specified_link:+ $specified_link}
-related:
 ---
 
 # $note_title_name
