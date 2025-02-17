@@ -161,6 +161,9 @@
     - role: k9s
       tags: k9s
 
+    - role: anki
+      tags: anki
+
     - role: dockutil
       tags: dockutil
       when: is_macos

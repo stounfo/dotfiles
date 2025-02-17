@@ -1,0 +1,5 @@
+- name: Install anki
+  community.general.homebrew_cask:
+    name: anki
+    state: present
+    install_options: force
