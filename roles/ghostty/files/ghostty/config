@@ -14,6 +14,7 @@ font-feature = -liga
 font-feature = -dlig
 
 title = " "
+macos-icon = "retro"
 macos-titlebar-proxy-icon = hidden
 window-width = 90
 window-height = 30
