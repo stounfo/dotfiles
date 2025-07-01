@@ -1,5 +1,0 @@
-- name: Install outline-manager
-  community.general.homebrew_cask:
-    name: outline-manager
-    state: latest
-    install_options: force
