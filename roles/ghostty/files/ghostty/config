@@ -1,4 +1,5 @@
-theme = dark:mytheme-dark,light:mytheme-light
+# theme = dark:mytheme-dark,light:mytheme-light
+theme = mytheme-dark
 
 # font-family = "JetBrainsMono NF"
 # font-family = "MartianMono NF"

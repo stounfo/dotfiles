@@ -135,7 +135,7 @@
       tags: my-sh-commands
 
     - role: chafa
-    - role: chafa
+      tags: chafa
 
     - role: fd
       tags: fd
@@ -168,3 +168,6 @@
     - role: hiddify
       tags: hiddify
       when: is_macos
+
+    - role: gemini-cli
+      tags: gemini-cli

@@ -1,0 +1,16 @@
+- name: Install gemini-cli
+  community.general.npm:
+    name: "@google/gemini-cli"
+    state: present
+    global: yes
+
+- name: Ensure .gemini dir exists
+  file:
+    path: "{{ home_path }}/.gemini"
+    state: directory
+
+- name: Symlink gemini config
+  file:
+    src: "{{ role_files_path }}/settings.json"
+    dest: "{{ home_path }}/.gemini/settings.json"
+    state: link
