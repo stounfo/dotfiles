@@ -1,4 +1,4 @@
-- name: Tap a stounfo/stounfo Homebrew repository
+- name: Tap stounfo/stounfo Homebrew repository
   community.general.homebrew_tap:
     name: stounfo/stounfo
 

@@ -1,0 +1,8 @@
+- name: Tap Goooler/homebrew-repo Homebrew repository
+  community.general.homebrew_tap:
+    name: Goooler/homebrew-repo
+
+- name: Install hiddify
+  community.general.homebrew_cask:
+    name: Goooler/repo/hiddify
+    state: latest

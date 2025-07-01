@@ -164,3 +164,7 @@
     - role: dockutil
       tags: dockutil
       when: is_macos
+
+    - role: hiddify
+      tags: hiddify
+      when: is_macos
