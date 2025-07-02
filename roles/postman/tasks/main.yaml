@@ -1,5 +1,0 @@
-- name: Install postman
-  community.general.homebrew_cask:
-    name: postman
-    state: latest
-    install_options: force

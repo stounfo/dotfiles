@@ -74,9 +74,6 @@
     - role: bat
       tags: bat
 
-    - role: postman
-      tags: postman
-
     - role: htop
       tags: htop
 
