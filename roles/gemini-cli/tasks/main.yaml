@@ -1,7 +1,7 @@
 - name: Install gemini-cli
   community.general.npm:
     name: "@google/gemini-cli"
-    state: present
+    state: latest
     global: yes
 
 - name: Ensure .gemini dir exists

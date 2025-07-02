@@ -171,3 +171,6 @@
 
     - role: gemini-cli
       tags: gemini-cli
+
+    - role: go
+      tags: go
