@@ -1,2 +1,3 @@
 dependencies:
-  - role: npm
+  - role: homebrew
+    when: is_macos

@@ -20,8 +20,8 @@
     - role: nvim
       tags: nvim
 
-    - role: docker
-      tags: docker
+    - role: colima
+      tags: colima
 
     - role: tableplus
       tags: tableplus
