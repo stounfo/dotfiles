@@ -1,0 +1,4 @@
+- name: Install codex
+  package:
+    name: codex
+    state: latest

@@ -1,0 +1,21 @@
+- name: Install Docker
+  package:
+    name: docker
+    state: present
+
+- name: Install Docker Compose
+  package:
+    name: docker-compose
+    state: present
+
+- name: Ensure .docker/cli-plugins dir exists
+  file:
+    path: "{{ home_path }}/.docker/cli-plugins"
+    state: directory
+
+- name: Symlink Docker Compose plugin
+  file:
+    src: "$(brew --prefix)/opt/docker-compose/bin/docker-compose"
+    dest: "{{ home_path }}/.docker/cli-plugins/docker-compose"
+    state: link
+    force: true

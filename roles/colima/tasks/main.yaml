@@ -1,4 +1,0 @@
-- name: Install colima
-  package:
-    name: colima
-    state: latest

@@ -20,8 +20,8 @@
     - role: nvim
       tags: nvim
 
-    - role: colima
-      tags: colima
+    - role: docker
+      tags: docker
 
     - role: tableplus
       tags: tableplus
@@ -113,6 +113,9 @@
     - role: chatgpt
       tags: chatgpt
 
+    - role: codex
+      tags: codex
+
     - role: typos
       tags: typos
 
@@ -165,9 +168,6 @@
     - role: hiddify
       tags: hiddify
       when: is_macos
-
-    - role: gemini-cli
-      tags: gemini-cli
 
     - role: go
       tags: go

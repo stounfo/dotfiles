@@ -16,7 +16,7 @@
     state: link
 
 - name: Ensure scripts are executable
-  ansible.builtin.file:
+  file:
     path: "{{ item }}"
     mode: "0755"
   loop:
