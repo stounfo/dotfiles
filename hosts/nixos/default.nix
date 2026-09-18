@@ -21,7 +21,10 @@
 
   time.timeZone = "Asia/Yerevan";
 
-  programs.hyprland.enable = true;
+  programs = {
+    hyprland.enable = true;
+    ssh.startAgent = true;
+  };
 
   services.displayManager.regreet.enable = true;
   services.upower.enable = true;
