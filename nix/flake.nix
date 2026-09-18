@@ -18,7 +18,7 @@
     }:
     let
       username = "stounfo";
-      system = "aarch64-darwin";
+      system = "aarch64-linux";
     in
     {
       homeConfigurations.${username} = home-manager.lib.homeManagerConfiguration {
