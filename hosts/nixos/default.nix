@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 
 {
   imports = [
@@ -21,18 +21,16 @@
 
   time.timeZone = "Asia/Yerevan";
 
-  programs = {
-    hyprland.enable = true;
-    ssh.startAgent = true;
-  };
-
   services.displayManager.regreet.enable = true;
   services.upower.enable = true;
   services.greetd.enable = true;
 
   users.users.stounfo = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" ];
+    extraGroups = [
+      "wheel"
+      "networkmanager"
+    ];
   };
 
   nix.settings.experimental-features = [
@@ -41,26 +39,6 @@
   ];
 
   nixpkgs.config.allowUnfree = true;
-
-  environment.systemPackages = with pkgs; [
-    vim
-    ghostty
-    chromium
-    walker
-    elephant
-    bibata-cursors
-    codex
-    noctalia-shell
-    bluez
-    git
-  ];
-
-  environment.sessionVariables = {
-    XCURSOR_THEME = "Bibata-Modern-Ice";
-    XCURSOR_SIZE = "24";
-    HYPRCURSOR_THEME = "Bibata-Modern-Ice";
-    HYPRCURSOR_SIZE = "24";
-  };
 
   system.stateVersion = "26.11";
 }

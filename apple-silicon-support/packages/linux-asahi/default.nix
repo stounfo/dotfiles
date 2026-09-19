@@ -70,4 +70,3 @@ let
   linux-asahi = callPackage linux-asahi-pkg { };
 in
 lib.recurseIntoAttrs (linuxPackagesFor linux-asahi)
-

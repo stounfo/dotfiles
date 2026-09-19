@@ -16,9 +16,19 @@
   };
 
   outputs =
-    { nixpkgs, home-manager, nix-darwin, ... }:
+    {
+      nixpkgs,
+      home-manager,
+      nix-darwin,
+      ...
+    }:
     let
-      homeManagerConfig = {
+      sharedConfig = {
+        imports = [
+          ./modules/hyprland/system.nix
+          ./modules/ssh/system.nix
+        ];
+
         home-manager = {
           useGlobalPkgs = true;
           useUserPackages = true;
@@ -29,21 +39,24 @@
     {
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
         system = "aarch64-linux";
+        specialArgs.isNixOS = true;
 
         modules = [
           ./hosts/nixos
           home-manager.nixosModules.home-manager
 
-          homeManagerConfig
+          sharedConfig
         ];
       };
 
       darwinConfigurations.macbook = nix-darwin.lib.darwinSystem {
+        specialArgs.isNixOS = false;
+
         modules = [
           ./hosts/macbook
           home-manager.darwinModules.home-manager
 
-          homeManagerConfig
+          sharedConfig
         ];
       };
     };

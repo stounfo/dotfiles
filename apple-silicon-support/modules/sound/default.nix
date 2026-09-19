@@ -58,4 +58,3 @@
       services.udev.packages = [ pkgs.speakersafetyd ];
     };
 }
-

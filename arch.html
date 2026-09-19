@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Архитектура dotfiles — NixOS и macOS</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f6f5f1;
+      --paper: #fffefa;
+      --text: #252d2a;
+      --muted: #65706a;
+      --line: #dce2da;
+      --accent: #246b51;
+      --code: #edf1eb;
+      --note: #e8f2e9;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font: 17px/1.75 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    main {
+      max-width: 960px;
+      margin: 48px auto;
+      padding: 56px 64px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+    }
+    .eyebrow {
+      margin: 0 0 12px;
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 750;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    h1, h2, h3 { line-height: 1.25; letter-spacing: -.025em; }
+    h1 { margin: 0 0 20px; font-size: clamp(30px, 5vw, 44px); }
+    h2 { margin: 48px 0 18px; padding-top: 28px; border-top: 1px solid var(--line); font-size: 27px; }
+    h3 { margin: 28px 0 12px; font-size: 20px; }
+    p { margin: 0 0 18px; }
+    .lead { font-size: 20px; line-height: 1.65; }
+    .muted, figcaption { color: var(--muted); }
+    a { color: var(--accent); text-underline-offset: 3px; }
+    nav { margin: 28px 0; padding: 20px 24px; border: 1px solid var(--line); border-radius: 10px; }
+    nav ol { margin: 0; padding-left: 22px; columns: 2; column-gap: 32px; }
+    nav li { margin: 3px 0; break-inside: avoid; }
+    ul, ol { padding-left: 24px; }
+    li { margin: 9px 0; }
+    code, pre { font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace; }
+    code { padding: 2px 5px; border-radius: 4px; background: var(--code); font-size: .87em; overflow-wrap: anywhere; }
+    pre { margin: 18px 0; padding: 22px 24px; overflow-x: auto; border: 1px solid var(--line); border-radius: 10px; background: var(--code); line-height: 1.6; font-size: 14px; tab-size: 2; }
+    pre code { padding: 0; background: none; font-size: inherit; overflow-wrap: normal; }
+    .note { margin: 24px 0; padding: 20px 24px; border-left: 4px solid var(--accent); border-radius: 0 8px 8px 0; background: var(--note); }
+    .note p:last-child { margin-bottom: 0; }
+    .table-wrap { overflow-x: auto; margin: 20px 0; }
+    table { width: 100%; border-collapse: collapse; font-size: 15px; }
+    th, td { padding: 14px 16px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    th { background: var(--code); font-weight: 650; }
+    td:first-child { width: 34%; }
+    figure { margin: 24px 0; }
+    figcaption { font-size: 14px; }
+    footer { margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; }
+    :target { scroll-margin-top: 24px; }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        color-scheme: dark;
+        --bg: #181d1b;
+        --paper: #202724;
+        --text: #e2e9e3;
+        --muted: #a5b3a9;
+        --line: #3a4740;
+        --accent: #94d7b5;
+        --code: #29342e;
+        --note: #283d30;
+      }
+    }
+    @media (max-width: 680px) {
+      body { font-size: 16px; }
+      main { margin: 0; padding: 32px 20px; border: 0; border-radius: 0; }
+      nav ol { columns: 1; }
+      pre { padding: 16px; font-size: 12px; }
+      th, td { padding: 12px 10px; }
+      h2 { font-size: 24px; }
+    }
+    @media print {
+      :root { --bg: white; --paper: white; --text: #111; --muted: #555; --line: #ccc; --accent: #174d38; --code: #f4f4f4; --note: #f4f4f4; }
+      body { font-size: 11pt; }
+      main { max-width: none; margin: 0; padding: 0; border: 0; }
+      nav { display: none; }
+      h2, h3 { break-after: avoid; }
+      pre, .note, tr { break-inside: avoid; }
+      pre { white-space: pre-wrap; font-size: 9pt; }
+      a { color: inherit; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <p class="eyebrow">Dotfiles · предложение по архитектуре</p>
+      <h1>Одно окружение.<br>Несколько NixOS и Mac.</h1>
+      <p class="lead">Модули по фичам, каждый с одной системной точкой входа. Фича сама связывает установку, системную интеграцию и пользовательские настройки.</p>
+      <p class="muted">Исходные условия: один пользователь на всех машинах, общий набор приложений, поддержка только NixOS и macOS. Машин каждой ОС может быть несколько.</p>
+    </header>
+
+    <nav aria-label="Содержание">
+      <ol>
+        <li><a href="#principle">Основное решение</a></li>
+        <li><a href="#layout">Структура репозитория</a></li>
+        <li><a href="#features">Общий набор фич</a></li>
+        <li><a href="#cases">Разные типы приложений</a></li>
+        <li><a href="#ssh">Пример модуля SSH</a></li>
+        <li><a href="#responsibilities">Обязанности каталогов</a></li>
+        <li><a href="#hosts">Несколько машин</a></li>
+        <li><a href="#complexity">Что пока не нужно</a></li>
+      </ol>
+    </nav>
+
+    <section id="principle">
+      <h2>Основное решение</h2>
+      <p>Home Manager встраивается в системную конфигурацию на обеих ОС. Поэтому модуль приложения может одновременно настраивать ОС и домашнее окружение через <code>home-manager.users</code>. Это штатная возможность интеграции Home Manager с <a href="https://nix-community.github.io/home-manager/installation/nixos.html">NixOS</a> и <a href="https://nix-community.github.io/home-manager/installation/nix-darwin.html">nix-darwin</a>.</p>
+      <p>Снаружи подключается один SSH. Как он устанавливает пакет, настраивает агент и пишет пользовательский конфиг — ответственность самого модуля.</p>
+      <div class="note">
+        <p><strong>Да, <code>hyprland/default.nix</code> сможет подключать свою системную часть.</strong> Для этого <code>default.nix</code> становится системной точкой входа. Пользовательская часть подключается из него через Home Manager.</p>
+      </div>
+      <p>Граница между системными и пользовательскими опциями сохраняется. Но связывает эти части сам модуль фичи, поэтому отдельно перечислять их во flake и в общем Home Manager-конфиге не требуется.</p>
+    </section>
+
+    <section id="layout">
+      <h2>Структура репозитория</h2>
+      <pre><code>flake.nix
+lib/
+└── mk-host.nix             # ОС + Home Manager + общий конфиг
+
+shared/
+├── default.nix             # единый список фич для всех машин
+├── home.nix                # общая основа пользовательского окружения
+├── nixos.nix               # общие настройки всех NixOS-машин
+└── darwin.nix              # общие настройки всех Mac
+
+hosts/
+├── macbook/
+│   └── default.nix
+└── asahi/
+    ├── default.nix
+    └── hardware-configuration.nix
+
+modules/
+├── git/
+│   └── default.nix
+├── ssh/
+│   ├── default.nix
+│   ├── home.nix
+│   ├── nixos.nix
+│   └── darwin.nix
+├── hyprland/
+│   ├── default.nix
+│   └── nixos.nix
+└── ghostty/
+    ├── default.nix
+    └── files/
+        └── config</code></pre>
+      <p>Это пример возможных файлов. <strong>Создаём только те, в которых есть содержимое.</strong> Маленькому модулю достаточно <code>default.nix</code>; пять файлов на каждое приложение не нужны. Например, <code>ssh/darwin.nix</code> появится только при наличии отдельных настроек для macOS.</p>
+      <p>Имена <code>home.nix</code>, <code>nixos.nix</code>, <code>darwin.nix</code> обозначают внутренние части фичи. Единственная внешняя точка подключения у неё — <code>default.nix</code>. Исходники конфигов, темы и прочие dotfiles живут в её каталоге <code>files/</code>.</p>
+    </section>
+
+    <section id="features">
+      <h2>Один общий набор фич</h2>
+      <p><code>shared/default.nix</code> содержит единый список для всех машин:</p>
+      <pre><code>{
+  imports = [
+    ../modules/git
+    ../modules/ssh
+    ../modules/codex
+    ../modules/chatgpt
+    ../modules/hyprland
+    ../modules/ghostty
+  ];
+}</code></pre>
+      <p>Каждая фича внутри определяет, что делать на выбранной ОС. Hyprland на macOS ничего не добавляет; приложение только для Mac ничего не добавляет на NixOS. Это осознанное поведение, позволяющее сохранить общий список приложений.</p>
+      <p>Приложения из списка выше иллюстрируют схему. Их наличие в примере не означает, что соответствующие модули уже реализованы.</p>
+      <figure>
+        <pre><code>Хост + общая конфигурация
+└── модуль фичи / default.nix
+    ├── общие пользовательские настройки → Home Manager
+    ├── часть NixOS → только на NixOS
+    └── часть Darwin → только на macOS</code></pre>
+        <figcaption>Разделение по ОС и уровню настройки находится внутри фичи.</figcaption>
+      </figure>
+    </section>
+
+    <section id="cases">
+      <h2>Разные типы приложений</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th scope="col">Случай</th><th scope="col">Что делает модуль</th></tr></thead>
+          <tbody>
+            <tr><td>Приложение только для Mac</td><td>Устанавливает и настраивает его только на macOS.</td></tr>
+            <tr><td>Приложение для обеих ОС</td><td>Применяет общую конфигурацию, например общий пользовательский модуль.</td></tr>
+            <tr><td>SSH с различиями между ОС</td><td>Подключает общий пользовательский конфиг и нужную системную часть.</td></tr>
+            <tr><td>Hyprland</td><td>На NixOS включает системную интеграцию и, когда появятся, пользовательские настройки.</td></tr>
+            <tr><td>Разный способ установки</td><td>На одной ОС использует Nix-пакет, на другой — другой механизм, сохраняя общий конфиг.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Последний случай существенный: GUI-приложение на Mac может устанавливаться через <code>homebrew.casks</code> в nix-darwin, а его настройки управляться Home Manager. Поэтому привязывать «приложение» исключительно к Home Manager неудобно. <a href="https://nix-darwin.github.io/nix-darwin/manual/#opt-homebrew.casks">Документация nix-darwin</a>.</p>
+      <p>По той же схеме можно оформить системную возможность: Bluetooth, аудио или шрифты. У модуля не обязана быть пользовательская часть.</p>
+    </section>
+
+    <section id="ssh">
+      <h2>Пример точки входа SSH</h2>
+      <pre><code># modules/ssh/default.nix
+{ lib, host, ... }:
+
+{
+  imports =
+    lib.optionals (host.os == "nixos") [ ./nixos.nix ]
+    ++ lib.optionals (host.os == "darwin") [ ./darwin.nix ];
+
+  home-manager.users.${host.user}.imports = [ ./home.nix ];
+}</code></pre>
+      <p><code>host.os</code> и <code>host.user</code> задаются при сборке хоста и передаются через <code>specialArgs</code>. Имя единственного пользователя задаётся централизованно, чтобы не повторять его в каждом модуле.</p>
+      <p>Общий SSH-конфиг существует в одном экземпляре — <code>home.nix</code>. NixOS-опции попадают только в NixOS, Darwin-опции — только в Darwin. Пример показывает вариант с обеими системными частями; если отдельной части пока нет, её файл и импорт не нужны.</p>
+      <p>Для Hyprland принцип тот же: его точка входа подключает NixOS-часть только на NixOS. Если позже появится пользовательский конфиг с биндами и оформлением, он подключается внутри этого же модуля.</p>
+    </section>
+
+    <section id="responsibilities">
+      <h2>Обязанности каталогов</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th scope="col">Место</th><th scope="col">Ответственность</th></tr></thead>
+          <tbody>
+            <tr><td><code>flake.nix</code></td><td>Зависимости и перечень машин.</td></tr>
+            <tr><td><code>lib/mk-host.nix</code></td><td>Сборка хоста: нужная ОС, интеграция Home Manager, общая конфигурация и конфигурация конкретной машины.</td></tr>
+            <tr><td><code>shared/default.nix</code></td><td>Единый список подключённых фич.</td></tr>
+            <tr><td><code>shared/home.nix</code></td><td>Пользовательская основа: например, <code>home.stateVersion</code> и общие переменные окружения.</td></tr>
+            <tr><td><code>shared/nixos.nix</code><br><code>shared/darwin.nix</code></td><td>Общая политика соответствующей ОС. Настройки конкретных фич остаются внутри их модулей.</td></tr>
+            <tr><td><code>hosts/&lt;имя&gt;</code></td><td>Hostname, железо, диски, загрузчик, особенности мониторов и другие отличия машины.</td></tr>
+            <tr><td><code>modules/&lt;фича&gt;</code></td><td>Установка, конфиги, системная интеграция и различия между ОС для одной фичи.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><code>shared/home.nix</code> не становится вторым списком приложений: приложения подключаются через единый список фич. Системные части SSH или Hyprland также не перечисляются отдельно во flake.</p>
+    </section>
+
+    <section id="hosts">
+      <h2>Несколько машин</h2>
+      <p>Новый Mac получает общую конфигурацию Mac и весь подходящий набор приложений. Новая NixOS-машина — общую конфигурацию NixOS и подходящий ей набор.</p>
+      <p>Если у рабочего ноутбука другой Git email или у десктопа другие мониторы, это задаётся в соответствующем хосте. Общему модулю не нужно проверять имена машин.</p>
+      <p>Отличия хоста могут относиться и к системе, и к домашнему окружению. Критерий размещения — принадлежность настройки конкретной машине.</p>
+    </section>
+
+    <section id="complexity">
+      <h2>Что пока не нужно</h2>
+      <p>Профили <code>work</code>, <code>personal</code>, <code>desktop</code> пока не вводим: выбран общий набор для всех машин. Начинаем с явного списка <code>imports</code>.</p>
+      <p>Если понадобится отключать целую фичу на отдельных машинах, добавим ей один переключатель, управляющий одновременно системной и пользовательской частями.</p>
+      <div class="note">
+        <p><strong>Одна фича — одна внешняя точка подключения.</strong> Различия между ОС и взаимодействие с Home Manager остаются внутри её директории.</p>
+      </div>
+    </section>
+
+    <footer>
+      <p>Предложение по новой архитектуре. Примеры показывают целевую организацию; рефакторинг репозитория этим документом не выполняется.</p>
+    </footer>
+  </main>
+</body>
+</html>

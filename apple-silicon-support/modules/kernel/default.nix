@@ -112,4 +112,3 @@
     (lib.mkRemovedOptionModule [ "hardware" "asahi" "withRust" ] "Rust support is now the default.")
   ];
 }
-

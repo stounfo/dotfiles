@@ -5,4 +5,3 @@
     ./modules/default.nix
   ];
 }
-

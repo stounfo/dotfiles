@@ -5,7 +5,10 @@
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
-  boot.initrd.availableKernelModules = [ "usb_storage" "sdhci_pci" ];
+  boot.initrd.availableKernelModules = [
+    "usb_storage"
+    "sdhci_pci"
+  ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ ];
   boot.extraModulePackages = [ ];
@@ -18,7 +21,10 @@
   fileSystems."/boot" = {
     device = "/dev/disk/by-uuid/44BE-15EF";
     fsType = "vfat";
-    options = [ "fmask=0022" "dmask=0022" ];
+    options = [
+      "fmask=0022"
+      "dmask=0022"
+    ];
   };
 
   swapDevices = [ ];
