@@ -1,0 +1,207 @@
+#!/usr/bin/env bash
+
+set -Eeuo pipefail
+
+# -------------------------------------------------------------------
+# Globals
+# -------------------------------------------------------------------
+arg_type=""
+specified_arg=""
+final_date=""
+arg_count=0
+
+# -------------------------------------------------------------------
+# Functions
+# -------------------------------------------------------------------
+fail() {
+    echo -e "Error: $1"
+    exit 1
+}
+
+show_help() {
+    cat <<EOF
+A command to create or open daily Markdown notes by date, weekday, or a relative day.
+
+Usage:
+  $(basename "$0") [OPTIONS]
+
+Options:
+  -d, --date <YYYY-MM-DD>   Specify an exact date
+  -w, --weekday <day>       Specify a weekday (e.g., monday), will open 'next' weekday
+  -r, --relative <when>     Specify 'today', 'yesterday', or 'tomorrow'
+  -h, --help                Show this help
+
+Examples:
+  $(basename "$0") --date 2025-01-13
+  $(basename "$0") -w monday
+  $(basename "$0") --relative tomorrow
+EOF
+}
+
+parse_args() {
+    if [[ $# -eq 0 ]]; then
+        show_help
+        exit 0
+    fi
+
+    while [[ $# -gt 0 ]]; do
+        case "$1" in
+        -h | --help)
+            show_help
+            exit 0
+            ;;
+        -d | --date)
+            if [[ -z "${2:-}" ]]; then
+                fail "Error: '-d' or '--date' option requires an argument."
+            fi
+            arg_type="date"
+            specified_arg="$2"
+            ((++arg_count))
+            shift 2
+            ;;
+        -w | --weekday)
+            if [[ -z "${2:-}" ]]; then
+                fail "Error: '-w' or '--weekday' option requires an argument."
+            fi
+            arg_type="weekday"
+            specified_arg="$2"
+            ((++arg_count))
+            shift 2
+            ;;
+        -r | --relative)
+            if [[ -z "${2:-}" ]]; then
+                fail "Error: '-r' or '--relative' option requires an argument."
+            fi
+            arg_type="relative"
+            specified_arg="$2"
+            ((++arg_count))
+            shift 2
+            ;;
+        *)
+            fail $"'$1' is not recognized as an option.\nTry '--help' for usage."
+            ;;
+        esac
+    done
+}
+
+validate_opts() {
+    if ((arg_count > 1)); then
+        fail $"'--date', '--weekday', and '--relative' are mutually exclusive.\nUse only one at a time."
+    fi
+}
+
+bsd_date_parse() {
+    local input="$1"
+    local out=""
+
+    if [[ "$input" =~ ^next[[:space:]](.+) ]]; then
+        local weekday_part="${BASH_REMATCH[1]}"
+        out=$(date -j -v+"$weekday_part" +%Y-%m-%d 2>/dev/null)
+    elif [[ "$input" == "today" ]]; then
+        out=$(date +%Y-%m-%d 2>/dev/null)
+    elif [[ "$input" == "yesterday" ]]; then
+        out=$(date -j -v-1d +%Y-%m-%d 2>/dev/null)
+    elif [[ "$input" == "tomorrow" ]]; then
+        out=$(date -j -v+1d +%Y-%m-%d 2>/dev/null)
+    else
+        out=$(date -j -f "%Y-%m-%d" "$input" +%Y-%m-%d 2>/dev/null)
+    fi
+
+    echo "$out"
+}
+
+gnu_date_parse() {
+    local input="$1"
+    local out=""
+    out=$(date -d "$input" +%Y-%m-%d 2>/dev/null)
+    echo "$out"
+}
+
+compute_final_date() {
+    case "$arg_type" in
+    date)
+        if ! [[ "$specified_arg" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]]; then
+            fail $"'$specified_arg' is not valid for --date.\nUse YYYY-MM-DD format."
+        fi
+        final_date="$specified_arg"
+        ;;
+    weekday)
+        if [[ "$(uname)" == "Darwin" ]]; then
+            final_date=$(bsd_date_parse "next $specified_arg")
+        else
+            final_date=$(gnu_date_parse "next $specified_arg")
+        fi
+        if [[ -z "$final_date" ]]; then
+            fail $"'$specified_arg' is not recognized as a valid weekday.\nTry 'monday', 'tuesday', etc."
+        fi
+        ;;
+    relative)
+        case "$specified_arg" in
+        today | yesterday | tomorrow)
+            if [[ "$(uname)" == "Darwin" ]]; then
+                final_date=$(bsd_date_parse "$specified_arg")
+            else
+                final_date=$(gnu_date_parse "$specified_arg")
+            fi
+            ;;
+        *)
+            fail $"'$specified_arg' is not recognized for --relative.\nUse 'today', 'yesterday', or 'tomorrow'."
+            ;;
+        esac
+        ;;
+    esac
+}
+
+create_and_open_note() {
+    local output_dir="${DNOTE_PATH:-"$HOME/Desktop/notes/daily"}"
+    mkdir -p "$output_dir"
+
+    local weekday=""
+    local first_header=""
+
+    if [[ "$(uname)" == "Darwin" ]]; then
+        weekday=$(date -j -f "%Y-%m-%d" "$final_date" "+%A" 2>/dev/null)
+        first_header=$(date -j -f "%Y-%m-%d" "$final_date" "+%A, %B %d, %Y" 2>/dev/null)
+    else
+        weekday=$(date -d "$final_date" '+%A')
+        first_header=$(date -d "$final_date" '+%A, %B %d, %Y')
+    fi
+
+    local weekday_lower
+    weekday_lower=$(echo "$weekday" | tr '[:upper:]' '[:lower:]')
+
+    local output_file="$output_dir/${final_date}-${weekday_lower}.md"
+
+    if [[ ! -f "$output_file" ]]; then
+        cat <<EOF >"$output_file"
+---
+note-type: daily
+date: $final_date
+weekday: $weekday_lower
+---
+
+# $first_header
+
+## Habit Tracker
+
+- [ ] Exercise
+- [ ] Personal programming
+- [ ] Reading
+- [ ] Language learning
+- [ ] Note-taking
+- [ ] Guitar practice
+
+## Tasks
+
+
+
+## Journal
+EOF
+    fi
+    "${EDITOR:-nvim}" "$output_file"
+}
+
+parse_args "$@"
+validate_opts
+compute_final_date
+create_and_open_note

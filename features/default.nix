@@ -1,0 +1,52 @@
+{ inputs }:
+
+{
+  fonts = import ./fonts { inherit inputs; };
+  telegram = import ./telegram { inherit inputs; };
+  tableplus = import ./tableplus { inherit inputs; };
+  raycast = import ./raycast { inherit inputs; };
+  chatgpt = import ./chatgpt { inherit inputs; };
+  curlie = import ./curlie { inherit inputs; };
+  my-sh-commands = import ./my-sh-commands { inherit inputs; };
+  docker = import ./docker { inherit inputs; };
+  kubectl = import ./kubectl { inherit inputs; };
+  helm = import ./helm { inherit inputs; };
+  k9s = import ./k9s { inherit inputs; };
+  uv = import ./uv { inherit inputs; };
+  go = import ./go { inherit inputs; };
+  rust = import ./rust { inherit inputs; };
+  usql = import ./usql { inherit inputs; };
+  editorconfig = import ./editorconfig { inherit inputs; };
+  jless = import ./jless { inherit inputs; };
+  htop = import ./htop { inherit inputs; };
+  base-cli = import ./base-cli { inherit inputs; };
+  cloc = import ./cloc { inherit inputs; };
+  zsh = import ./zsh { inherit inputs; };
+  starship = import ./starship { inherit inputs; };
+  zoxide = import ./zoxide { inherit inputs; };
+  fzf = import ./fzf { inherit inputs; };
+  bat = import ./bat { inherit inputs; };
+  lsd = import ./lsd { inherit inputs; };
+  delta = import ./delta { inherit inputs; };
+  gh = import ./gh { inherit inputs; };
+  npm = import ./npm { inherit inputs; };
+  bluetooth = import ./bluetooth { inherit inputs; };
+  google-chrome = import ./google-chrome { inherit inputs; };
+  codex = import ./codex { inherit inputs; };
+  ghostty = import ./ghostty { inherit inputs; };
+  git = import ./git { inherit inputs; };
+  gcc = import ./gcc { inherit inputs; };
+  gnumake = import ./gnumake { inherit inputs; };
+  python3 = import ./python3 { inherit inputs; };
+  ripgrep = import ./ripgrep { inherit inputs; };
+  desktop = import ./desktop { inherit inputs; };
+  nvim = import ./nvim { inherit inputs; };
+  vim = import ./vim { inherit inputs; };
+  ssh = import ./ssh { inherit inputs; };
+  zen-browser = import ./zen-browser { inherit inputs; };
+  power-management = import ./power-management { inherit inputs; };
+  networking = import ./networking { inherit inputs; };
+  timezone = import ./timezone { inherit inputs; };
+  bitwarden = import ./bitwarden { inherit inputs; };
+  antigravity-cli = import ./antigravity-cli { inherit inputs; };
+}

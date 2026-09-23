@@ -1,0 +1,45 @@
+{ lib, ... }:
+
+{
+  dots.features.fonts.enable = lib.mkDefault true;
+  dots.features.telegram.enable = lib.mkDefault true;
+  dots.features.tableplus.enable = lib.mkDefault true;
+  dots.features.docker.enable = lib.mkDefault true;
+  dots.features.curlie.enable = lib.mkDefault true;
+  dots.features.my-sh-commands.enable = lib.mkDefault true;
+  dots.features.kubectl.enable = lib.mkDefault true;
+  dots.features.helm.enable = lib.mkDefault true;
+  dots.features.k9s.enable = lib.mkDefault true;
+  dots.features.uv.enable = lib.mkDefault true;
+  dots.features.go.enable = lib.mkDefault true;
+  dots.features.rust.enable = lib.mkDefault true;
+  dots.features.usql.enable = lib.mkDefault true;
+  dots.features.editorconfig.enable = lib.mkDefault true;
+  dots.features.jless.enable = lib.mkDefault true;
+  dots.features.htop.enable = lib.mkDefault true;
+  dots.features.base-cli.enable = lib.mkDefault true;
+  dots.features.cloc.enable = lib.mkDefault true;
+  dots.features.zsh.enable = lib.mkDefault true;
+  dots.features.starship.enable = lib.mkDefault true;
+  dots.features.zoxide.enable = lib.mkDefault true;
+  dots.features.fzf.enable = lib.mkDefault true;
+  dots.features.bat.enable = lib.mkDefault true;
+  dots.features.lsd.enable = lib.mkDefault true;
+  dots.features.delta.enable = lib.mkDefault true;
+  dots.features.gh.enable = lib.mkDefault true;
+  dots.features.npm.enable = lib.mkDefault true;
+  dots.features.zen-browser.enable = lib.mkDefault true;
+  dots.features.codex.enable = lib.mkDefault true;
+  dots.features.ghostty.enable = lib.mkDefault true;
+  dots.features.git.enable = lib.mkDefault true;
+  dots.features.nvim.enable = lib.mkDefault true;
+  dots.features.gcc.enable = lib.mkDefault true;
+  dots.features.gnumake.enable = lib.mkDefault true;
+  dots.features.python3.enable = lib.mkDefault true;
+  dots.features.ripgrep.enable = lib.mkDefault true;
+  dots.features.ssh.enable = lib.mkDefault true;
+  dots.features.vim.enable = lib.mkDefault true;
+  dots.features.antigravity-cli.enable = lib.mkDefault true;
+  dots.features.google-chrome.enable = lib.mkDefault true;
+  dots.features.bitwarden.enable = lib.mkDefault true;
+}

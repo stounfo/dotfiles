@@ -1,49 +1,50 @@
 # Dotfiles
 
-Ansible driven dotfiles. Always a WIP.
+## NixOS
 
-## Requirements
+### Bootstrap
 
-- [prettier](https://prettier.io/docs/install)
-- [typos](https://github.com/crate-ci/typos)
-- [lefthook](https://lefthook.dev/installation/index.html) (optional)
-
-## Usage
-
-Show available commands:
+Clone the repository:
 
 ```bash
-make help
+git clone <repo-url> ~/Projects/dotfiles
+cd ~/Projects/dotfiles
 ```
 
-If you are stounfo or understand what you are doing, run:
+On Apple Silicon, import the Asahi firmware into the Nix store:
 
 ```bash
-make all
+nix-store --add-fixed sha256 /boot/vendorfw/firmware.cpio
 ```
 
-## macOS System Reinstallation
+Apply the configuration:
 
-1. Save the .ssh directory from the old system
-2. Save the .zsh_history file from the old system
-3. Save files from the Downloads directory on the old system
-4. Start your computer in macOS Recovery
-5. Erase the old macOS volume and format it using APFS (Case-sensitive)
-6. Install macOS, set the region to USA, and carefully configure all other
-   settings
-7. Update macOS
-8. Run the command: `xcode-select --install`
-9. Run `source macos.sh && sudo reboot`
-10. Install dotfiles using the command: `make all`
-11. Log in to all email accounts.
-12. Swap Caps Lock with Control and remap Control to Escape.
-13. Turn off keyboard brightness.
-14. Change Command + Space from Spotlight to Raycast and set Option + Space for
-    Spotlight.
-15. Add favorite folders to Finder.
-16. Change the tab layout to compact in Safari.
-17. Set up widgets in the Notification Center (use layout from your iPhone).
-18. Run sudo spctl --global-disable to allow apps from anywhere in Security
-    preferences.
-19. Return the .ssh directory and .zsh_history file to their places.
-20. Change the wallpaper.
+```bash
+sudo nixos-rebuild switch --flake path:.#nixos-1
+```
+
+### Apply changes
+
+```bash
+sudo nixos-rebuild switch --flake path:.#nixos-1
+```
+
+### Check configuration
+
+```bash
+nix flake check path:.
+```
+
+## macOS
+
+### Bootstrap / apply changes
+
+```bash
+darwin-rebuild switch --flake path:.#darwin-1
+```
+
+### Check configuration
+
+```bash
+nix flake check path:.
+```

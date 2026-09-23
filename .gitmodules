@@ -1,0 +1,3 @@
+[submodule "features/nvim/files/nvim"]
+	path = features/nvim/files/nvim
+	url = git@github.com:stounfo/nvim.git

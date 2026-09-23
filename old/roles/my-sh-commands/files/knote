@@ -1,0 +1,86 @@
+#!/usr/bin/env bash
+
+set -Eeuo pipefail
+
+# -------------------------------------------------------------------
+# Globals
+# -------------------------------------------------------------------
+specified_description=""
+specified_link=""
+
+# -------------------------------------------------------------------
+# Functions
+# -------------------------------------------------------------------
+fail() {
+    echo -e "Error: $1"
+    exit 1
+}
+
+show_help() {
+    cat <<EOF
+A command to create or open a knowledge note.
+
+Usage:
+  $(basename "$0") [OPTIONS]
+
+Options:
+  -d, --description <desc>   Specify description of a note
+  -h, --help                 Show this help
+
+Examples:
+  $(basename "$0") --description "my note"
+  $(basename "$0")
+EOF
+}
+
+parse_args() {
+
+    # Process any given arguments
+    while [[ $# -gt 0 ]]; do
+        case "$1" in
+        -h | --help)
+            show_help
+            exit 0
+            ;;
+        -d | --description)
+            if [[ -z "${2:-}" ]]; then
+                fail "Error: '-d' or '--description' option requires an argument."
+            fi
+            specified_description="$2"
+            shift 2
+            ;;
+        *)
+            fail "Error: '$1' is not recognized. Use -h or --help for usage."
+            ;;
+        esac
+    done
+
+    if [[ -z "$specified_description" ]]; then
+        read -p "Enter note description: " specified_description
+    fi
+}
+create_and_open_note() {
+    local output_dir="${KNOTES_PATH:-"$HOME/Desktop/notes/knowledge/"}"
+    mkdir -p "$output_dir"
+
+    note_file_name=$(echo -n "$specified_description" | txc --to kebab-case)
+    note_title_name=$(echo -n "$specified_description" | txc --to title)
+
+    local output_file="$output_dir/${note_file_name}.md"
+
+    if [[ ! -f "$output_file" ]]; then
+        cat <<EOF >"$output_file"
+---
+note-type: knowledge
+related:
+references:
+---
+
+# $note_title_name
+EOF
+    fi
+    "${EDITOR:-nvim}" "$output_file"
+}
+
+parse_args "$@"
+create_and_open_note

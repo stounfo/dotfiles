@@ -1,0 +1,95 @@
+# == Fixes ==
+# Fix zsh-vi-mode keybindings problems with another plugins
+export ZVM_INIT_MODE=sourcing
+
+# Fix fzf-tab keybindings
+autoload -U compinit; compinit
+
+
+# == Plugins ==
+export ZSH_PLUGINS_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/zsh/plugins"
+
+source "$ZSH_PLUGINS_DIR/fzf-tab/fzf-tab.zsh"
+source "$ZSH_PLUGINS_DIR/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+source "$ZSH_PLUGINS_DIR/zsh-autosuggestions/zsh-autosuggestions.zsh"
+source "$ZSH_PLUGINS_DIR/zsh-vi-mode/zsh-vi-mode.zsh"
+source "$ZSH_PLUGINS_DIR/zsh-you-should-use/zsh-you-should-use.plugin.zsh"
+
+
+# == Setups ==
+# Default editor setup
+export VISUAL=nvim
+export EDITOR="$VISUAL"
+
+# Starship setup
+eval "$(starship init zsh)"
+
+# Zoxide setup
+eval "$(zoxide init zsh)"
+alias cd="z"
+
+# lsd setup
+alias ls="lsd"
+
+# curlie setup
+alias curl="curlie"
+
+# bat setup
+alias cat="bat"
+
+# fzf setup
+source "${XDG_CONFIG_HOME:-$HOME/.config}/fzf/fzf.zsh"
+
+# ripgrep setup
+export RIPGREP_CONFIG_PATH="${XDG_CONFIG_HOME:-$HOME/.config}/.ripgreprc"
+
+# psql setup
+export PATH="$PATH:/opt/homebrew/opt/libpq/bin"
+
+# history setup
+HISTSIZE=50000
+SAVEHIST=$HISTSIZE
+
+
+# == Aliases ==
+alias cd1="cd .."
+alias cd2="cd ../../"
+alias cd3="cd ../../../"
+alias cd4="cd ../../../../"
+alias cd5="cd ../../../../../"
+
+alias la="ls -la"
+
+alias n="nvim"
+
+alias g="git"
+
+alias d="docker"
+alias dps="docker ps"
+alias dpsa="docker ps -a"
+alias dsta="docker ps -q | xargs docker stop"
+alias drma="docker ps -a -q | xargs docker rm"
+
+alias history="history 0"
+
+alias monday='dnote --weekday monday'
+alias tuesday='dnote --weekday tuesday'
+alias wednesday='dnote --weekday wednesday'
+alias thursday='dnote --weekday thursday'
+alias friday='dnote --weekday friday'
+alias saturday='dnote --weekday saturday'
+alias sunday='dnote --weekday sunday'
+alias today='dnote --relative today'
+alias yesterday='dnote --relative yesterday'
+alias tomorrow='dnote --relative tomorrow'
+
+# == Functions ==
+gitpreview() {
+    local url="$1"
+    local repo_name="$(basename -s .git "$url")"
+    git clone "$url" "/tmp/$repo_name" && cd "/tmp/$repo_name"
+}
+
+# == Keybindings ==
+# zsh-autosuggestions
+bindkey '^l' autosuggest-accept # Ctrl + L
