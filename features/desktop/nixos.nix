@@ -1,8 +1,10 @@
 { pkgs, ... }:
 
 {
-  programs.hyprland.enable = true;
-
+  programs.hyprland = {
+    enable = true;
+    withUWSM = true;
+  };
   services.displayManager.noctalia-greeter = {
     enable = true;
 

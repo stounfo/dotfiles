@@ -11,6 +11,7 @@
     pkgs.bibata-cursors
     pkgs.elephant
     pkgs.walker
+    pkgs.glib
   ];
 
   xdg.configFile."hypr".source =

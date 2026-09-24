@@ -266,18 +266,44 @@ local mainMod = "SUPER" -- Sets "Windows" key as main modifier
 -- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
 hl.bind(mainMod .. " + T", hl.dsp.exec_cmd(terminal))
 hl.bind(mainMod .. " + Q", hl.dsp.window.close())
--- Ghostty handles Super shortcuts itself; Ctrl+C must remain an interrupt.
+
+-- Work around a Hyprland send_shortcut bug where the synthetic key-up event
+-- may be lost, causing keys such as C/V to remain pressed and repeat in apps
+-- (especially noticeable in browsers).
+--
+-- https://github.com/hyprwm/Hyprland/discussions/14445
+--
+-- Use send_key_state with explicit down/up events instead of send_shortcut.
+local function sendShortcut(mods, key)
+    hl.dispatch(hl.dsp.send_key_state({
+        mods = mods,
+        key = key,
+        state = "down",
+        window = "activewindow",
+    }))
+
+    hl.dispatch(hl.dsp.send_key_state({
+        mods = mods,
+        key = key,
+        state = "up",
+        window = "activewindow",
+    }))
+end
+
 for _, key in ipairs({ "C", "V", "A" }) do
     hl.bind(mainMod .. " + " .. key, function()
         local window = hl.get_active_window()
         if not window then return end
+
         local isGhostty = window.class == "com.mitchellh.ghostty"
-        hl.dispatch(hl.dsp.send_shortcut({
-            mods = isGhostty and "SUPER" or "CTRL",
-            key = key,
-        }))
+
+        sendShortcut(
+            isGhostty and "SUPER" or "CTRL",
+            key
+        )
     end)
 end
+
 hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))

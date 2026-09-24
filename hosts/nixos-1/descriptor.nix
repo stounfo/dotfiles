@@ -9,7 +9,7 @@ in
     name = "stounfo";
     home = "/home/stounfo";
   };
-  repoRoot = "/home/stounfo/Projects/dot";
+  repoRoot = "/home/stounfo/Projects/dots";
   systemStateVersion = "26.11";
   homeStateVersion = "26.05";
 }
