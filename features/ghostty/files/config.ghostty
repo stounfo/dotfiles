@@ -1,1 +1,26 @@
-/nix/store/n91jliyw7an1pdqp2j2gjh6kaafw6244-home-manager-files/.config/ghostty/config.ghostty
+# theme = dark:mytheme-dark,light:mytheme-light
+theme = mytheme-dark
+
+# font-family = "JetBrainsMono NF"
+# font-family = "MartianMono NF"
+# font-family = "IosevkaTerm Nerd Font"
+font-family = "BlexMono Nerd Font"
+
+font-size = 16
+
+adjust-cell-height = 23%
+
+# turn off ligatures
+font-feature = -calt
+font-feature = -liga
+font-feature = -dlig
+
+title = " "
+window-width = 90
+window-height = 30
+
+confirm-close-surface = false
+mouse-hide-while-typing = true
+
+config-file = ?darwin
+config-file = ?nixos

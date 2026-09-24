@@ -1,0 +1,4 @@
+font-thicken = true
+
+macos-icon = "retro"
+macos-titlebar-proxy-icon = hidden
