@@ -6,7 +6,7 @@ theme = mytheme-dark
 # font-family = "IosevkaTerm Nerd Font"
 font-family = "BlexMono Nerd Font"
 
-font-size = 16
+font-size = 17
 
 adjust-cell-height = 23%
 
