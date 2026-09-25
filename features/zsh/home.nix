@@ -12,7 +12,8 @@
   xdg.dataFile = {
     "zsh/plugins/fzf-tab".source = "${pkgs.zsh-fzf-tab}/share/fzf-tab";
 
-    "zsh/plugins/zsh-autosuggestions".source = "${pkgs.zsh-autosuggestions}/share/zsh-autosuggestions";
+    "zsh/plugins/zsh-autosuggestions".source =
+      "${pkgs.zsh-autosuggestions}/share/zsh-autosuggestions";
 
     "zsh/plugins/zsh-vi-mode".source = "${pkgs.zsh-vi-mode}/share/zsh-vi-mode";
 

@@ -44,8 +44,8 @@ in
     (mkFeatureModules {
       inherit features;
 
-      system = hostDescriptor.system;
-      systemType = hostDescriptor.systemType;
+      inherit (hostDescriptor) system;
+      inherit (hostDescriptor) systemType;
       userName = hostDescriptor.user.name;
     })
 

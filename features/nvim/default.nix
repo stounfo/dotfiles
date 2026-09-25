@@ -1,4 +1,4 @@
-{ ... }:
+_:
 
 let
   systems = import ../../lib/systems.nix;
@@ -17,7 +17,7 @@ in
     "fzf"
     "git"
     "gcc"
-    "gnumake"
+    "base-cli"
     "python3"
     "ripgrep"
   ];

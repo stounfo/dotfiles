@@ -13,11 +13,14 @@ in
     (if pkgs.stdenv.hostPlatform.isDarwin then pkgs.ghostty-bin else pkgs.ghostty)
   ];
 
-  xdg.configFile."ghostty/config.ghostty".source =
-    config.lib.file.mkOutOfStoreSymlink "${files}/config.ghostty";
+  xdg.configFile = {
+    "ghostty/config.ghostty".source =
+      config.lib.file.mkOutOfStoreSymlink "${files}/config.ghostty";
 
-  xdg.configFile."ghostty/${hostDescriptor.systemType}".source =
-    config.lib.file.mkOutOfStoreSymlink "${files}/${hostDescriptor.systemType}";
+    "ghostty/${hostDescriptor.systemType}".source =
+      config.lib.file.mkOutOfStoreSymlink "${files}/${hostDescriptor.systemType}";
 
-  xdg.configFile."ghostty/themes".source = config.lib.file.mkOutOfStoreSymlink "${files}/themes";
+    "ghostty/themes".source =
+      config.lib.file.mkOutOfStoreSymlink "${files}/themes";
+  };
 }

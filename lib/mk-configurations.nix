@@ -38,13 +38,14 @@ let
       }
     else if hostDescriptor.systemType == "darwin" then
       {
-        darwinConfigurations.${name} = inputs.nix-darwin.lib.darwinSystem configurationArgs;
+        darwinConfigurations.${name} =
+          inputs.nix-darwin.lib.darwinSystem configurationArgs;
       }
     else
       throw "Unknown system type: ${hostDescriptor.systemType}";
 
 in
 
-lib.foldl' (result: name: lib.recursiveUpdate result (mkConfiguration name hosts.${name})) { } (
-  lib.attrNames hosts
-)
+lib.foldl' (
+  result: name: lib.recursiveUpdate result (mkConfiguration name hosts.${name})
+) { } (lib.attrNames hosts)

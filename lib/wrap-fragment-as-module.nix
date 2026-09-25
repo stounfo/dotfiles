@@ -5,11 +5,17 @@
 let
   fragmentValue = import fragment;
 
-  fragmentArgs = if builtins.isFunction fragmentValue then lib.functionArgs fragmentValue else { };
+  fragmentArgs =
+    if builtins.isFunction fragmentValue then
+      lib.functionArgs fragmentValue
+    else
+      { };
 
   conditionArgs = lib.functionArgs condition;
 
-  argumentNames = lib.unique (lib.attrNames fragmentArgs ++ lib.attrNames conditionArgs);
+  argumentNames = lib.unique (
+    lib.attrNames fragmentArgs ++ lib.attrNames conditionArgs
+  );
 
   moduleArgs = lib.genAttrs argumentNames (
     name: (fragmentArgs.${name} or true) && (conditionArgs.${name} or true)

@@ -6,11 +6,13 @@
 }:
 
 {
-  home.packages = [ pkgs.git ];
+  home = {
+    packages = [ pkgs.git ];
 
-  home.file.".gitconfig".source =
-    config.lib.file.mkOutOfStoreSymlink "${hostDescriptor.repoRoot}/features/git/files/.gitconfig";
+    file.".gitconfig".source =
+      config.lib.file.mkOutOfStoreSymlink "${hostDescriptor.repoRoot}/features/git/files/.gitconfig";
 
-  home.file.".gitignore".source =
-    config.lib.file.mkOutOfStoreSymlink "${hostDescriptor.repoRoot}/features/git/files/.gitignore";
+    file.".gitignore".source =
+      config.lib.file.mkOutOfStoreSymlink "${hostDescriptor.repoRoot}/features/git/files/.gitignore";
+  };
 }

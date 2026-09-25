@@ -36,7 +36,6 @@
   ghostty = import ./ghostty { inherit inputs; };
   git = import ./git { inherit inputs; };
   gcc = import ./gcc { inherit inputs; };
-  gnumake = import ./gnumake { inherit inputs; };
   python3 = import ./python3 { inherit inputs; };
   ripgrep = import ./ripgrep { inherit inputs; };
   desktop = import ./desktop { inherit inputs; };

@@ -23,7 +23,9 @@ let
 
   supportsSystem =
     feature:
-    feature ? systems && builtins.isList feature.systems && builtins.elem system feature.systems;
+    feature ? systems
+    && builtins.isList feature.systems
+    && builtins.elem system feature.systems;
 
   featureOptionModules = lib.filter (module: module != null) (
     lib.mapAttrsToList (_: feature: feature.options or null) features

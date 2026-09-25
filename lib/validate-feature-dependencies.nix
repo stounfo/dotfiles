@@ -7,7 +7,9 @@
 let
   getFeatureDependencies =
     feature:
-    if feature ? featureDependencies && builtins.isList feature.featureDependencies then
+    if
+      feature ? featureDependencies && builtins.isList feature.featureDependencies
+    then
       feature.featureDependencies
     else
       [ ];
@@ -20,13 +22,13 @@ let
     let
       feature = features.${name};
 
-      dependencies = getFeatureDependencies feature;
-
       stringDependencies = getStringFeatureDependencies feature;
     in
     [
       {
-        assertion = !(feature ? featureDependencies) || builtins.isList feature.featureDependencies;
+        assertion =
+          !(feature ? featureDependencies)
+          || builtins.isList feature.featureDependencies;
 
         message = "Feature ${name} field `featureDependencies` must be a list.";
       }
@@ -57,7 +59,9 @@ let
       );
     in
     map (dependency: {
-      assertion = !config.dots.features.${name}.enable || config.dots.features.${dependency}.enable;
+      assertion =
+        !config.dots.features.${name}.enable
+        || config.dots.features.${dependency}.enable;
 
       message = "Feature ${name} requires feature ${dependency}.";
     }) dependencies

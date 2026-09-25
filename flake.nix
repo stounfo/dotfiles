@@ -35,6 +35,8 @@
     let
       inherit (nixpkgs) lib;
 
+      systems = import ./lib/systems.nix;
+
       features = import ./features {
         inherit inputs;
       };
@@ -42,10 +44,18 @@
       mkConfigurations = import ./lib/mk-configurations.nix {
         inherit lib inputs features;
       };
-    in
 
-    mkConfigurations {
-      darwin-1 = ./hosts/darwin-1;
-      nixos-1 = ./hosts/nixos-1;
+      configurations = mkConfigurations {
+        darwin-1 = ./hosts/darwin-1;
+        nixos-1 = ./hosts/nixos-1;
+      };
+
+      mkDevShells = import ./lib/mk-dev-shells.nix {
+        inherit lib nixpkgs systems;
+      };
+    in
+    configurations
+    // {
+      devShells = mkDevShells;
     };
 }

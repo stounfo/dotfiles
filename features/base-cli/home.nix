@@ -6,5 +6,6 @@
     unzip
     zip
     fastfetch
+    gnumake
   ];
 }

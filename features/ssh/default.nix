@@ -1,4 +1,4 @@
-{ ... }:
+_:
 
 let
   systems = import ../../lib/systems.nix;
@@ -13,5 +13,4 @@ in
   ];
 
   home = ./home.nix;
-  nixos = ./nixos.nix;
 }

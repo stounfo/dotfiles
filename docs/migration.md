@@ -244,7 +244,7 @@ features/fonts/
 1. `fonts`
 2. `telegram`
 3. `tableplus`
-7. `chatgpt`
+4. `chatgpt`
 
 ---
 

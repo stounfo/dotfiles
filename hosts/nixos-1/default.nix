@@ -1,5 +1,4 @@
 {
-  hostDescriptor,
   inputs,
   pkgs,
   ...

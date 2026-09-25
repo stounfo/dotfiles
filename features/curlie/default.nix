@@ -1,4 +1,4 @@
-{ ... }:
+_:
 
 let
   systems = import ../../lib/systems.nix;

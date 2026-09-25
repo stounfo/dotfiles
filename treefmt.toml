@@ -1,0 +1,16 @@
+[formatter.nixfmt]
+command = "nixfmt"
+options = ["--width", "79"]
+includes = ["*.nix"]
+
+[formatter.prettier]
+command = "prettier"
+options = ["--write"]
+includes = [
+  "*.json",
+  "*.jsonc",
+  "*.md",
+  "*.mdx",
+  "*.yaml",
+  "*.yml",
+]
