@@ -8,7 +8,6 @@ in
 
   systems = [
     systems.aarch64Darwin
-    systems.x86_64Darwin
   ];
 
   darwin = ./darwin.nix;

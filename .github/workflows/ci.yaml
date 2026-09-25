@@ -1,0 +1,52 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  code-validation:
+    runs-on: ubuntu-24.04
+
+    steps:
+      - uses: actions/checkout@v7.0.1
+
+      - uses: DeterminateSystems/determinate-nix-action@v3.22.3
+
+      - name: Check formatting
+        run: make formatter-check
+
+      - name: Check linting
+        run: make linter-check
+
+      - name: Check flake
+        run: make flake-check
+
+      - name: Check spelling
+        run: make spellchecker-check
+
+  build-tests:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - runner: ubuntu-24.04-arm
+            target: nixos-1
+            build-args: SKIP_ASAHI_FIRMWARE=1
+
+          - runner: macos-15
+            target: darwin-1
+            build-args: ""
+
+    runs-on: ${{ matrix.runner }}
+
+    steps:
+      - uses: actions/checkout@v7.0.1
+
+      - uses: DeterminateSystems/determinate-nix-action@v3.22.3
+
+      - name: Build system
+        run: make build TARGET=${{ matrix.target }} ${{ matrix.build-args }}
